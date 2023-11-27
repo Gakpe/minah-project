@@ -8,7 +8,7 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    return (<div className="Navbar w-full h-16 px-6 bg-white rounded-lg shadow justify-center items-center ">
+    return (<div className="Navbar w-full h-fit px-6 py-6 bg-white rounded-b-2xl drop-shadow-lg  justify-center items-center ">
         <div className="Navbarcontainer h-16 justify-center items-center flex">
             <div className="NavbarContent flex-row gap-10 w-full h-16 justify-between items-center flex">
                 <motion.div
@@ -75,12 +75,12 @@ const Navbar = () => {
                 initial={{x: '100%'}}
                 animate={{x: 0}}
                 exit={{x: '100%'}}
-                className="absolute top-16 right-0 w-64 bg-white shadow-lg h-full rounded-l-md border-l border-t border-gray-200 py-4"
+                className="absolute top-20 right-0 w-96 bg-white shadow-lg h-fit rounded-l-md border-l border-t border-gray-200 py-4"
             >
                 {/* Add your menu items here */}
-                <div className="px-4 py-2 cursor-pointer">Menu Item 1</div>
-                <div className="px-4 py-2 cursor-pointer">Menu Item 2</div>
-                <div className="px-4 py-2 cursor-pointer">Menu Item 3</div>
+                <div className="px-4 w-full h-full py-2 cursor-pointer">Menu Item 1</div>
+                <div className="px-4 w-full h-full py-2 cursor-pointer">Menu Item 2</div>
+                <div className="px-4 w-full h-full py-2 cursor-pointer">Menu Item 3</div>
             </motion.div>)}
         </AnimatePresence>
     </div>);

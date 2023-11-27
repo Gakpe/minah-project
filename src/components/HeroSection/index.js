@@ -21,7 +21,7 @@ const HeroSection = () => {
     }, [controls]);
 
     return (
-        <div className="hero-section bg-gray-800 text-white h-96 flex items-center justify-center overflow-hidden ">
+        <div className="hero-section bg-gray-800 text-white h-full flex items-center justify-center overflow-hidden ">
             <motion.div
                 className="scrolling-text text-9xl font-bold whitespace-nowrap"
                 animate={controls}

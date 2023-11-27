@@ -4,7 +4,7 @@ import React from "react";
 const Footer = () => {
     return(
         <div
-            className="Footer w-full h-full px-6 py-4 bg-gray-400/20 rounded-t-lg flex-row justify-between items-center gap-5 inline-flex ">
+            className="Footer w-full h-52 bg-pink-100 px-6 py-4  rounded-t-2xl flex-row justify-between items-center gap-5 inline-flex ">
             <div className="LogoWrapper   py-1 flex justify-start items-start">
                 <div className="Logo grow self-stretch justify-center items-center flex">
                     <div className="Copyright  flex flex-col justify-center items-center gap-8">
