@@ -1,19 +1,16 @@
-import Image from 'next/image'
-import {Inter} from 'next/font/google'
-import Navbar from "@/components/Navbar";
+// pages/index.js
+import MainLayout from "@/layouts/MainLayout";
 import HeroSection from "@/components/HeroSection";
-import Footer from "@/components/Footer";
 
-const inter = Inter({subsets: ['latin']})
-
-export default function Home() {
+const Home = () => {
     return (
-        <div>
-            <Navbar/>
-            {/*<HeroSection/>*/}
-            {/*<Footer/>*/}
-        </div>
+        <MainLayout>
 
+            <HeroSection />
+        </MainLayout>
+    );
+};
 
-    )
-}
+Home.getLayout = (page) => <MainLayout>{page}</MainLayout>;
+
+export default Home;

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {motion, AnimatePresence} from 'framer-motion';
+import {AnimatePresence, motion} from 'framer-motion';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,7 +8,7 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    return (<div className="Navbar w-full h-16 px-6 bg-white rounded-lg shadow justify-center items-center inline-flex">
+    return (<div className="Navbar w-full h-16 px-6 bg-white rounded-lg shadow justify-center items-center ">
         <div className="Navbarcontainer h-16 justify-center items-center flex">
             <div className="NavbarContent flex-row gap-10 w-full h-16 justify-between items-center flex">
                 <motion.div
@@ -57,7 +57,7 @@ const Navbar = () => {
                         </div>
                     </motion.div>
                     <motion.div
-                        className="NavbarButton w-36 h-12 px-5 py-2 bg-neutral-900 rounded-lg justify-center items-center gap-2 flex cursor-pointer"
+                        className="NavbarButton w-36 h-12 px-5 mr-10 py-2 bg-neutral-900 rounded-lg justify-center items-center gap-2 flex cursor-pointer"
                         whileHover={{scale: 1.1}}
                         whileTap={{scale: 0.9}}
                         onClick={handleMenuToggle}
