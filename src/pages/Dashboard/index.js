@@ -1,6 +1,6 @@
 
 // pages/dashboard.js
-import { useContext } from 'react';
+import {useContext, useEffect} from 'react';
 import { UserContext } from '@/lib/UserContext';
 import { magic } from '@/lib/magic';
 import { useRouter } from 'next/router';
@@ -9,7 +9,11 @@ export default function Dashboard() {
     const [user, setUser] = useContext(UserContext);
     // Create our router
     const router = useRouter();
-
+    useEffect(() => {
+if(user){
+    console.log(user)
+}
+    }, []);
     const logout = () => {
         // Call Magic's logout method, reset the user state, and route to the login page
         magic.user.logout().then(() => {
