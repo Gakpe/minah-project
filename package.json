@@ -3,17 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3001",
+    "dev": "next dev -p 3004",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@magic-ext/oauth": "^15.3.2",
+    "@magic-sdk/admin": "^2.0.1",
+    "@prisma/client": "^5.6.0",
     "@tailwindcss/forms": "^0.5.7",
     "framer-motion": "^10.16.5",
     "magic-sdk": "^21.3.0",
     "next": "^14.0.3",
+    "next-auth": "^4.24.5",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",

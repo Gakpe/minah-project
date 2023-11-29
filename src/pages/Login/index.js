@@ -1,31 +1,61 @@
+
 // pages/login.js
-import { useState } from 'react';
-import magic from "../../../utils";
+import { useContext, useState, useEffect } from 'react';
+import { UserContext } from '@/lib/UserContext';
+import { useRouter } from 'next/router';
+import { magic } from '@/lib/magic';
 
-const Login = () => {
+export default function Login() {
+    const [user, setUser] = useContext(UserContext);
     const [email, setEmail] = useState('');
+    // Create our router
+    const router = useRouter();
 
-    const handleLogin = async () => {
+    // Make sure to add useEffect to your imports at the top
+    useEffect(() => {
+        // Check for an issuer on our user object. If it exists, route them to the dashboard.
+        user?.issuer && router.push('/Dashboard');
+    }, [user]);
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+
+        // Log in using our email with Magic and store the returned DID token in a variable
         try {
-            const didToken = await magic.auth.loginWithMagicLink({ email });
-            console.log(didToken);
-            // Handle successful login (e.g., save token to state or redirect)
+            const didToken = await magic.auth.loginWithEmailOTP({
+                email,
+            });
+
+            // Send this token to our validation endpoint
+            const res = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                    Authorization: `Bearer ${didToken}`,
+                },
+            });
+
+            // If successful, update our user state with their metadata and route to the dashboard
+            if (res.ok) {
+                const userMetadata = await magic.user.getMetadata();
+                setUser(userMetadata);
+                router.push('/Dashboard');
+            }
         } catch (error) {
-            console.error('Error logging in with Magic Link:', error);
+            console.error(error);
         }
     };
 
     return (
-        <div>
+        <form onSubmit={handleLogin}>
+            <label htmlFor="email">Email</label>
             <input
+                name="email"
                 type="email"
-                placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
-            <button onClick={handleLogin}>Send Magic Link</button>
-        </div>
+            <button type="submit">Log in</button>
+        </form>
     );
-};
-
-export default Login;
+}
