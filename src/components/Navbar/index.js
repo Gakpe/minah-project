@@ -8,7 +8,8 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    return (<div className="Navbar w-full h-fit px-6 py-6 bg-white rounded-b-2xl drop-shadow-lg  justify-center items-center ">
+    return (<div
+        className="Navbar w-full h-fit px-6 py-6 bg-white rounded-b-2xl drop-shadow-lg  justify-center items-center ">
         <div className="Navbarcontainer h-16 justify-center items-center flex">
             <div className="NavbarContent flex-row gap-10 w-full h-16 justify-between items-center flex">
                 <motion.div
@@ -26,33 +27,35 @@ const Navbar = () => {
                 <div className="NavbarMenu justify-start items-center gap-8 flex">
                     <motion.div
                         className="NavbarLink px-3 py-2 rounded-lg justify-start items-start flex cursor-pointer hover:bg-gradient-to-r from-amber-300 via-amber-500 to-[#F49CB0]"
-                        whileHover={{ scale: 1.1 }}
+                        whileHover={{scale: 1.1}}
                     >
-                    <div className="AboutUs text-black text-sm font-normal font-['Inter'] leading-tight">
+                        <div className="AboutUs text-black text-sm font-normal font-['Inter'] leading-tight">
                             About us
                         </div>
                     </motion.div>
                     <motion.div
                         className="NavbarLink px-3 py-2 rounded-lg justify-start items-start flex cursor-pointer hover:bg-gradient-to-r from-amber-300 via-amber-500 to-[#F49CB0]"
-                        whileHover={{ scale: 1.1 }}
-                    >                        <div
+                        whileHover={{scale: 1.1}}
+                    >
+                        <div
                             className="JoinTheComunity text-black text-sm font-normal font-['Inter'] leading-tight">
                             Join the community
                         </div>
                     </motion.div>
                     <motion.div
                         className="NavbarLink px-3 py-2 rounded-lg justify-start items-start flex cursor-pointer hover:bg-gradient-to-r from-amber-300 via-amber-500 to-[#F49CB0]"
-                        whileHover={{ scale: 1.1 }}
-                    >                        <div className="Litepaper  text-black text-sm font-normal font-['Inter'] leading-tight">
+                        whileHover={{scale: 1.1}}
+                    >
+                        <div className="Litepaper  text-black text-sm font-normal font-['Inter'] leading-tight">
                             Litepaper
                         </div>
                     </motion.div>
                     <motion.div
                         className="NavbarLink px-3 py-2 rounded-lg justify-start items-start flex cursor-pointer hover:bg-gradient-to-r from-amber-300 via-amber-500 to-[#F49CB0]"
-                        whileHover={{ scale: 1.1 }}
+                        whileHover={{scale: 1.1}}
                     >
 
-                    <div className="Projects text-black text-sm font-normal font-['Inter'] leading-tight">
+                        <div className="Projects text-black text-sm font-normal font-['Inter'] leading-tight">
                             Projects
                         </div>
                     </motion.div>

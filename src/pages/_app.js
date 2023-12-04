@@ -1,37 +1,37 @@
-
-// pages/_app.js
-import '@/styles/globals.css';
 import { useState, useEffect } from 'react';
 import { UserContext } from '@/lib/UserContext';
-import { useRouter } from 'next/router';
+import Router from 'next/router';
 import { magic } from '@/lib/magic';
+import Layout from '../components/layout';
+import { ThemeProvider } from '@magiclabs/ui';
+import '@magiclabs/ui/dist/cjs/index.css';
 
-export default function App({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
     const [user, setUser] = useState();
-    // Create our router
-    const router = useRouter();
 
+    // If isLoggedIn is true, set the UserContext with user data
+    // Otherwise, redirect to /login and set UserContext to { user: null }
     useEffect(() => {
-        // Set loading to true to display our loading message within pages/index.js
         setUser({ loading: true });
-        // Check if the user is authenticated already
         magic.user.isLoggedIn().then((isLoggedIn) => {
             if (isLoggedIn) {
-                // Pull their metadata, update our state, and route to dashboard
                 magic.user.getMetadata().then((userData) => setUser(userData));
-                router.push('/Dashboard');
             } else {
-                // If false, route them to the login page and reset the user state
-                router.push('/Login');
+                Router.push('/Login');
                 setUser({ user: null });
             }
         });
-        // Add an empty dependency array so the useEffect only runs once upon page load
     }, []);
 
     return (
-        <UserContext.Provider value={[user, setUser]}>
-            <Component {...pageProps} />
-        </UserContext.Provider>
+        <ThemeProvider root>
+            <UserContext.Provider value={[user, setUser]}>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </UserContext.Provider>
+        </ThemeProvider>
     );
 }
+
+export default MyApp;

@@ -1,5 +1,5 @@
-import { motion, useAnimation } from 'framer-motion';
-import { useEffect } from 'react';
+import {motion, useAnimation} from 'framer-motion';
+import {useEffect} from 'react';
 
 const HeroSection = () => {
     const controls = useAnimation();
@@ -7,11 +7,11 @@ const HeroSection = () => {
     const animate = () => {
         controls.start({
             x: '100%',
-            transition: { duration: 10, ease: 'linear' },
+            transition: {duration: 10, ease: 'linear'},
 
         });
         setTimeout(() => {
-            controls.set({ x: '-100%' });
+            controls.set({x: '-100%'});
             animate(); // Restart the animation after completion
         }, 10000); // Adjust the timeout to match the animation duration
     };
@@ -25,7 +25,7 @@ const HeroSection = () => {
             <motion.div
                 className="scrolling-text text-9xl font-bold whitespace-nowrap"
                 animate={controls}
-                initial={{ x: '-100%' }}
+                initial={{x: '-100%'}}
             >
                 Scroll Me! Scroll Me!
                 Scroll Me! Scroll Me!

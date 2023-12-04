@@ -1,16 +1,11 @@
+import {useContext} from 'react';
+import Loading from '../components/loading';
+import {UserContext} from "@/lib/UserContext";
 
-// pages/index.js
-import { useContext } from 'react';
-import { UserContext } from '@/lib/UserContext';
-
-export default function Home() {
-    // Allow this component to access our user state
+const Home = () => {
     const [user] = useContext(UserContext);
 
-    return (
-        <div>
-            {/* Check to see if we are in a loading state and display a message if true */}
-            {user?.loading && <p>Loading...</p>}
-        </div>
-    );
-}
+    return <>{user?.loading ? <Loading/> : user?.issuer && <div>You're logged in!</div>}</>;
+};
+
+export default Home;

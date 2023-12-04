@@ -2,7 +2,7 @@ import {motion} from "framer-motion";
 import React from "react";
 
 const Footer = () => {
-    return(
+    return (
         <div
             className="Footer w-full h-52 bg-pink-100 px-6 py-4  rounded-t-2xl flex-row justify-between items-center gap-5 inline-flex ">
             <div className="LogoWrapper   py-1 flex justify-start items-start">

@@ -1,61 +1,78 @@
+import React, {useContext, useEffect, useState} from 'react';
+import Router from 'next/router';
+import {UserContext} from "@/lib/UserContext";
+import {magic} from "@/lib/magic";
+import EmailForm from "@/components/EmailForm";
+import SocialLogins from "@/components/SocialLogin";
 
-// pages/login.js
-import { useContext, useState, useEffect } from 'react';
-import { UserContext } from '@/lib/UserContext';
-import { useRouter } from 'next/router';
-import { magic } from '@/lib/magic';
 
-export default function Login() {
+const Login = () => {
+    const [disabled, setDisabled] = useState(false);
     const [user, setUser] = useContext(UserContext);
-    const [email, setEmail] = useState('');
-    // Create our router
-    const router = useRouter();
 
-    // Make sure to add useEffect to your imports at the top
+    // Redirec to /profile if the user is logged in
     useEffect(() => {
-        // Check for an issuer on our user object. If it exists, route them to the dashboard.
-        user?.issuer && router.push('/Dashboard');
+        user?.issuer && Router.push('/Profile');
     }, [user]);
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
-
-        // Log in using our email with Magic and store the returned DID token in a variable
+    async function handleLoginWithEmail(email) {
         try {
-            const didToken = await magic.auth.loginWithEmailOTP({
+            setDisabled(true); // disable login button to prevent multiple emails from being triggered
+
+            // Trigger Magic link to be sent to user
+            let didToken = await magic.auth.loginWithMagicLink({
                 email,
+                redirectURI: new URL('/callback', window.location.origin).href, // optional redirect back to your app after magic link is clicked
             });
 
-            // Send this token to our validation endpoint
+            // Validate didToken with server
             const res = await fetch('/api/login', {
                 method: 'POST',
                 headers: {
-                    'Content-type': 'application/json',
-                    Authorization: `Bearer ${didToken}`,
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + didToken,
                 },
             });
 
-            // If successful, update our user state with their metadata and route to the dashboard
-            if (res.ok) {
-                const userMetadata = await magic.user.getMetadata();
-                setUser(userMetadata);
-                router.push('/Dashboard');
+            if (res.status === 200) {
+                // Set the UserContext to the now logged in user
+                let userMetadata = await magic.user.getMetadata();
+                console.log("here is user metadata :", userMetadata)
+                await setUser(userMetadata);
+                Router.push('/Profile');
             }
         } catch (error) {
-            console.error(error);
+            setDisabled(false); // re-enable login button - user may have requested to edit their email
+            console.log(error);
         }
-    };
+    }
+
+    async function handleLoginWithSocial(provider) {
+        await magic.oauth.loginWithRedirect({
+            provider, // google, apple, etc
+            redirectURI: new URL('/callback', window.location.origin).href, // required redirect to finish social login
+
+        });
+    }
 
     return (
-        <form onSubmit={handleLogin}>
-            <label htmlFor="email">Email</label>
-            <input
-                name="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <button type="submit">Log in</button>
-        </form>
+        <div className='login'>
+            <EmailForm disabled={disabled} onEmailSubmit={handleLoginWithEmail}/>
+            <SocialLogins onSubmit={handleLoginWithSocial}/>
+            <style jsx>{`
+              .login {
+                max-width: 20rem;
+                margin: 40px auto 0;
+                padding: 1rem;
+                border: 1px solid #dfe1e5;
+                border-radius: 4px;
+                text-align: center;
+                box-shadow: 0px 0px 6px 6px #f7f7f7;
+                box-sizing: border-box;
+              }
+            `}</style>
+        </div>
     );
-}
+};
+
+export default Login;
