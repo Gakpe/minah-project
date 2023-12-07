@@ -5,7 +5,7 @@ import { magic } from '@/lib/magic';
 import Layout from '../components/layout';
 import { ThemeProvider } from '@magiclabs/ui';
 import '@magiclabs/ui/dist/cjs/index.css';
-
+import '../styles/globals.css';
 function MyApp({ Component, pageProps }) {
     const [user, setUser] = useState();
 

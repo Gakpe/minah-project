@@ -17,6 +17,7 @@ export default async function login(req, res) {
         }).catch((err)=>{
             console.log(err)
         }
+        )
         // Validate the token and send back a successful response
         await mAdmin.token.validate(didToken);
         res.status(200).json({data: didToken});
