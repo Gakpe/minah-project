@@ -4,6 +4,7 @@ import BalanceSection from "@/components/BalanceSection";
 import ContactUs from "@/components/ContactUs";
 import FormSection from "@/components/FormSection";
 import ProjectOverview from "@/components/ProjectComponents/ProjectOverview";
+import ProjectTabsSection from "@/components/ProjectComponents/ProjectTabsSection";
 
 
 export default function Home() {
@@ -54,9 +55,18 @@ export default function Home() {
             </div>
             <div className={"flex flex-row items-center w-1/2 h-full justify-center gap-4"}>
                 <FormSection/>
-            </div> <div className={"flex flex-row items-center  h-full justify-center gap-4"}>
+            </div>
+
+            <div className={"flex flex-row items-center  h-full justify-center gap-4"}>
                 <ProjectOverview/>
             </div>
+            <div className={"flex flex-row items-center w-full h-full justify-center gap-4"}>
+                <ProjectTabsSection/>
+                <div className={"w-1/4"}>
+                <BalanceSection/>
+                </div>
+            </div>
+
         </main>
     );
 }

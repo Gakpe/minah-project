@@ -9,7 +9,7 @@ const ProjectOverview = () => {
 
                 <div className={"font-bold text-xl"}>Project 1 + Location</div>
                 <p>Target: 100’000 MNH + Progress bar</p>
-                <desc className={"text-justify"}>Description text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla arcu,
+                <p className={"text-justify"}>Description text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla arcu,
                     suscipit
                     eget sem quis, volutpat lobortis massa. Fusce vestibulum enim imperdiet, convallis lorem non,
                     sodales
@@ -18,7 +18,7 @@ const ProjectOverview = () => {
                     non ut orci. Integer ornare nulla in nisi mattis iaculis. Praesent quis nisi orci. Nullam nulla
                     lacus,
                     bibendum nec euismod at, molestie sit amet ligula.
-                </desc>
+                </p>
                 <Button className={"bg-button_border w-fit text-white"} size={"large"}>{"Connect To Invest"}</Button>
 
             </div>
