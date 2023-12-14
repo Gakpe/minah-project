@@ -2,6 +2,7 @@ import ProfileSection from "@/components/ProfileSection";
 import ProjectSection from "@/components/ProjectSection";
 import BalanceSection from "@/components/BalanceSection";
 import ContactUs from "@/components/ContactUs";
+import FormSection from "@/components/FormSection";
 
 
 export default function Home() {
@@ -49,6 +50,8 @@ export default function Home() {
             <div className={"flex flex-row items-center w-full h-full justify-center gap-4"}>
                 <ContactUs title={"You have a Project?"} button={"Contact Us"}/>
                 <ContactUs title={"You want to invest?"} button={"Join the community"}/>
+            </div> <div className={"flex flex-row items-center w-1/2 h-full justify-center gap-4"}>
+                <FormSection/>
             </div>
         </main>
     );

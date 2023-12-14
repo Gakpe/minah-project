@@ -70,7 +70,8 @@ module.exports = {
             },
             width: {
                 image: "824px",
-                formWidth: "410px",
+
+                formWidth: "610px",
                 dropDown: "363px",
                 SettingPage: "70% !important",
                 schedules: "935px",
