@@ -45,7 +45,7 @@ const items = [
         label: 'Development thesis',
         children: 'Content of Tab Pane 1',
     }, {
-        key: '4',
+        key: '5',
         label: 'Team',
         children: 'Content of Tab Pane 1',
     },
