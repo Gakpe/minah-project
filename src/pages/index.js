@@ -3,6 +3,7 @@ import ProjectSection from "@/components/ProjectSection";
 import BalanceSection from "@/components/BalanceSection";
 import ContactUs from "@/components/ContactUs";
 import FormSection from "@/components/FormSection";
+import ProjectOverview from "@/components/ProjectComponents/ProjectOverview";
 
 
 export default function Home() {
@@ -30,28 +31,31 @@ export default function Home() {
         <main className={`flex h-full flex-col gap-4 items-center justify-between p-24 `}>
             <div className={"flex flex-row items-stretch h-full w-full justify-center gap-4"}>
                 <div className={"w-1/5 flex-shrink h-full"}>
-                    <ProfileSection />
+                    <ProfileSection/>
                 </div>
                 <div className={"w-1/2 flex-grow h-full"}>
-                    <ProjectSection project={projectData} />
+                    <ProjectSection project={projectData}/>
                 </div>
                 <div className={"w-1/5 flex-shrink h-full"}>
-                    <BalanceSection />
+                    <BalanceSection/>
                 </div>
             </div>
             <div className={"flex flex-col items-center w-1/2 h-full justify-center gap-4"}>
-                <ProjectSection />
+                <ProjectSection/>
             </div>
             <div className={"flex flex-row items-center w-1/2 h-full justify-center gap-4"}>
-                <BalanceSection />
-                <BalanceSection />
-                <BalanceSection />
+                <BalanceSection/>
+                <BalanceSection/>
+                <BalanceSection/>
             </div>
             <div className={"flex flex-row items-center w-full h-full justify-center gap-4"}>
                 <ContactUs title={"You have a Project?"} button={"Contact Us"}/>
                 <ContactUs title={"You want to invest?"} button={"Join the community"}/>
-            </div> <div className={"flex flex-row items-center w-1/2 h-full justify-center gap-4"}>
+            </div>
+            <div className={"flex flex-row items-center w-1/2 h-full justify-center gap-4"}>
                 <FormSection/>
+            </div> <div className={"flex flex-row items-center  h-full justify-center gap-4"}>
+                <ProjectOverview/>
             </div>
         </main>
     );
