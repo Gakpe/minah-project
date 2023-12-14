@@ -46,8 +46,9 @@ export default function Home() {
                 <BalanceSection />
                 <BalanceSection />
             </div>
-            <div className={"flex flex-row items-center w-1/2 h-full justify-center gap-4"}>
-                <ContactUs/>
+            <div className={"flex flex-row items-center w-full h-full justify-center gap-4"}>
+                <ContactUs title={"You have a Project?"} button={"Contact Us"}/>
+                <ContactUs title={"You want to invest?"} button={"Join the community"}/>
             </div>
         </main>
     );
