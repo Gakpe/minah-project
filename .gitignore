@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/.idea/git_toolbox_prj.xml
+/.idea/minah-project.iml
+/.idea/modules.xml
+/.idea/vcs.xml

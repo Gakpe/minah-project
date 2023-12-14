@@ -4,6 +4,7 @@ import Loading from "@/components/Loading";
 import {useDropzone} from 'react-dropzone';
 import {deleteProfile, getVaults, updateProfile} from "../../../util";
 import {useRouter} from "next/router";
+import ProfileCard from "@/components/ProfileCard";
 
 const Profile = () => {
     const [user, setUser] = useContext(UserContext);
@@ -93,6 +94,10 @@ const Profile = () => {
                         </div>
                     )
                 )}
+            </div>
+            <div className={"bg-red-300 bordertest border-black"}>
+                <ProfileCard/>
+
             </div>
             <form className="my-10 max-w-md mx-auto" onSubmit={handleSubmit}>
                 <h1 className="text-2xl font-bold mb-4">Profile Update Form</h1>

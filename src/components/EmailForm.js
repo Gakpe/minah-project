@@ -1,5 +1,4 @@
 import {useState} from 'react';
-import {CallToAction, Icon, Input, MonochromeIcons} from '@magiclabs/ui';
 
 const EmailForm = ({onEmailSubmit, disabled}) => {
     const [email, setEmail] = useState('');
@@ -28,7 +27,7 @@ const EmailForm = ({onEmailSubmit, disabled}) => {
                         type='email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        prefix={<Icon inline type={MonochromeIcons.Envelope} size={22}/>}
+                        // prefix={<Icon inline type={MonochromeIcons.Envelope} size={22}/>}
                     />
                 </div>
                 {/*<div>*/}

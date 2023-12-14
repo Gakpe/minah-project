@@ -2,9 +2,9 @@ import {useContext} from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 
-import {CallToAction, TextButton} from '@magiclabs/ui';
 import {UserContext} from "@/lib/UserContext";
 import {magic} from "@/lib/magic";
+import {Button} from "antd";
 
 const Header = () => {
     const [user, setUser] = useContext(UserContext);
@@ -27,32 +27,32 @@ const Header = () => {
                         <>
                             <li>
                                 <Link href='/'>
-                                    <TextButton color='primary' size='sm'>
+                                    <Button color='primary' size='sm'>
                                         Home
-                                    </TextButton>
+                                    </Button>
                                 </Link>
                             </li>
                             <li>
                                 <Link href='/Profile'>
-                                    <TextButton color='primary' size='sm'>
+                                    <Button color='primary' size='sm'>
                                         Profile
-                                    </TextButton>
+                                    </Button>
                                 </Link>
                             </li>
                             <li>
                                 <a>
-                                    <TextButton color='warning' size='sm' onPress={logout}>
+                                    <Button color='warning' size='sm' onPress={logout}>
                                         Logout
-                                    </TextButton>
+                                    </Button>
                                 </a>
                             </li>
                         </>
                     ) : (
                         <li>
                             <Link href='/Login'>
-                                <CallToAction color='primary' size='sm'>
+                                <Button color='primary' size='sm'>
                                     Login
-                                </CallToAction>
+                                </Button>
                             </Link>
                         </li>
                     )}
