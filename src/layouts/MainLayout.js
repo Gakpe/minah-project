@@ -12,7 +12,7 @@ const MainLayout = ({children}) => {
             <div className={"flex flex-row w-full h-full mainSetting overflow-auto"}>
 
 
-                <div className={"flex flex-col w-full h-full justify-start mainSetting bg-primary overflow-y-auto"}>
+                <div className={"flex flex-col w-full h-full justify-start mainSetting  overflow-y-auto"}>
                     {children}
                 </div>
             </div>

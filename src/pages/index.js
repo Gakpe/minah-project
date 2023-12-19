@@ -6,9 +6,11 @@ import FormSection from "@/components/FormSection";
 import ProjectOverview from "@/components/ProjectComponents/ProjectOverview";
 import ProjectTabsSection from "@/components/ProjectComponents/ProjectTabsSection";
 import ProjectCards from "@/components/ProjectCards";
+import MainLayout, {getLayout} from "@/layouts/MainLayout";
+import Navbar from "@/components/Navbar";
 
 
-export default function Home() {
+const Home = () => {
     const projectData = [
         // Project 1 data
         {
@@ -30,47 +32,53 @@ export default function Home() {
     ];
 
     return (
-        <main className={`flex h-full flex-col gap-4 items-center justify-between p-24 `}>
-            <div className={"flex flex-row items-stretch h-full w-full justify-center gap-4"}>
-                <div className={"w-1/5 flex-shrink h-full"}>
-                    <ProfileSection/>
+        <MainLayout>
+            <div className={`flex h-full flex-col gap-4 items-center justify-between p-24 `}>
+
+                <div className={"flex flex-row items-stretch h-full w-full justify-center gap-4"}>
+                    <div className={"w-1/5 flex-shrink h-full"}>
+                        <ProfileSection/>
+                    </div>
+                    <div className={"w-1/2 flex-grow h-full"}>
+                        <ProjectSection project={projectData}/>
+                    </div>
+                    <div className={"w-1/5 flex-shrink h-full"}>
+                        <BalanceSection/>
+                    </div>
                 </div>
-                <div className={"w-1/2 flex-grow h-full"}>
-                    <ProjectSection project={projectData}/>
+                <div className={"flex flex-col items-center w-1/2 h-full justify-center gap-4"}>
+                    <ProjectSection/>
                 </div>
-                <div className={"w-1/5 flex-shrink h-full"}>
+                <div className={"flex flex-row items-center w-1/2 h-full justify-center gap-4"}>
+                    <BalanceSection/>
+                    <BalanceSection/>
                     <BalanceSection/>
                 </div>
-            </div>
-            <div className={"flex flex-col items-center w-1/2 h-full justify-center gap-4"}>
-                <ProjectSection/>
-            </div>
-            <div className={"flex flex-row items-center w-1/2 h-full justify-center gap-4"}>
-                <BalanceSection/>
-                <BalanceSection/>
-                <BalanceSection/>
-            </div>
-            <div className={"flex flex-row items-center w-full h-full justify-center gap-4"}>
-                <ContactUs title={"You have a Project?"} button={"Contact Us"}/>
-                <ContactUs title={"You want to invest?"} button={"Join the community"}/>
-            </div>
-            <div className={"flex flex-row items-center w-1/2 h-full justify-center gap-4"}>
-                <FormSection/>
-            </div>
-
-            <div className={"flex flex-row items-center  h-full justify-center gap-4"}>
-                <ProjectOverview/>
-            </div>
-            <div className={"flex flex-row items-center w-full h-full justify-center gap-4"}>
-                <ProjectTabsSection/>
-                <div className={"w-1/4"}>
-                    <BalanceSection/>
+                <div className={"flex flex-row items-center w-full h-full justify-center gap-4"}>
+                    <ContactUs title={"You have a Project?"} button={"Contact Us"}/>
+                    <ContactUs title={"You want to invest?"} button={"Join the community"}/>
                 </div>
-            </div>
-            <div className={"flex flex-row items-center w-full h-full justify-center gap-4"}>
-                <ProjectCards/>
-            </div>
+                <div className={"flex flex-row items-center w-1/2 h-full justify-center gap-4"}>
+                    <FormSection/>
+                </div>
 
-        </main>
+                <div className={"flex flex-row items-center  h-full justify-center gap-4"}>
+                    <ProjectOverview/>
+                </div>
+                <div className={"flex flex-row items-center w-full h-full justify-center gap-4"}>
+                    <ProjectTabsSection/>
+                    <div className={"w-1/4"}>
+                        <BalanceSection/>
+                    </div>
+                </div>
+                <div className={"flex flex-row items-center w-full h-full justify-center gap-4"}>
+                    <ProjectCards/>
+                </div>
+
+            </div>
+        </MainLayout>
     );
 }
+
+Home.getLayout = getLayout;
+export default Home;
