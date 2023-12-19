@@ -35,7 +35,8 @@ const App = () => {
     };
 
     return (
-        <div className={"flex flex-col max-w-formWidth min-w-fit w-formWidth h-full py-5 items-start px-5 gap-5 justify-evenly bg-primary rounded-md"}>
+        <div
+            className={"flex flex-col max-w-formWidth min-w-fit w-formWidth h-full py-5 items-start px-5 gap-5 justify-evenly bg-primary rounded-md"}>
             <h1 className={"pl-2"}>Edit Profile</h1>
             <Form className={"flex flex-col gap-3 w-full text-black"}
                   {...formItemLayout}
@@ -60,7 +61,7 @@ const App = () => {
                 <Form.Item label="Email" name="email" rules={[{required: true, message: 'Please enter your email'}]}>
                     <Input prefix={<MailOutlined/>} type="email" placeholder="Email"/>
                 </Form.Item>
-                <Form.Item  label="Country" name="country"
+                <Form.Item label="Country" name="country"
                            rules={[{required: true, message: 'Please select your country'}]}>
                     <Select>
                         <Option value="Select Country" disabled>Select Country</Option>

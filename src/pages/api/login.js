@@ -12,11 +12,11 @@ export default async function login(req, res) {
             req.headers.authorization,
         );
         console.log("here is did token :", didToken)
-        postToken(didToken).then((res)=>{
+        postToken(didToken).then((res) => {
             console.log(res)
-        }).catch((err)=>{
-            console.log(err)
-        }
+        }).catch((err) => {
+                console.log(err)
+            }
         )
         // Validate the token and send back a successful response
         await mAdmin.token.validate(didToken);

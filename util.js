@@ -23,13 +23,13 @@ export async function postToken(token) {
     }
 }
 
-export async function updateProfile (formData){
+export async function updateProfile(formData) {
     var requestOptions = {
         method: "PUT", // headers: {
         body: formData,
         redirect: "follow",
     };
-    try{
+    try {
         const response = await fetch("https://test-minah-6b1a807102f0.herokuapp.com/user/update", requestOptions);
         const result = await response.text();
 
@@ -46,12 +46,12 @@ export async function updateProfile (formData){
 
 }
 
-export async function deleteProfile (formData){
+export async function deleteProfile(formData) {
     var requestOptions = {
         method: "DELETE", // headers: {
         redirect: "follow",
     };
-    try{
+    try {
         const response = await fetch(`https://test-minah-6b1a807102f0.herokuapp.com/user/delete/${formData}`, requestOptions);
         const result = await response.text();
 
@@ -68,7 +68,7 @@ export async function deleteProfile (formData){
 
 }
 
-export async function getVaults(){
+export async function getVaults() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("X-API-Key", "150eabf3-56cd-446b-b45f-6a71d94f202c");

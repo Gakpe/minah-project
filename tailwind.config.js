@@ -2,7 +2,7 @@
 
 module.exports = {
     content: [
-       "./src/**/*.{js,jsx,ts,tsx}",
+        "./src/**/*.{js,jsx,ts,tsx}",
     ],
     important: true,
     safelist: ["searchBar2"],
@@ -70,7 +70,7 @@ module.exports = {
             },
             width: {
                 image: "824px",
-overviewSection:"1240px",
+                overviewSection: "1240px",
                 formWidth: "610px",
                 dropDown: "363px",
                 SettingPage: "70% !important",

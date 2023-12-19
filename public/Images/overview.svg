@@ -1,10 +1,10 @@
 <svg width="240" height="247" viewBox="0 0 240 247" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Group 52">
-<path id="Vector" d="M77.5858 161L1 237.586V161H77.5858Z" fill="black" stroke="black" stroke-width="2"/>
-<path id="Vector_2" d="M157.586 81L81 157.586V81H157.586Z" fill="black" stroke="black" stroke-width="2"/>
-<path id="Vector_3" d="M161 82.4142L237.586 159H161V82.4142Z" fill="black" stroke="black" stroke-width="2"/>
-<circle id="Ellipse" cx="40" cy="41" r="39" stroke="black" stroke-width="2"/>
-<circle id="Ellipse_2" cx="132.5" cy="207" r="39" stroke="black" stroke-width="2"/>
-<rect id="Rectangle" x="161" y="1" width="78" height="78" fill="black" stroke="black" stroke-width="2"/>
-</g>
+    <g id="Group 52">
+        <path id="Vector" d="M77.5858 161L1 237.586V161H77.5858Z" fill="black" stroke="black" stroke-width="2"/>
+        <path id="Vector_2" d="M157.586 81L81 157.586V81H157.586Z" fill="black" stroke="black" stroke-width="2"/>
+        <path id="Vector_3" d="M161 82.4142L237.586 159H161V82.4142Z" fill="black" stroke="black" stroke-width="2"/>
+        <circle id="Ellipse" cx="40" cy="41" r="39" stroke="black" stroke-width="2"/>
+        <circle id="Ellipse_2" cx="132.5" cy="207" r="39" stroke="black" stroke-width="2"/>
+        <rect id="Rectangle" x="161" y="1" width="78" height="78" fill="black" stroke="black" stroke-width="2"/>
+    </g>
 </svg>
