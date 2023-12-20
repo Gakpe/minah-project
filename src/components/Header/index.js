@@ -27,21 +27,24 @@ const Header = () => {
                         <>
                             <li>
                                 <Link href='/'>
-                                    <Button color='primary' size='sm'>
+                                    <Button className={"bg-button_border  text-white"} color='primary'
+                                            size='sm'>
                                         Home
                                     </Button>
                                 </Link>
                             </li>
                             <li>
                                 <Link href='/Profile'>
-                                    <Button color='primary' size='sm'>
+                                    <Button className={"bg-button_border  text-white"} color='primary'
+                                            size='sm'>
                                         Profile
                                     </Button>
                                 </Link>
                             </li>
                             <li>
                                 <a>
-                                    <Button color='warning' size='sm' onPress={logout}>
+                                    <Button className={"bg-button_border  text-white"} color='warning'
+                                            size='sm' onPress={logout}>
                                         Logout
                                     </Button>
                                 </a>
@@ -59,26 +62,26 @@ const Header = () => {
                 </ul>
             </nav>
             <style jsx>{`
-              nav {
-                max-width: 45rem;
-                margin: 0 auto 50px;
-                padding: 1.25rem 1.25rem;
-                border-bottom: 1px solid #f0f0f0;
-              }
+                nav {
+                    max-width: 45rem;
+                    margin: 0 auto 50px;
+                    padding: 1.25rem 1.25rem;
+                    border-bottom: 1px solid #f0f0f0;
+                }
 
-              ul {
-                display: flex;
-                list-style: none;
-              }
+                ul {
+                    display: flex;
+                    list-style: none;
+                }
 
-              li {
-                margin-right: 1.5rem;
-                line-height: 38px;
-              }
+                li {
+                    margin-right: 1.5rem;
+                    line-height: 38px;
+                }
 
-              li:first-child {
-                margin-left: auto;
-              }
+                li:first-child {
+                    margin-left: auto;
+                }
             `}</style>
         </header>
     );

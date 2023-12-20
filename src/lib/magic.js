@@ -15,7 +15,7 @@ export const magic = createMagic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY_D
 const createWeb3Magic = (key) => {
     return (
         typeof window != "undefined" &&
-        new Magic(key)
+        new Magic(key, {network: "goerli",})
     )
 }
-export const web3Magic = createWeb3Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY);
+export const web3Magic = createWeb3Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY,);

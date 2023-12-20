@@ -72,7 +72,7 @@ const App = () => {
                 </Form.Item>
                 {/*Add a submit Button here please */}
                 <Form.Item className={"w-full"} {...tailFormItemLayout}>
-                    <Button className={"bg-button_border w-full text-white"} size={"large"}>{"Submit"}</Button>
+                    <Button className={"bg-button_border  text-white"} size={"large"}>{"Submit"}</Button>
 
                 </Form.Item>
             </Form>

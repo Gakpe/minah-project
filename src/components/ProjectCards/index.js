@@ -29,7 +29,7 @@ const ProjectCards = ({onClick}) => {
                     <span className={"text-black"}>Hello</span>
                 </div>
             </div>
-            <Button className={"bg-button_border w-fit text-white border-button_border"} size={"large"}>
+            <Button className={"bg-button_border  w-fit text-white border-button_border"} size={"large"}>
                 {"Connect To Invest"}
             </Button>
             <p className={"text-button_border text-sm"}>Discover the project</p>

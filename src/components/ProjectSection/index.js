@@ -30,7 +30,7 @@ const ProjectSection = ({project}) => {
 
                 )) : <div className={"flex flex-col w-full h-full py-20 items-center justify-center gap-5"}>
                     <h1>You didn’t invest in any projects </h1>
-                    <Button className={"bg-button_border text-white"} size={"large"}>Projects / Discover the
+                    <Button className={"bg-button_border  text-white"} size={"large"}>Projects / Discover the
                         universe</Button>
                 </div>}
             </div>

@@ -10,7 +10,7 @@ const BalanceSection = () => {
                     Balance: $ 0.00
                 </div>
                 <div>
-                    <Button className={"bg-button_border text-white"} size={"large"}>Projects / Discover the
+                    <Button className={"bg-button_border  text-white"} size={"large"}>Projects / Discover the
                         universe</Button>
 
                 </div>

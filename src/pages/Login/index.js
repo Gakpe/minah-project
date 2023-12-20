@@ -60,16 +60,16 @@ const Login = () => {
             <EmailForm disabled={disabled} onEmailSubmit={handleLoginWithEmail}/>
             <SocialLogins onSubmit={handleLoginWithSocial}/>
             <style jsx>{`
-              .login {
-                max-width: 20rem;
-                margin: 40px auto 0;
-                padding: 1rem;
-                border: 1px solid #dfe1e5;
-                border-radius: 4px;
-                text-align: center;
-                box-shadow: 0px 0px 6px 6px #f7f7f7;
-                box-sizing: border-box;
-              }
+                .login {
+                    max-width: 20rem;
+                    margin: 40px auto 0;
+                    padding: 1rem;
+                    border: 1px solid #dfe1e5;
+                    border-radius: 4px;
+                    text-align: center;
+                    box-shadow: 0px 0px 6px 6px #f7f7f7;
+                    box-sizing: border-box;
+                }
             `}</style>
         </div>
     );

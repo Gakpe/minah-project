@@ -1,20 +1,30 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button} from "antd";
 import Image from "next/image";
-import {magic, web3Magic} from "@/lib/magic";
+import {web3Magic} from "@/lib/magic";
 
 const ProjectOverview = () => {
     const [account, setAccount] = useState(null);
     const [idToken, setIdToken] = useState();
     const connectWallet = async () => {
-        const accounts = await magic.wallet
-            .connectWithUI()
-            .on("id-token-created", (params) => {
-                setIdToken(params.idToken);
-            });
+        const accounts = await web3Magic.wallet.connectWithUI().on('id-token-created', (params) => {
+
+            const {idToken} = params;
+
+            console.log(idToken);
+
+            // send to your resource server for validation with the Magic Admin SDK
+
+            // ...
+
+        });
+        console.log("here is accounts :", accounts)
     };
-    console.log("here is account :", account)
-    console.log("here is idToken :", idToken)
+    useEffect(() => {
+        console.log("here is account :", account)
+        console.log("here is idToken :", idToken)
+    }, [account]);
+
     return (
         <div
             className={"flex flex-row justify-between items-center max-w-overviewSection w-overviewSection min-w-fit h-full p-7 rounded-md bg-primary"}>
