@@ -1,13 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import {Button} from "antd";
 import Image from "next/image";
 import {magic, web3Magic} from "@/lib/magic";
 
 const ProjectOverview = () => {
-    console.log(magic)
-    const handleLogin = async (provider) => {
-        web3Magic.wallet.connectWithUI();
-    }
+    const [account, setAccount] = useState(null);
+    const [idToken, setIdToken] = useState();
+    const connectWallet = async () => {
+        const accounts = await magic.wallet
+            .connectWithUI()
+            .on("id-token-created", (params) => {
+                setIdToken(params.idToken);
+            });
+    };
+    console.log("here is account :", account)
+    console.log("here is idToken :", idToken)
     return (
         <div
             className={"flex flex-row justify-between items-center max-w-overviewSection w-overviewSection min-w-fit h-full p-7 rounded-md bg-primary"}>
@@ -26,7 +33,7 @@ const ProjectOverview = () => {
                     lacus,
                     bibendum nec euismod at, molestie sit amet ligula.
                 </p>
-                <Button onClick={handleLogin} className={"bg-button_border text-xs h-11 w-fit  text-white"}
+                <Button onClick={connectWallet} className={"bg-button_border text-xs h-11 w-fit  text-white"}
                         size={"large"}>{"Connect To Invest"}</Button>
 
             </div>

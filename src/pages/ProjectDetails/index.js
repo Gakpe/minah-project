@@ -3,8 +3,14 @@ import MainLayout from "@/layouts/MainLayout";
 import ProjectOverview from "@/components/ProjectComponents/ProjectOverview";
 import ProjectTabsSection from "@/components/ProjectComponents/ProjectTabsSection";
 import {Button} from "antd";
+import {web3Magic} from "@/lib/magic";
 
 const ProjectDetails = () => {
+    const [account, setAccount] = React.useState(null);
+    const handleLogout = async () => {
+        await web3Magic.user.logout();
+        setAccount(null);
+    };
 
     return (<MainLayout>
         <div className={"flex  flex-col items-center justify-center gap-7 w-full h-full p-10"}>
@@ -17,7 +23,8 @@ const ProjectDetails = () => {
                         <div> Target: 100’000 MNH
                             ($ 40’000.00)
                         </div>
-                        <Button className={"bg-button_border h-11 text-white rounded-md"}>Invest</Button>
+                        <Button onClick={handleLogout}
+                                className={"bg-button_border h-11 text-white rounded-md"}>Invest</Button>
                     </div>
                     <div className={"flex w-full h-full flex-col p-5 gap-4 bg-primary rounded-md "}>
                         <div>

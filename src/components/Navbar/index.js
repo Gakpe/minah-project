@@ -2,6 +2,7 @@ import React from 'react';
 import {motion} from 'framer-motion';
 import {useRouter} from "next/router";
 import {usePathname} from "next/navigation";
+import {magic} from "@/lib/magic";
 
 const Navbar = () => {
     const router = useRouter()
@@ -11,6 +12,13 @@ const Navbar = () => {
     // const isAboutUsActive = pathName.startsWith("/AboutUs")
     // const isJoinTheCommunityActive = pathName.startsWith("/JoinTheCommunity")
     // const isLoginSignupActive = pathName.startsWith("/Login  ")
+    const handleLogin = async () => {
+        const accounts = await magic.wallet
+            .connectWithUI()
+            .on("id-token-created", (params) => {
+                console.log(params)
+            });
+    }
     return (<div
         className=" w-full  h-fit px-6 py-5 flex flex-row bg-white rounded-b-xl border-b  justify-between items-center">
         <div className=" cursor-pointer items-center flex">
@@ -45,7 +53,7 @@ const Navbar = () => {
                 </div>
             </motion.div>
             <motion.div className="NavbarLink">
-                <div className="LoginSignup text-black text-sm font-normal  leading-tight">
+                <div onClick={handleLogin} className="LoginSignup text-black text-sm font-normal  leading-tight">
                     Login/Signup
                 </div>
             </motion.div>

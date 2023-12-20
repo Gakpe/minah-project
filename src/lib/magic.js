@@ -11,7 +11,7 @@ const createMagic = (key) => {
     );
 };
 
-export const magic = createMagic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY);
+export const magic = createMagic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY_DEDICATED);
 const createWeb3Magic = (key) => {
     return (
         typeof window != "undefined" &&
