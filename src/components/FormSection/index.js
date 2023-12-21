@@ -48,7 +48,7 @@ const App = () => {
                   }}
             >
                 <div className={"flex flex-row items-center justify-start gap-5"}>
-                    <Avatar src={"/images/facebook.png"} size={100} className={"shadow-xl rounded-full"}/>
+                    <Avatar src={"/Images/facebook.png"} size={100} className={"shadow-xl rounded-full"}/>
                     <div className={"underline text-button_border"}>Upload new image</div>
                 </div>
                 <Form.Item label="Name" name="name" rules={[{required: true, message: 'Please enter your name'}]}>

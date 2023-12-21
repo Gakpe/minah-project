@@ -7,14 +7,14 @@ import MainLayout, {getLayout} from "@/layouts/MainLayout";
 const Home = () => {
     const projectData = [{
         id: 1,
-        imageUrl: "/images/facebook.png",
+        imageUrl: "/Images/facebook.png",
         title: "Project title 1",
         amountInvested: "$1,000.00",
         investments: ["$500.00 on xx/xx/xxxx", "$500.00 on xx/xx/xxxx"],
         viewDetailsText: "View project details",
     }, {
         id: 2,
-        imageUrl: "/images/apple.png",
+        imageUrl: "/Images/apple.png",
         title: "Project title 2",
         amountInvested: "$2,000.00",
         investments: ["$1,000.00 on xx/xx/xxxx", "$1,000.00 on xx/xx/xxxx"],

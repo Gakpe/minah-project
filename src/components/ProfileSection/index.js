@@ -1,7 +1,9 @@
 import React from "react";
 import {Avatar} from "antd";
+import {useRouter} from "next/router";
 
 const ProfileSection = ({verified}) => {
+    const router = useRouter();
     return (
         <div className={"w-full max-h-profileSection h-profileSection min-h-fit "}>
             <div
@@ -12,7 +14,7 @@ const ProfileSection = ({verified}) => {
                         width={100}
                         height={100}
                         className="shadow-xl rounded-full"
-                        src="/images/facebook.png"
+                        src="/Images/facebook.png"
                         size={60}
                     />
                     <div className="font-medium">Name surname</div>
@@ -25,7 +27,10 @@ const ProfileSection = ({verified}) => {
                     )}
                 </div>
                 <div className="flex flex-col py-5 items-center justify-center gap-5 w-full">
-                    <button className="border-button_border text-button_border w-full py-3 border rounded-md">
+                    <button onClick={() => {
+                        console.log("I am here")
+                        router.push("/EditProfile")
+                    }} className="border-button_border text-button_border w-full py-3 border rounded-md">
                         Edit Profile
                     </button>
                     <div className="text-red mb-3">Logout</div>
