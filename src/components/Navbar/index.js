@@ -74,7 +74,7 @@ const Navbar = () => {
                 {isLogin ?
                     <div className={"flex flex-row items-center hover:underline justify-center gap-3"}>
                         <Avatar src={"/Images/facebook.png"} size={30}/>
-                        <div>
+                        <div className={"text-sm"}>
                             {localStorage.getItem("user").substring(0, 10)}
                         </div>
                     </div> : <motion.div className="NavbarLink">
