@@ -31,6 +31,7 @@ const Login = () => {
             });
 
             if (res.status === 200) {
+                console.log("here is res :", res)
                 let userMetadata = await magic.user.getMetadata();
                 await setUser(userMetadata);
                 Router.push('/Profile');
@@ -42,10 +43,11 @@ const Login = () => {
     }
 
     async function handleLoginWithSocial(provider) {
-        await magic.oauth.loginWithRedirect({
+       const response = await magic.oauth.loginWithRedirect({
             provider,
             redirectURI: new URL('/callback', window.location.origin).href,
         });
+        console.log("here is response :", response)
     }
 
     return (

@@ -17,6 +17,8 @@ const Callback = () => {
     // `getRedirectResult()` returns an object with user data from Magic and the social provider
     const finishSocialLogin = async () => {
         let result = await magic.oauth.getRedirectResult();
+        console.log("here is result :", result)
+        localStorage.setItem('didToken', result.magic.idToken);
         authenticateWithServer(result.magic.idToken);
     };
 
@@ -39,8 +41,10 @@ const Callback = () => {
         if (res.status === 200) {
             // Set the UserContext to the now logged in user
             let userMetadata = await magic.user.getMetadata();
+            console.log("here is user metadata :", userMetadata)
+            localStorage.setItem('user', userMetadata.publicAddress);
             await setUser(userMetadata);
-            Router.push('/Profile');
+            Router.push('/');
         }
     };
 

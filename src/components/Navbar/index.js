@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
-import { usePathname } from 'next/navigation';
-import { magic } from '@/lib/magic';
+import React, {useEffect, useState} from 'react';
+import {motion} from 'framer-motion';
+import {useRouter} from 'next/router';
+import {usePathname} from 'next/navigation';
 import Login from '@/pages/Login';
-import {Modal} from "antd";
+import {Avatar, Modal} from "antd";
 
 const Navbar = () => {
     const router = useRouter();
@@ -16,7 +15,14 @@ const Navbar = () => {
     // const isJoinTheCommunityActive = pathName.startsWith("/JoinTheCommunity")
     // const isLoginSignupActive = pathName.startsWith("/Login  ")
     const [account, setAccount] = useState(false);
-
+    const [isLogin, setIsLogin] = useState(false);
+    useEffect(
+        () => {
+            if (localStorage.getItem("didToken")) {
+                setIsLogin(true)
+            }
+        }
+    )
     const handleLogin = async () => {
         setAccount(true);
     };
@@ -26,10 +32,11 @@ const Navbar = () => {
     };
 
     return (
-        <div className=" w-full  h-fit px-6 py-5 flex flex-row bg-white rounded-b-xl border-b  justify-between items-center">
+        <div
+            className=" w-full  h-fit px-6 py-5 flex flex-row bg-white rounded-b-xl border-b  justify-between items-center">
             <div className=" cursor-pointer items-center flex">
                 {/* Logo on the left */}
-                <motion.div className="NavbarBrand" whileHover={{ scale: 1.1 }}>
+                <motion.div className="NavbarBrand" whileHover={{scale: 1.1}}>
                     logo
                 </motion.div>
             </div>
@@ -64,11 +71,20 @@ const Navbar = () => {
                         Join the community
                     </div>
                 </motion.div>
-                <motion.div className="NavbarLink">
-                    <div onClick={handleLogin} className="LoginSignup text-black text-sm font-normal  leading-tight">
-                        Login/Signup
-                    </div>
-                </motion.div>
+                {isLogin ?
+                    <div className={"flex flex-row items-center hover:underline justify-center gap-3"}>
+                        <Avatar src={"/Images/facebook.png"} size={30}/>
+                        <div>
+                            {localStorage.getItem("user").substring(0, 10)}
+                        </div>
+                    </div> : <motion.div className="NavbarLink">
+                        <div onClick={handleLogin}
+                             className="LoginSignup text-black text-sm font-normal  leading-tight">
+                            Login/Signup
+                        </div>
+                    </motion.div>
+                }
+
 
             </div>
             {account && (
@@ -77,7 +93,7 @@ const Navbar = () => {
                     className="fixed top-0 left-0 w-full z-50 h-full flex items-center justify-center bg-black bg-opacity-50"
                     footer={[]}
                 >
-                    <Login />
+                    <Login/>
                 </Modal>
             )}
         </div>

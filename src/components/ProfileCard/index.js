@@ -2,8 +2,12 @@ import React from 'react';
 import Image from "next/image";
 import {useRouter} from "next/router";
 import {Button} from "antd";
+import {magic} from "@/lib/magic";
 
 const ProfileCard = () => {
+    const handleLogout = () => {
+        magic.auth.logout()
+    }
     const router = useRouter();
     return (<div className={"flex flex-col items-center justify-center py-5 border-2  gap-5 rounded-md w-full h-full"}>
         <div className={"flex flex-col border border-black items-center justify-center gap-3"}>
@@ -18,7 +22,7 @@ const ProfileCard = () => {
         <div  className={"flex flex-col items-center justify-center gap-5 "}>
             <Button   className={"border-amber-500 w-full px-5 py-2 border-2 rounded-md"}>Edit Profile
             </Button>
-            <div>Logout</div>
+            <div onClick={handleLogout} className={"hover:cursor-pointer"}>Logout</div>
         </div>
     </div>)
 }
