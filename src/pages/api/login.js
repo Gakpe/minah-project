@@ -11,6 +11,7 @@ export default async function login(req, res) {
         const didToken = mAdmin.utils.parseAuthorizationHeader(
             req.headers.authorization,
         );
+        localStorage.setItem('token', didToken)
         console.log("here is did token :", didToken)
         postToken(didToken).then((res) => {
             console.log(res)

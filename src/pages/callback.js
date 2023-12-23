@@ -44,7 +44,7 @@ const Callback = () => {
         }
     };
 
-    return <Loading/>;
+    return <div className={"w-full h-screen items-center flex justify-center"}><Loading/></div>;
 };
 
 export default Callback;

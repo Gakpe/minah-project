@@ -1,61 +1,32 @@
-import {useState} from 'react';
+import React, { useState } from 'react';
+import { Button } from 'antd';
+import Image from "next/image";
 
-const SocialLogins = ({onSubmit}) => {
-    const providers = ['apple', 'google', 'facebook', 'github'];
+const SocialLogins = ({ onSubmit }) => {
+    const providers = ['apple', 'google'];
     const [isRedirecting, setIsRedirecting] = useState(false);
 
     return (
-        <>
-            <div className='or-login-with'>Or login with</div>
-            {providers.map((provider) => {
-                return (
-                    <div key={provider}>
-                        <button
-                            type='submit'
-                            className='social-btn'
-                            onClick={() => {
-                                setIsRedirecting(true);
-                                onSubmit(provider);
-                            }}
-                            key={provider}
-                            style={{backgroundImage: `url(/Images/${provider}.png)`}}
-                        >
-                            {/* turns "google" to "Google" */}
-                            {provider.replace(/^\w/, (c) => c.toUpperCase())}
-                        </button>
-                    </div>
-                );
-            })}
-            {isRedirecting && <div className='redirecting'>Redirecting...</div>}
-            <style jsx>{`
-                .or-login-with {
-                    margin: 25px 0;
-                    font-size: 12px;
-                    text-align: center;
-                    color: gray;
-                }
+        <div className="w-full flex flex-col h-full gap-6 items-center justify-center">
+            <div className="or-login-with text-base">Or login with</div>
+            {providers.map((provider) => (
 
-                .social-btn {
-                    cursor: pointer;
-                    border-radius: 50px;
-                    margin-bottom: 20px;
-                    border: 1px solid #8a8a8a;
-                    padding: 9px 24px 9px 35px;
-                    width: 80%;
+                    <Button
+                        key={provider}
+                        type="primary"
+                        className="h-fit border-button_border bg-none text-black rounded-xl py-2 px-2  flex flex-row items-center justify-center gap-1  w-full"
+                        onClick={() => {
+                            setIsRedirecting(true);
+                            onSubmit(provider);
+                        }}
+                        icon={<Image width={100} height={100} src={`/Images/${provider}.png`} alt={provider} className="w-7 h-7" />}
+                    >
+                        {provider.replace(/^\w/, (c) => c.toUpperCase())}
+                    </Button>
 
-                    background-color: #fff;
-                    background-size: 20px;
-                    background-repeat: no-repeat;
-                    background-position: 23% 50%;
-                }
-
-                .redirecting {
-                    color: gray;
-                    font-size: 12px;
-                    margin-bottom: 5px;
-                }
-            `}</style>
-        </>
+            ))}
+            {isRedirecting && <div className="redirecting mt-4">Redirecting...</div>}
+        </div>
     );
 };
 
