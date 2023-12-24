@@ -20,9 +20,15 @@ const ProjectOverview = () => {
         });
         console.log("here is accounts :", accounts)
     };
+    const [isLogin, setIsLogin] = React.useState(false);
     useEffect(() => {
-        console.log("here is account :", account)
-        console.log("here is idToken :", idToken)
+
+        if (typeof window !== "undefined") {
+
+            if (localStorage.getItem("didToken")) {
+                setIsLogin(true)
+            }
+        }
     }, [account]);
 
     return (
@@ -44,7 +50,7 @@ const ProjectOverview = () => {
                     bibendum nec euismod at, molestie sit amet ligula.
                 </p>
                 <Button onClick={connectWallet} className={"bg-button_border text-xs h-11 w-fit  text-white"}
-                        size={"large"}>{"Connect To Invest"}</Button>
+                        size={"large"}>{isLogin?"Invest in this Project":"Connect To Invest"}</Button>
 
             </div>
             <div className={"w-1/2  h-full flex items-end justify-center"}>
