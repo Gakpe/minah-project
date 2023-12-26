@@ -2,6 +2,8 @@ import MainLayout, {getLayout} from "@/layouts/MainLayout";
 import HeroSection from "@/components/HeroSection";
 import FeatureSections from "@/components/FeatureSection";
 import AboutUs from "@/components/AboutUs";
+import AboutMinah from "@/components/AboutUs/AboutMinah";
+import ContactUs from "@/components/ContactUs";
 
 const Home = () => {
     const projectData = [{
@@ -22,7 +24,7 @@ const Home = () => {
     ];
 
     return (<MainLayout>
-        <div className={"flex flex-col items-center justify-center p-20 gap-8 w-full h-full "}>
+        <div className={"flex flex-col items-center justify-center p-20 gap-10 w-full h-full "}>
             <div className={"flex flex-row w-full h-full px-5 items-center justify-center gap-4"}>
                 <HeroSection/>
 
@@ -53,6 +55,13 @@ const Home = () => {
                     <AboutUs/>
                 </div>
 
+            </div>
+            <div className={"w-full h-full"}>
+            <AboutMinah/>
+            </div>
+            <div className={"flex flex-row w-full h-full gap-4"}>
+                <ContactUs title={"You are located in west Africa and you need financing for your project?"} button={"Contact Us"}/>
+                <ContactUs title={"You are located in west Africa and you need financing for your project?"} button={"Contact Us"}/>
             </div>
         </div>
     </MainLayout>);
