@@ -15,7 +15,6 @@ function MyApp({Component, pageProps}) {
             if (isLoggedIn) {
                 magic.user.getMetadata().then((userData) => setUser(userData));
             } else {
-                Router.push('/');
                 setUser({user: null});
             }
         });

@@ -1,39 +1,20 @@
-import {motion, useAnimation} from 'framer-motion';
-import {useEffect} from 'react';
+import {Button} from "antd";
 
 const HeroSection = () => {
-    const controls = useAnimation();
-
-    const animate = () => {
-        controls.start({
-            x: '100%',
-            transition: {duration: 10, ease: 'linear'},
-
-        });
-        setTimeout(() => {
-            controls.set({x: '-100%'});
-            animate(); // Restart the animation after completion
-        }, 10000); // Adjust the timeout to match the animation duration
-    };
-
-    useEffect(() => {
-        animate(); // Start the animation initially
-    }, [controls]);
-
     return (
-        <div className="hero-section bg-gray-800 text-white h-full flex items-center justify-center overflow-hidden ">
-            <motion.div
-                className="scrolling-text text-9xl font-bold whitespace-nowrap"
-                animate={controls}
-                initial={{x: '-100%'}}
-            >
-                Scroll Me! Scroll Me!
-                Scroll Me! Scroll Me!
-                Scroll Me! Scroll Me!
-                Scroll Me! Scroll Me!
-            </motion.div>
-        </div>
-    );
-};
 
+        <div className={"w-full h-full flex flex-col bg-secondary rounded-lg gap-10 items-center justify-center p-32 "}>
+            <h1 className={"text-4xl break-all w-1/2 text-center font-bold text-white "}>
+                Investing in local African real estate has never been easier
+            </h1>
+            <p className={"text-white text-sm"}>
+                Lorem ipsum
+            </p>
+            <Button className={"bg-button_border  w-fit text-white border-button_border"} size={"large"}>
+                {"Connect To Invest"}
+            </Button>
+        </div>
+
+    )
+}
 export default HeroSection;

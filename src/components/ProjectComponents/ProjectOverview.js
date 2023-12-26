@@ -1,25 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {Button} from "antd";
+import {Button, Modal} from "antd";
 import Image from "next/image";
-import {web3Magic} from "@/lib/magic";
+import Login from "@/pages/Login";
 
 const ProjectOverview = () => {
-    const [account, setAccount] = useState(null);
+    const [account, setAccount] = useState(false);
     const [idToken, setIdToken] = useState();
-    const connectWallet = async () => {
-        const accounts = await web3Magic.wallet.connectWithUI().on('id-token-created', (params) => {
 
-            const {idToken} = params;
-
-            console.log(idToken);
-
-            // send to your resource server for validation with the Magic Admin SDK
-
-            // ...
-
-        });
-        console.log("here is accounts :", accounts)
-    };
     const [isLogin, setIsLogin] = React.useState(false);
     useEffect(() => {
 
@@ -49,14 +36,28 @@ const ProjectOverview = () => {
                     lacus,
                     bibendum nec euismod at, molestie sit amet ligula.
                 </p>
-                <Button onClick={connectWallet} className={"bg-button_border text-xs h-11 w-fit  text-white"}
-                        size={"large"}>{isLogin?"Invest in this Project":"Connect To Invest"}</Button>
+                <Button onClick={() => {
+                    setAccount(true)
+                }} className={"bg-button_border text-xs h-11 w-fit  text-white"}
+                        size={"large"}>{isLogin ? "Invest in this Project" : "Connect To Invest"}</Button>
 
             </div>
             <div className={"w-1/2  h-full flex items-end justify-center"}>
                 <Image src={"/Images/overview.svg"} alt={"project overview"} width={100} height={100}
                        className={" w-fit h-fitrounded-md"}/>
             </div>
+
+                <Modal
+                    closable={true}
+                    open={account}
+
+                    maskClosable={true}
+                    className="fixed top-0 left-0 w-full z-50 h-full flex items-center justify-center bg-black bg-opacity-50"
+                   onCancel={()=>{setAccount(false)}}
+                >
+                    <Login/>
+                </Modal>
+
         </div>
     )
 }

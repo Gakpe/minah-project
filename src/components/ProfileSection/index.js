@@ -4,6 +4,12 @@ import {useRouter} from "next/router";
 
 const ProfileSection = ({verified}) => {
     const router = useRouter();
+    const handleLogout = async () => {
+        if (typeof window !== "undefined") {
+            localStorage.removeItem("didToken")
+            router.push("/")
+        }
+    }
     return (
         <div className={"w-full max-h-profileSection h-profileSection min-h-fit "}>
             <div
@@ -33,7 +39,7 @@ const ProfileSection = ({verified}) => {
                     }} className="border-button_border text-button_border w-full py-3 border rounded-md">
                         Edit Profile
                     </button>
-                    <div className="text-red mb-3">Logout</div>
+                    <div  onClick={handleLogout} className="text-red cursor-pointer mb-3">Logout</div>
                 </div>
             </div>
         </div>

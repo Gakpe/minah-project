@@ -9,9 +9,7 @@ const Login = () => {
     const [disabled, setDisabled] = useState(false);
     const [user, setUser] = useContext(UserContext);
 
-    useEffect(() => {
-        user?.issuer && Router.push('/Profile');
-    }, [user]);
+
 
     async function handleLoginWithEmail(email) {
         try {

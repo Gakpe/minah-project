@@ -3,20 +3,14 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const MainLayout = ({children}) => {
-
+const MainLayout = ({ children }) => {
     return (
-
-        <div className={"flex flex-col w-full  justify-between h-screen mainSetting  font-sans"}>
-            <Navbar/>
-            <div className={"flex flex-row w-full h-full mainSetting "}>
-
-
-                <div className={"flex flex-col w-full h-full justify-start mainSetting  overflow-y-auto"}>
-                    {children}
-                </div>
+        <div className={"flex flex-col w-full min-h-screen mainSetting font-sans"}>
+            <Navbar />
+            <div className={"flex-grow flex flex-col w-full overflow-y-auto"}>
+                {children}
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

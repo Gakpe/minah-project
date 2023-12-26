@@ -73,7 +73,7 @@ const Navbar = () => {
                 </motion.div>
                 {isLogin ?
                     <div className={"flex flex-row items-center hover:underline justify-center gap-3"}>
-                        <Avatar onClick={()=>{router.push("/EditProfile")}} src={"/Images/facebook.png"} size={30}/>
+                        <Avatar onClick={()=>{router.push("/Profile")}} src={"/Images/facebook.png"} size={30}/>
                         <div className={"text-sm"}>
                             {localStorage.getItem("user").substring(0, 10)}
                         </div>
