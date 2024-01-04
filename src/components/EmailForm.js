@@ -14,7 +14,10 @@ const EmailForm = ({ onEmailSubmit, disabled }) => {
             <form onSubmit={handleSubmit} className='flex flex-col gap-4 items-center'>
                 <h3 className='form-header text-xl'>Login</h3>
                 <div className='input-wrapper w-80 mb-4'>
+
                     <Input
+
+                        rootClassName={"border-primary rounded-md"}
                         placeholder='Enter your email'
                         size='small'
                         type='email'

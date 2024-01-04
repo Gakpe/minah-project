@@ -25,7 +25,7 @@ const InvestmentJourney = () => {
                 Page
             </div>
             <div>
-                For KYC purposes, you will be redirected to our partners' pages to proceed
+                For KYC purposes, you will be redirected to our partners pages to proceed
             </div>
             <Button onClick={()=>{setClicked(true)}} className={"bg-button_border rounded-2xl  w-1/2 text-white border-button_border"}
                     size={"large"}>

@@ -4,6 +4,7 @@ import {useRouter} from 'next/router';
 import {usePathname} from 'next/navigation';
 import Login from '@/pages/Login';
 import {Avatar, Modal} from "antd";
+import Image from "next/image";
 
 const Navbar = () => {
     const router = useRouter();
@@ -33,29 +34,25 @@ const Navbar = () => {
 
     return (
         <div
-            className=" w-full  h-fit px-6 py-5 flex flex-row bg-white rounded-b-xl border-b  justify-between items-center">
+            className=" w-full  h-fit px-20 py-5 flex flex-row bg-white rounded-b-xl border-b  justify-between items-center">
+            {account && (
+                <Modal
+                    visible={account}
+                    className=" h-fit flex  "
+                    footer={[]}
+                >
+                    <Login/>
+                </Modal>
+            )}
             <div className=" cursor-pointer items-center flex">
                 {/* Logo on the left */}
                 <motion.div className="NavbarBrand" whileHover={{scale: 1.1}}>
-                    logo
+                    <Image src={"/Images/minah_logo.svg"} alt={"logo"} width={100} height={50}/>
                 </motion.div>
             </div>
-            <div className="NavbarMenu cursor-pointer justify-end items-center gap-8 flex">
+            <div className="NavbarMenu cursor-pointer justify-end items-center gap-10 flex">
                 {/* Menu items on the right */}
-                <motion.div className="NavbarLink">
-                    <div
-                        onClick={() => {
-                            router.push('/Projects');
-                        }}
-                        className={`Projects text-black text-sm font-normal ${
-                            isProjectActive
-                                ? 'bg-button_border rounded-lg py-3 text-white px-4 duration-150 transition-all '
-                                : ''
-                        } leading-tight `}
-                    >
-                        Projects / Discover the universe
-                    </div>
-                </motion.div>
+
                 <motion.div className="NavbarLink">
                     <div className="Litepaper text-black text-sm font-normal  leading-tight">
                         Litepaper
@@ -66,36 +63,44 @@ const Navbar = () => {
                         About us
                     </div>
                 </motion.div>
-                <motion.div className="NavbarLink">
+                <motion.div className="NavbarLink ">
                     <div className="JoinTheCommunity text-black text-sm font-normal  leading-tight">
                         Join the community
                     </div>
                 </motion.div>
                 {isLogin ?
                     <div className={"flex flex-row items-center hover:underline justify-center gap-3"}>
-                        <Avatar onClick={()=>{router.push("/Profile")}} src={"/Images/facebook.png"} size={30}/>
+                        <Avatar className={"bordered"} onClick={() => {
+                            router.push("/Profile")
+                        }} src={"/Images/facebook.png"} size={40}/>
                         <div className={"text-sm"}>
                             {localStorage.getItem("user").substring(0, 10)}
                         </div>
-                    </div> : <motion.div className="NavbarLink">
+                    </div> : <motion.div className="NavbarLink w-fit h-fit ">
                         <div onClick={handleLogin}
-                             className="LoginSignup text-black text-sm font-normal  leading-tight">
-                            Login/Signup
+                             className="LoginSignup   w-full h-full px-4 py-3 text-black text-sm font-normal  leading-tight">
+                            <Image src={"/Images/LoginButton.svg"} alt={""} width={75} height={75}/>
                         </div>
                     </motion.div>
                 }
+                <motion.div className="NavbarLink  ">
+                    <div
+                        onClick={() => {
+                            router.push('/Projects');
+                        }}
+                        className={`Projects text-black text-sm p-3 font-normal ${
+                            isProjectActive
+                                ? 'gradiented rounded-full text-white  duration-150 transition-all '
+                                : 'gradiented rounded-full text-white  duration-150 transition-all '
+                        } leading-tight `}
+                    >
+                        Projects / Discover the universe
+                    </div>
+                </motion.div>
 
 
             </div>
-            {account && (
-                <Modal
-                    visible={account}
-                    className="fixed top-0 left-0 w-full z-50 h-full flex items-center justify-center bg-black bg-opacity-50"
-                    footer={[]}
-                >
-                    <Login/>
-                </Modal>
-            )}
+
         </div>
     );
 };

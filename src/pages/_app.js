@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import {UserContext} from '@/lib/UserContext';
 import Router from 'next/router';
 import {magic} from '@/lib/magic';
+
 import '@/styles/globals.css'
 
 function MyApp({Component, pageProps}) {

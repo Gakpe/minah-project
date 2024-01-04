@@ -58,6 +58,8 @@ module.exports = {
                 formSearch: '#93BFBC',
                 backgroundColor: '#A4D8D44D',
                 title: '#3e837d',
+                textOrange: "#E27B30",
+                gradient: 'linear-gradient(135deg, #B6473B, #C3685E, #E27B30, #DFC74C)',
             },
             height: {
                 profileSection: "502px",

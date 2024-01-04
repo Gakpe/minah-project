@@ -1,6 +1,7 @@
 import {Button, Modal} from "antd";
 import {useEffect, useState} from "react";
 import InvestmentJourney from "@/components/InvestmentJourney";
+import Image from "next/image";
 
 const HeroSection = () => {
     const [user, setUser] = useState(false);
@@ -12,23 +13,34 @@ const HeroSection = () => {
     const [clicked, setClicked] = useState(false);
     return (
 
-        <div className={"w-full h-full flex flex-col bg-secondary rounded-lg gap-10 items-center justify-center p-32 "}>
-            <h1 className={"text-4xl break-all w-1/2 text-center font-bold text-white "}>
-                Investing in local African real estate has never been easier
-            </h1>
-            <p className={"text-white text-sm"}>
-                Lorem ipsum
-            </p>
-            <Button onClick={() => {
-                setClicked(true)
-            }} className={"bg-button_border  w-fit text-white border-button_border"} size={"large"}>
-                {user ? "Start Investing" : "Connect to Invest"}
-            </Button>
-            <Modal open={clicked} footer={null} onCancel={() => {
-                setClicked(false)
-            }}>
-                <InvestmentJourney/>
-            </Modal>
+        <div
+            className={"w-full h-full flex flex-row bg-[#FBF5F4] backgroundImages gap-10 items-center justify-center p-32 "}>
+            <div className={"flex flex-col gap-5 items-center justify-center"}>
+                <h1 className={"text-5xl break-all w-fit font-semibold text-black "}>
+                    <span className={"font-extrabold text-[#E27B30] text-5xl"}>Investing </span> in local <br/> African
+                    real estate has <br/> never been easier
+                </h1>
+
+                <div className={"flex flex-row items-center  justify-start gap-5 w-full h-full"}>
+                    <Button onClick={() => {
+                        setClicked(true)
+                    }} className={"gradiented  rounded-full px-3 py-2 h-fit w-fit text-white "} size={"large"}>
+                        {user ? "Start Investing" : "Connect to Invest"}
+                    </Button><Button onClick={() => {
+                        setClicked(true)
+                    }} className={"gradiented rounded-full px-3 py-2 h-fit w-fit text-white "} size={"large"}>
+                        {user ? "Start Investing" : "Connect to Invest"}
+                    </Button>
+                </div>
+                <Modal open={clicked} footer={null} onCancel={() => {
+                    setClicked(false)
+                }}>
+                    <InvestmentJourney/>
+                </Modal>
+            </div>
+            <Image src={"/Images/MinahHero.svg"} className={"w-fit h-fit hover:scale-105 duration-300 transition-all "}
+                   height={50} width={50} alt={""}/>
+
         </div>
 
     )

@@ -70,14 +70,7 @@ const App = () => {
 
         console.log(formDataToSend);
 
-        // Mock API request (replace with your actual logic)
-        // const updatedUser = await updateProfile(formDataToSend);
-        // console.log(JSON.parse(updatedUser.result))
-        // if (updatedUser.responseCode === 200) {
-        //     alert("Update profile successfully")
-        //     router.reload()
-        // }
-        // setUser(updatedUser);
+
     };
 
     return (
@@ -94,7 +87,7 @@ const App = () => {
                     <div className={'flex flex-row items-center justify-start gap-5'}>
                         <div>
                             <Avatar
-                                src={formData.image instanceof File ? URL.createObjectURL(formData.image) : '/Images/facebook.png'}
+                                src={formData.image ? URL.createObjectURL(formData.image) : '/Images/facebook.png'}
                                 size={100} className={'shadow-xl rounded-full'}/>
                         </div>
                         <div>

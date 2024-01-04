@@ -6,6 +6,8 @@ import {magic} from "@/lib/magic";
 
 const ProfileCard = () => {
     const handleLogout = () => {
+        localStorage.removeItem('user')
+
         magic.auth.logout()
     }
     const router = useRouter();
@@ -19,8 +21,8 @@ const ProfileCard = () => {
             <div>Joined on xx/xx/xxxx</div>
             <div>Verified profile</div>
         </div>
-        <div  className={"flex flex-col items-center justify-center gap-5 "}>
-            <Button   className={"border-amber-500 w-full px-5 py-2 border-2 rounded-md"}>Edit Profile
+        <div className={"flex flex-col items-center justify-center gap-5 "}>
+            <Button className={"border-amber-500 w-full px-5 py-2 border-2 rounded-md"}>Edit Profile
             </Button>
             <div onClick={handleLogout} className={"hover:cursor-pointer"}>Logout</div>
         </div>

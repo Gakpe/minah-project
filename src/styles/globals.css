@@ -17,5 +17,38 @@
 }
 
 
+.gradiented {
+    background: linear-gradient(to right , #B6473B, #C3685E, #E27B30, rgba(223, 199, 76, 0.72)) padding-box,
+    linear-gradient(60deg,  #DFC74C,  #DFC74C) border-box;
+    color: #B6473B;
+    padding: 20px 70px;
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+    display: inline-block;
+    font-size: 28px;
+}
+.bordered{
+    border: 2px solid var(--linear-1, #B6473B);
+}
+.backgroundImages{
+    background-image: url("/Images/LogoMinahBg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.backgroundColored{
+    background-image: url("/Images/BackgroundColored.svg");
+    background-position: center;
+    background-size: cover;
+}
+.backk{
+    background-image: url("/Images/backs.svg");
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+
 /* Add this CSS to your global styles or a specific component stylesheet */
 

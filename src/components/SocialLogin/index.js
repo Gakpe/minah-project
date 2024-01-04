@@ -14,7 +14,7 @@ const SocialLogins = ({ onSubmit }) => {
                     <Button
                         key={provider}
                         type="primary"
-                        className="h-fit border-button_border bg-none text-black rounded-xl py-2 px-2  flex flex-row items-center justify-center gap-1  w-full"
+                        className="h-fit border-button_border hover:bg-transparent bg-none text-black rounded-xl py-2 px-2  flex flex-row items-center justify-center gap-1 hover:scale-105 w-full"
                         onClick={() => {
                             setIsRedirecting(true);
                             onSubmit(provider);
