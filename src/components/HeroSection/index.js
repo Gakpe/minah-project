@@ -24,12 +24,12 @@ const HeroSection = () => {
                 <div className={"flex flex-row items-center  justify-start gap-5 w-full h-full"}>
                     <Button onClick={() => {
                         setClicked(true)
-                    }} className={"gradiented  rounded-full px-3 py-2 h-fit w-fit text-white "} size={"large"}>
-                        {user ? "Start Investing" : "Connect to Invest"}
+                    }} className={"gradiented hover:border-textOrange rounded-full px-3 py-2 h-fit w-fit text-white "} size={"large"}>
+                        {user ? "Join the Community" : "Connect to Invest"}
                     </Button><Button onClick={() => {
                         setClicked(true)
-                    }} className={"gradiented rounded-full px-3 py-2 h-fit w-fit text-white "} size={"large"}>
-                        {user ? "Start Investing" : "Connect to Invest"}
+                    }} className={" bg-white border-textOrange  rounded-full px-3 py-2 h-fit w-fit gradientText "} size={"large"}>
+                        {user ? "Discover the universe" : "Connect to Invest"}
                     </Button>
                 </div>
                 <Modal open={clicked} footer={null} onCancel={() => {

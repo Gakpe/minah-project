@@ -1,40 +1,37 @@
-import {Button} from "antd";
-import {useRouter} from "next/navigation";
+import { Button } from "antd";
+import { useRouter } from "next/router";
+import Image from "next/image";
 
-const ProjectCards = ({onClick}) => {
-    const router = useRouter()
+const ProjectCard = ({ title, description, onExplore, onInvest }) => {
+    const router = useRouter();
+
     return (
-        <div
-            className={"flex flex-col text-white items-center gap-7 justify-center p-10 w-full h-full bg-secondary rounded-md"}>
-            <div onClick={() => {
-                router.push("/ProjectDetails")
-            }} className={"font-bold h-full cursor-pointer text-center w-full text-2xl"}>
-                Project title 1
+        <div className="project-card drop-shadow-lg  bg-[#FAFAFA] px-10 py-5">
+            <div className="title-section testClass py-5" onClick={() => router.push("/ProjectDetails")}>
+                <h1 className="text-black text-5xl font-extrabold"><span className={"title"}>Project</span> Title 01</h1>
             </div>
-            <p className={"w-full text-center md:w-1/2"}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla arcu, suscipit eget sem quis,
-                volutpat lobortis massa. Fusce vestibulum enim imperdiet, convallis lorem non.
-            </p>
-            <div className={"flex flex-row flex-wrap gap-4 items-center w-full justify-center"}>
-                <div className={"bg-white rounded-full w-16 h-16 flex items-center justify-center mb-4"}>
-                    <span className={"text-black"}>Hello</span>
-                </div>
-                <div className={"bg-white rounded-full w-16 h-16 flex items-center justify-center mb-4"}>
-                    <span className={"text-black"}>Hello</span>
-                </div>
-                <div className={"bg-white rounded-full w-16 h-16 flex items-center justify-center mb-4"}>
-                    <span className={"text-black"}>Hello</span>
-                </div>
-                <div className={"bg-white rounded-full w-16 h-16 flex items-center justify-center mb-4"}>
-                    <span className={"text-black"}>Hello</span>
-                </div>
+            <p className="description">{description}</p>
+            <div className="icon-section">
+                {/* Replace these with actual icons and their labels */}
+                <Image className={"hover:scale-105 hover:duration-300 cursor-pointer"} src={"/Images/ProjectFeature01.svg"} alt={""} width={60} height={60}/>
+                <Image className={"hover:scale-105 hover:duration-300 cursor-pointer"} src={"/Images/ProjectFeature02.svg"} alt={""} width={60} height={60}/>
+                <Image className={"hover:scale-105 hover:duration-300 cursor-pointer"} src={"/Images/ProductFeature03.svg"} alt={""} width={60} height={60}/>
+                <Image className={"hover:scale-105 hover:duration-300 cursor-pointer"} src={"/Images/ProjectFeature04.svg"} alt={""} width={60} height={60}/>
+                {/*<div className="icon">5</div>*/}
+                {/*<div className="icon">10</div>*/}
+                {/*<div className="icon">15</div>*/}
             </div>
-            <Button className={"bg-button_border  w-fit text-white border-button_border"} size={"large"}>
-                {"Connect To Invest"}
-            </Button>
-            <p className={"text-button_border text-sm"}>Discover the project</p>
+            <div className="button-section">
+                <Button className="text-white hover:border-textOrange rounded-full gradiented" size="large" onClick={onInvest}>
+                    Connect to invest
+                </Button>
+
+                <Button className="text-black rounded-full gradientText border-textOrange" size="large" onClick={onExplore}>
+                    Discover the project
+                </Button>
+            </div>
         </div>
     );
 };
 
-export default ProjectCards;
+export default ProjectCard;

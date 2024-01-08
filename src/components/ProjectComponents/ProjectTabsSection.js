@@ -9,8 +9,8 @@ const items = [
         key: '1',
         label: 'Projects',
         children: <div className={"flex flex-col items-center justify-start gap-7 w-full h-full"}>
-            <div className={"flex flex-col items-start justify-start w-full h-full"}>
-                <div>Subtitle</div>
+            <div className={"flex flex-col gap-2 items-start justify-start w-full h-full"}>
+                <div className={"text-xl font-semibold"}>Subtitle</div>
                 <p className={"w-fit text-justify"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla
                     arcu, suscipit eget sem quis,
                     volutpat lobortis massa. Fusce vestibulum enim imperdiet, convallis lorem non, sodales neque. Cras
@@ -20,8 +20,8 @@ const items = [
                     nec
                     euismod at, molestie sit amet ligula. </p>
             </div>
-            <div className={"flex flex-col items-start justify-start w-full h-full"}>
-                <div>Subtitle</div>
+            <div className={"flex flex-col gap-2 items-start justify-start w-full h-full"}>
+                <div className={"text-xl font-semibold"}>Subtitle</div>
                 <p className={"w-fit text-justify"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla
                     arcu, suscipit eget sem quis,
                     volutpat lobortis massa. Fusce vestibulum enim imperdiet, convallis lorem non, sodales neque. Cras
@@ -53,13 +53,14 @@ const items = [
 ];
 console.log(items);
 const ProjectTabsSection = () => (
-    <div className={"bg-primary w-full h-full rounded-md p-10"}>
+    <div className={"bg-[#FAFAFA] drop-shadow-lg w-full h-full rounded-lg p-10"}>
         <Tabs
-            rootClassName={"w-full h-full"}
+            rootClassName={"w-full  text-black h-full"}
+
             defaultActiveKey="1"
             onChange={onChange}
             items={items}
-            indicatorSize={(origin) => origin - 16}
+            // indicatorSize={(origin) => origin - 16}
         />
     </div>
 );

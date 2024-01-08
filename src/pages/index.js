@@ -73,20 +73,20 @@ const Home = () => {
                         <p className={"text-justify"}>
                             <p>
                                 Minah est un projet pionnier. Fondé par Hervé et Julien, deux frères franco-togolais,
-                                l'objectif de Minah est de facilier l'investissement en Afrique grâce à la technologie
+                                l`&apos;`objectif de Minah est de facilier l`&apos;`investissement en Afrique grâce à la technologie
                                 blockchain.
                             </p>
                             <br/>
                             <p>
                                 Notre mission : financer des projets innovants qui stimulent le développement
-                                socio-économique en Afrique de l'Ouest , de l'immobilierl'énergie renouvelable à
-                                l'agriculture durable. Chez Minah.io, chaque transaction est sécurisée, transparente et
+                                socio-économique en Afrique de l`&apos;`Ouest , de l`&apos;`immobilierl`&apos;`énergie renouvelable à
+                                l`&apos;`agriculture durable. Chez Minah.io, chaque transaction est sécurisée, transparente et
                                 efficace, réduisant les coûts et ouvrant des portes à de nouvelles possibilités
-                                d'investissement. Nous sommes plus qu'une plateforme ; nous sommes un mouvement vers un
+                                d`&apos;`investissement. Nous sommes plus qu`&apos;`une plateforme ; nous sommes un mouvement vers un
                                 avenir où le progrès économique se conjugue avec le bien-être des communautés.
                                 Rejoignez-nous pour faire partie de cette révolution, où chaque investissement crée un
-                                impact positif durable, bâtissant pas à pas un avenir prospère pour l'Afrique de
-                                l'Ouest.
+                                impact positif durable, bâtissant pas à pas un avenir prospère pour l`&apos;`Afrique de
+                                l`&apos;`Ouest.
                             </p>
                         </p>
                         <Button onClick={() => {
@@ -100,7 +100,7 @@ const Home = () => {
 
             </div>
             <div
-                className={"flex flex-col items-center gap-5 rounded-lg shadow-2xl bg-white w-4/5 h-full justify-center"}>
+                className={"flex flex-col items-center gap-5 rounded-lg shadow-2xl bg-[#FAFAFA] w-4/5 h-full justify-center"}>
                 <div className={"p-10 gap-5 flex flex-col items-center justify-center w-4/5"}>
                     <h1 className={"text-black text-5xl font-extrabold"}>
                         <span className={"text-textOrange text-5xl"}>Minah</span> Labs

@@ -1,3 +1,6 @@
+const url = "https://hammadayub34.pagekite.me/"
+const herokuUrl = "https://test-minah-6b1a807102f0.herokuapp.com/"
+
 export async function postToken(token) {
     var requestOptions = {
         method: "POST", // headers: {
@@ -9,7 +12,7 @@ export async function postToken(token) {
         redirect: "follow",
     };
     try {
-        const response = await fetch("https://test-minah-6b1a807102f0.herokuapp.com/user/login", requestOptions);
+        const response = await fetch(url + "user/login", requestOptions);
         const result = await response.text();
 
         return {
@@ -30,7 +33,7 @@ export async function updateProfile(formData) {
         redirect: "follow",
     };
     try {
-        const response = await fetch("https://test-minah-6b1a807102f0.herokuapp.com/user/update", requestOptions);
+        const response = await fetch(url + "user/update", requestOptions);
         const result = await response.text();
 
         return {
@@ -52,7 +55,7 @@ export async function deleteProfile(formData) {
         redirect: "follow",
     };
     try {
-        const response = await fetch(`https://test-minah-6b1a807102f0.herokuapp.com/user/delete/${formData}`, requestOptions);
+        const response = await fetch(url + `user/delete/${formData}`, requestOptions);
         const result = await response.text();
 
         return {

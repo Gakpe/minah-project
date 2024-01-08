@@ -34,7 +34,7 @@ const Navbar = () => {
 
     return (
         <div
-            className=" w-full  h-fit px-20 py-5 flex flex-row bg-white rounded-b-xl border-b  justify-between items-center">
+            className=" w-full  h-fit px-20 py-5 flex flex-row bg-[#FAFAFA] rounded-b-xl border-b  justify-between items-center">
             {account && (
                 <Modal
                     visible={account}
@@ -44,7 +44,7 @@ const Navbar = () => {
                     <Login/>
                 </Modal>
             )}
-            <div className=" cursor-pointer items-center flex">
+            <div onClick={()=>{router.push("/")}} className=" cursor-pointer items-center flex">
                 {/* Logo on the left */}
                 <motion.div className="NavbarBrand" whileHover={{scale: 1.1}}>
                     <Image src={"/Images/minah_logo.svg"} alt={"logo"} width={100} height={50}/>
@@ -73,7 +73,7 @@ const Navbar = () => {
                         <Avatar className={"bordered"} onClick={() => {
                             router.push("/Profile")
                         }} src={"/Images/facebook.png"} size={40}/>
-                        <div className={"text-sm"}>
+                        <div className={"text-sm gradientText"}>
                             {localStorage.getItem("user").substring(0, 10)}
                         </div>
                     </div> : <motion.div className="NavbarLink w-fit h-fit ">

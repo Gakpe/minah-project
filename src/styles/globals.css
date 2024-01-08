@@ -18,37 +18,176 @@
 
 
 .gradiented {
-    background: linear-gradient(to right , #B6473B, #C3685E, #E27B30, rgba(223, 199, 76, 0.72)) padding-box,
-    linear-gradient(60deg,  #DFC74C,  #DFC74C) border-box;
+    background: linear-gradient(to right, #B6473B, #C3685E, #E27B30, rgba(223, 199, 76, 0.72)) padding-box,
+    linear-gradient(60deg, #DFC74C, #DFC74C) border-box;
     color: #B6473B;
     padding: 20px 70px;
     border: 1px solid transparent;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+
     display: inline-block;
     font-size: 28px;
 }
-.bordered{
-    border: 2px solid var(--linear-1, #B6473B);
+
+.backgroundGradient {
+    background: linear-gradient(to right, #B6473B, #C3685E, #E27B30, rgba(223, 199, 76, 0.72)) padding-box,
+    linear-gradient(60deg, #DFC74C, #DFC74C) border-box;
+    color: #B6473B;
+
+    border: 1px solid transparent;
+
+    display: inline-block;
+
 }
-.backgroundImages{
+
+.gradientText {
+    background: linear-gradient(to right, #B6473B, #C3685E, #E27B30, rgba(223, 199, 76, 0.72)) padding-box,
+    linear-gradient(60deg, #DFC74C, #DFC74C) border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bordered {
+    border: 3px solid var(--linear-1, #B6473B);
+}
+
+.backgroundImages {
     background-image: url("/Images/LogoMinahBg.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-.backgroundColored{
+
+.backgroundColored {
     background-image: url("/Images/BackgroundColored.svg");
     background-position: center;
     background-size: cover;
 }
-.backk{
+
+.backk {
     background-image: url("/Images/backs.svg");
     background-position: center;
     background-size: cover;
 }
 
+.backgroundedImage {
+    padding: 0;
+    background-image: url("/Images/ProjectBackground.svg");
+    background-position: right;
 
+    background-repeat: no-repeat;
+    /*background: #B6473B !important;*/
+}
 
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    /*padding: 50px;*/
+    background: url('/Images/backgroundImages.svg') no-repeat right;
+    /* Adjust the percentage as needed */
 
-/* Add this CSS to your global styles or a specific component stylesheet */
+    /* changed to 'contain' to ensure the background fits the content */
+    color: #000;
 
+    /*box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);*/
+    border-radius: 20px;
+    text-align: center;
+    max-width: 100%; /* ensures the card does not exceed the width of the viewport */
+    overflow: hidden;
+}
+
+.title-section {
+    cursor: pointer;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: bold;
+    color: #E57C30; /* Replace with the actual color code from the image */
+}
+
+.description {
+    font-size: 16px;
+    width: 50%; /* adjust width as necessary */
+    margin: 0 auto; /* centers the paragraph */
+}
+
+.icon-section {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.icon {
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.invest-button {
+    background: #C06014; /* Replace with the actual button color code */
+    border-color: #C06014; /* Replace with the actual button color code */
+    color: #fff;
+    font-weight: bold;
+    border-radius: 20px; /* Gives the button rounded corners */
+}
+
+.explore-link {
+    /*background: #C06014; !* Replace with the actual button color code *!*/
+    border-color: #C06014; /* Replace with the actual button color code */
+    /*color: #fff;*/
+    font-weight: bold;
+    border-radius: 20px; /* Gives the button rounded corners */
+}
+
+/* Add media queries to adjust the layout on different screen sizes */
+@media (max-width: 768px) {
+    .description {
+        width: 80%;
+    }
+
+    .icon-section {
+        gap: 10px;
+    }
+
+    .icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/*.ant-tabs-nav {*/
+/*    background-color:#C06014 ; !* Change to your desired background color *!*/
+/*}*/
+
+.ant-tabs-tab {
+    color: #000000 !important;
+    font-weight: bolder /* Change to your desired inactive tab text color */;
+    font-size: 18px !important;
+}
+
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #C06014 !important; /* Change to your desired active tab text color */
+    font-size: 18px !important;
+}
+
+.ant-tabs-ink-bar {
+    background: linear-gradient(to right, #B6473B, #C3685E, #E27B30, #E1973B) padding-box !important;
+
+}
+.ant-progress-bg{
+    background: linear-gradient(to right, #B6473B, #C3685E, #E27B30, #E1973B) padding-box !important;
+}
