@@ -1,4 +1,5 @@
-const url = "https://hammadayub34.pagekite.me/"
+// const url = "https://hammadayub34.pagekite.me/"
+const url = "http://localhost:8080"
 const herokuUrl = "https://test-minah-6b1a807102f0.herokuapp.com/"
 
 export async function postToken(token) {
@@ -12,7 +13,9 @@ export async function postToken(token) {
         redirect: "follow",
     };
     try {
-        const response = await fetch(url + "user/login", requestOptions);
+
+        const response = await fetch(herokuUrl + "user/login", requestOptions);
+        console.log(url)
         const result = await response.text();
 
         return {
@@ -26,14 +29,14 @@ export async function postToken(token) {
     }
 }
 
-export async function updateProfile(formData) {
+export async function updateProfile(formData,issuer) {
     var requestOptions = {
         method: "PUT", // headers: {
         body: formData,
         redirect: "follow",
     };
     try {
-        const response = await fetch(url + "user/update", requestOptions);
+        const response = await fetch(herokuUrl + `user/${issuer}`, requestOptions);
         const result = await response.text();
 
         return {
@@ -55,7 +58,7 @@ export async function deleteProfile(formData) {
         redirect: "follow",
     };
     try {
-        const response = await fetch(url + `user/delete/${formData}`, requestOptions);
+        const response = await fetch(herokuUrl + `user/delete/${formData}`, requestOptions);
         const result = await response.text();
 
         return {
@@ -71,27 +74,3 @@ export async function deleteProfile(formData) {
 
 }
 
-export async function getVaults() {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("X-API-Key", "150eabf3-56cd-446b-b45f-6a71d94f202c");
-
-    var raw = JSON.stringify({
-        "name": "<string>",
-        "hiddenOnUI": false,
-        "customerRefId": "<string>",
-        "autoFuel": true
-    });
-
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-    };
-
-    fetch("http://sandbox.fireblocks.io/v2/vault/accounts", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-}

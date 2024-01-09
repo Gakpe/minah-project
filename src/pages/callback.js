@@ -22,6 +22,7 @@ const Callback = () => {
         try {
             let result = await magic.oauth.getRedirectResult();
             console.log("here is result :", result)
+            localStorage.setItem('userInfo', JSON.stringify(result.oauth.userInfo))
             localStorage.setItem('didToken', result.magic.idToken);
             authenticateWithServer(result.magic.idToken);
         } catch (error) {
@@ -53,6 +54,7 @@ const Callback = () => {
             });
 
             if (res.status === 200) {
+                console.log("here is response in return :", await res.json())
                 let userMetadata = await magic.user.getMetadata();
                 console.log("here is user metadata :", userMetadata)
                 localStorage.setItem('user', userMetadata.publicAddress);

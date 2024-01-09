@@ -19,10 +19,10 @@ const ProjectOverview = () => {
 
     return (
         <div
-            className={"flex flex-row  justify-between items-center  w-full h-full p-10 rounded-md bg-[#FAFAFA] drop-shadow-lg project-card"}>
+            className={"flex flex-row  justify-between items-center  w-full h-full px-10 py-32  bg-[#FAFAFA] drop-shadow-lg project-card-detail"}>
             <div className={"flex flex-col gap-3 w-1/2 h-full  "}>
 
-                <div className={"font-bold w-full  text-start text-5xl font-extrabold"}><span
+                <div className={" w-full  text-start text-5xl font-extrabold"}><span
                     className={"text-textOrange font-extrabold"}>Project</span> title 1
                 </div>
                 <p className={"text-start"}>Target: 100’000 MNH + Progress bar</p>

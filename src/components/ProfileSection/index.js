@@ -3,7 +3,7 @@ import {Avatar} from "antd";
 import {useRouter} from "next/router";
 import {CheckOutlined} from "@ant-design/icons";
 
-const ProfileSection = ({verified}) => {
+const ProfileSection = ({verified, userInfo}) => {
     const router = useRouter();
     const handleLogout = async () => {
         if (typeof window !== "undefined") {
@@ -16,15 +16,10 @@ const ProfileSection = ({verified}) => {
             <div
                 className="flex flex-col  items-center justify-between pt-5 px-5  gap-14 bg-[#FAFAFA] shadow-xl rounded-lg drop-shadow-xl w-full max-h-profileSection">
                 <div className="flex flex-col px-4 items-center w-full justify-center gap-3">
-                    <Avatar
-                        alt="avatar"
-                        width={100}
-                        height={100}
-                        className="shadow-xl bordered rounded-full"
-                        src="/Images/facebook.png"
-                        size={130}
-                    />
-                    <div className="font-bold w-full">Name surname</div>
+                    <Avatar className={"bordered"} onClick={() => {
+                        router.push("/Profile")
+                    }} src={userInfo? userInfo.picture:"/Images/avatar.svg"} size={130}/>
+                    <div className="font-bold w-full">{userInfo.name}</div>
                     <div className="text-sm w-full">0xx9xxxx</div>
                     <div className="text-sm italic w-full">Joined on xx/xx/xxxx</div>
                     {verified ? (

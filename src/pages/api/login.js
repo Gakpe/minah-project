@@ -12,8 +12,9 @@ export default async function login(req, res) {
             req.headers.authorization,
         );
         console.log("here is did token :", didToken)
-        postToken(didToken).then((res) => {
-            console.log(res)
+        postToken(didToken).then((response) => {
+            res.status(200).json({data: response});
+            console.log("here is the response from the server",response)
         }).catch((err) => {
                 console.log(err)
             }

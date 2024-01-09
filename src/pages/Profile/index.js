@@ -3,8 +3,18 @@ import ProjectSection from "@/components/ProjectSection";
 import BalanceSection from "@/components/BalanceSection";
 import ContactUs from "@/components/ContactUs";
 import MainLayout, {getLayout} from "@/layouts/MainLayout";
+import {useEffect, useState} from "react";
 
 const Home = () => {
+    const [userInfo, setUserInfo] = useState(null);
+    useEffect(
+        () => {
+
+            if(localStorage.getItem("userInfo")){
+                setUserInfo(JSON.parse(localStorage.getItem("userInfo")))
+            }
+        }
+    )
     const projectData = [{
         id: 1,
         imageUrl: "/Images/facebook.png",
@@ -26,7 +36,7 @@ const Home = () => {
         <div className={"flex flex-col items-center justify-center py-20 gap-8 w-full h-full "}>
             <div className={"flex flex-row w-full px-20 items-center justify-center gap-10 h-full"}>
                 <div className={"w-1/6 h-full"}>
-                    <ProfileSection verified={true}/>
+                    <ProfileSection userInfo={userInfo} verified={true}/>
                 </div>
                 <div className={"w-1/2 h-full"}>
                     <ProjectSection project={projectData}/>
