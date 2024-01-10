@@ -10,6 +10,7 @@ const ProjectSelection = () => {
         setSelectedProject(e.target.value);
     };
     const [clicked, setClicked] = useState(false);
+    const [active, setActive] = useState(false);
     return (
         <div className={"flex flex-col gap-5 items-center justify-center w-full h-full"}>
             <div className={"flex text-center flex-col items-center justify-center w-full h-full gap-5"}>
@@ -19,12 +20,12 @@ const ProjectSelection = () => {
                 </div>
 
                 <div className="flex flex-col items-center gap-3 w-full h-full">
-                    <Button
-                        className={"w-1/2 text-textOrange font-bold  rounded-lg hover:border-textOrange border  drop-shadow-2xl "}
+                    <Button onClick={()=>{setActive(true)}}
+                        className={`w-1/2 text-textOrange font-bold ${active&& "border-2  border-textOrange"}  rounded-lg hover:border-textOrange border  drop-shadow-2xl `}
                         size={"large"}>
                         {"Project 01"}
                     </Button>
-                    <Button
+                    <Button disabled={true}
                         className={"w-1/2 text-textOrange font-bold rounded-lg border hover:border-textOrange drop-shadow-2xl "}
                         size={"large"}>
                         {"Project 02"}

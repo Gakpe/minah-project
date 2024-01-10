@@ -29,7 +29,7 @@ export async function postToken(token) {
     }
 }
 
-export async function updateProfile(formData,issuer) {
+export async function updateProfile(formData, issuer) {
     var requestOptions = {
         method: "PUT", // headers: {
         body: formData,
@@ -37,7 +37,7 @@ export async function updateProfile(formData,issuer) {
     };
     try {
         const response = await fetch(herokuUrl + `user/${issuer}`, requestOptions);
-        const result = await response.text();
+        const result = await response.json();
 
         return {
             responseCode: response.status, result: result,
@@ -50,6 +50,26 @@ export async function updateProfile(formData,issuer) {
     }
 
 
+}
+
+export async function getProjects() {
+    var requestOptions = {
+        method: "GET", // headers: {
+        redirect: "follow",
+    };
+    try {
+        const response = await fetch(herokuUrl + "project", requestOptions);
+        const result = await response.json();
+
+        return {
+            responseCode: response.status, result: result,
+        };
+    } catch (error) {
+
+        return {
+            responseCode: null, result: null, error: error,
+        };
+    }
 }
 
 export async function deleteProfile(formData) {
@@ -72,5 +92,35 @@ export async function deleteProfile(formData) {
     }
 
 
+}
+
+export async function postInvestment(investedAmount, userId) {
+    const JSONBody = JSON.stringify({
+        "investAmount": investedAmount,
+    });
+    var requestOptions = {
+        method: "POST", // headers: {
+        body: JSONBody,
+        headers: {
+            "Content-Type": "application/json",
+        },
+
+
+
+        redirect: "follow",
+    };
+    try {
+        const response = await fetch(herokuUrl + `project/investAmount/${userId}`, requestOptions);
+        const result = await response.json();
+
+        return {
+            responseCode: response.status, result: result,
+        };
+    } catch (error) {
+
+        return {
+            responseCode: null, result: null, error: error,
+        };
+    }
 }
 

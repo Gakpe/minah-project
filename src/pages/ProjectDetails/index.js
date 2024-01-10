@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import MainLayout from "@/layouts/MainLayout";
 import ProjectOverview from "@/components/ProjectComponents/ProjectOverview";
 import ProjectTabsSection from "@/components/ProjectComponents/ProjectTabsSection";
@@ -13,7 +13,10 @@ const ProjectDetails = () => {
     const [account, setAccount] = React.useState(null);
     const router = useRouter();
     const [clicked, setClicked] = React.useState(false);
+    const [projectDetails, setProjectDetails] = React.useState();
     const [isLogin, setIsLogin] = React.useState(false);
+    const [userInfo, setUserInfo] = useState(null);
+
     // const handleLogout = async () => {
     //     await magic.user.logout();
     //     setAccount(null);
@@ -28,8 +31,15 @@ const ProjectDetails = () => {
             if (localStorage.getItem("didToken")) {
                 setIsLogin(true)
             }
+            if(localStorage.getItem("userInfo")){
+                setUserInfo(JSON.parse(localStorage.getItem("userInfo")))
+            }
+            if(localStorage.getItem("projectDetails")){
+                setProjectDetails(JSON.parse(localStorage.getItem("projectDetails")))
+            }
         }
-    })
+    },[])
+    const percent = projectDetails?.totalAmountInvested >= 40000 ? 100 : (projectDetails?.totalAmountInvested / 40000) * 100;
     return (
 
         <MainLayout>
@@ -60,9 +70,13 @@ const ProjectDetails = () => {
                         {isLogin ?
                             <div className={"flex w-full  flex-col p-5 gap-4 bg-[#FAFAFA] drop-shadow-lg rounded-md "}>
                                 <div className={"flex w-full flex-row gap-4 items-center"}>
-                                    <Avatar className={"bordered"} src={"/Images/facebook.png"}/>
-                                    <p className={"w-3/5"}>You already invested
-                                        4’ 000$ in this project</p>
+                                    <Avatar className={"bordered"} onClick={() => {
+                                        router.push("/Profile")
+                                    }} src={userInfo?.picture?.data
+                                        ? `data:image/svg+xml;base64,${userInfo.picture.data}`
+                                        : userInfo?.picture
+                                    } size={40}/>
+                                    <p className={"w-3/5"}>You already invested {projectDetails?.totalAmountInvested}$ in this project</p>
 
                                 </div>
                                 <div className={"text-textOrange text-xl font-extrabold"}><span
@@ -70,7 +84,7 @@ const ProjectDetails = () => {
                                     ($ 40’000.00)
                                 </div>
                                 <p className={"text-sm text-gray-600 tracking-widest"}>Min/Max amount</p>
-                                <Progress className={""} percent={100}/>
+                                <Progress  percent={percent}/>
 
                                 <Button onClick={handleLogout}
                                         className={" h-11 w-4/5 text-white backgroundGradient rounded-full"}>Invest in

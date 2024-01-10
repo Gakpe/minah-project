@@ -26,7 +26,7 @@ const Navbar = () => {
             if(localStorage.getItem("userInfo")){
                 setUserInfo(JSON.parse(localStorage.getItem("userInfo")))
             }
-        }
+        }, []
     )
     const handleLogin = async () => {
         setAccount(true);
@@ -76,7 +76,10 @@ const Navbar = () => {
                     <div className={"flex flex-row items-center hover:underline justify-center gap-3"}>
                         <Avatar className={"bordered"} onClick={() => {
                             router.push("/Profile")
-                        }} src={userInfo? userInfo.picture:"/Images/avatar.svg"} size={40}/>
+                        }} src={userInfo?.picture?.data
+                            ? `data:image/svg+xml;base64,${userInfo.picture.data}`
+                            : userInfo?.picture
+                        } size={40}/>
                         <div className={"text-sm gradientText"}>
                             {localStorage.getItem("user").substring(0, 10)}
                         </div>

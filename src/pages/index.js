@@ -6,6 +6,7 @@ import AboutMinah from "@/components/AboutUs/AboutMinah";
 import ContactUs from "@/components/ContactUs";
 import Image from "next/image";
 import {Button} from "antd";
+import {useEffect} from "react";
 
 const Home = () => {
     const items = [{
@@ -36,6 +37,14 @@ const Home = () => {
         viewDetailsText: "View project details",
     }, // Add more project data as needed
     ];
+    useEffect(()=>{
+        if(typeof window !==undefined){
+           const test =  localStorage.getItem("userMetaData")
+            if(test){
+                console.log(JSON.parse(test))
+            }
+        }
+    },[])
 
     return (<MainLayout>
         <title>Minah | Home</title>

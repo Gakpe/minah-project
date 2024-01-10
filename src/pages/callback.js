@@ -54,9 +54,12 @@ const Callback = () => {
             });
 
             if (res.status === 200) {
-                console.log("here is response in return :", await res.json())
+                // console.log("here is response in return :", await res.json())
+                const data = await res.json();
+                localStorage.setItem('userMetaData', data.result);
                 let userMetadata = await magic.user.getMetadata();
                 console.log("here is user metadata :", userMetadata)
+                // localStorage.setItem('userMetaInfo', JSON.stringify(userMetadata))
                 localStorage.setItem('user', userMetadata.publicAddress);
                 await setUser(userMetadata);
                 Router.push('/');

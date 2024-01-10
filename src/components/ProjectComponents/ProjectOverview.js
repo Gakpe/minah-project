@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Button, Modal} from "antd";
 import Login from "@/pages/Login";
+import InvestmentJourney from "@/components/InvestmentJourney";
 
 const ProjectOverview = () => {
     const [account, setAccount] = useState(false);
@@ -46,17 +47,10 @@ const ProjectOverview = () => {
             </div>
 
 
-            <Modal
-                closable={true}
-                open={account}
-
-                maskClosable={true}
-                className="fixed top-0 left-0 w-full z-50 h-full flex items-center justify-center bg-black bg-opacity-50"
-                onCancel={() => {
-                    setAccount(false)
-                }}
-            >
-                <Login/>
+            <Modal className={"w-3/6 h-full "} rootClassName={"bg-[#FAFAFA]"} open={account} footer={null} onCancel={() => {
+                setAccount(false)
+            }}>
+                <InvestmentJourney/>
             </Modal>
 
         </div>

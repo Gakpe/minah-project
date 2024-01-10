@@ -7,21 +7,22 @@ let mAdmin = new Magic(process.env.MAGIC_SECRET_KEY);
 
 export default async function login(req, res) {
     try {
+
         // Grab the DID token from our headers and parse it
         const didToken = mAdmin.utils.parseAuthorizationHeader(
             req.headers.authorization,
         );
         console.log("here is did token :", didToken)
         postToken(didToken).then((response) => {
-            res.status(200).json({data: response});
+            res.status(200).json(response);
             console.log("here is the response from the server",response)
         }).catch((err) => {
                 console.log(err)
             }
         )
         // Validate the token and send back a successful response
-        await mAdmin.token.validate(didToken);
-        res.status(200).json({data: didToken});
+        // await mAdmin.token.validate(didToken);
+        // res.status(200).json({data: didToken});
     } catch (error) {
         console.log("here is error :", error)
         res.status(500).json({error: error.message});

@@ -26,6 +26,15 @@
 
     display: inline-block;
     font-size: 28px;
+}.gradientedBackground {
+    background: linear-gradient(to right, #B6473B, #C3685E, #E27B30, rgba(223, 199, 76, 0.72)) padding-box,
+    linear-gradient(60deg, #DFC74C, #DFC74C) border-box;
+    color: #B6473B;
+
+    border: 1px solid transparent;
+
+    display: inline-block;
+    font-size: 28px;
 }
 
 .backgroundGradient {
@@ -209,4 +218,18 @@
 }
 .ant-progress-bg{
     background: linear-gradient(to right, #B6473B, #C3685E, #E27B30, #E1973B) padding-box !important;
+}
+:where(.css-dev-only-do-not-override-pr0fja).ant-modal .ant-modal-content{
+    padding: 0px !important;
+}
+.ant-modal .ant-modal-content{
+    padding: 0 !important;
+    /*@apply rounded-lg !important;*/
+
+}
+.ant-input{
+    background: #FBF4F2 !important;
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+    @apply text-textOrange
 }
