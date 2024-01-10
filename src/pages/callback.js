@@ -56,6 +56,7 @@ const Callback = () => {
             if (res.status === 200) {
                 // console.log("here is response in return :", await res.json())
                 const data = await res.json();
+                console.log("here is data :", data)
                 localStorage.setItem('userMetaData', data.result);
                 let userMetadata = await magic.user.getMetadata();
                 console.log("here is user metadata :", userMetadata)

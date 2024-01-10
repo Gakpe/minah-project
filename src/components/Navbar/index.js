@@ -5,6 +5,7 @@ import {usePathname} from 'next/navigation';
 import Login from '@/pages/Login';
 import {Avatar, Modal} from "antd";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
     const router = useRouter();
@@ -41,7 +42,10 @@ const Navbar = () => {
             className=" w-full  h-fit px-20 py-5 flex flex-row bg-[#FAFAFA] rounded-b-xl border-b  justify-between items-center">
             {account && (
                 <Modal
-                    visible={account}
+                    onCancel={()=>{
+                        setAccount(false)
+                    }}
+                    open={account}
                     className=" h-fit flex  "
                     footer={[]}
                 >
@@ -58,9 +62,9 @@ const Navbar = () => {
                 {/* Menu items on the right */}
 
                 <motion.div className="NavbarLink">
-                    <div className="Litepaper text-black text-sm font-normal  leading-tight">
+                    <Link href={"https://minah-io.gitbook.io/minah-litepaper-collection/minah-litepaper/welcome-to-minah.io"} target={"_blank"} className="Litepaper text-black text-sm font-normal  leading-tight">
                         Litepaper
-                    </div>
+                    </Link>
                 </motion.div>
                 <motion.div className="NavbarLink">
                     <div className="AboutUs text-black text-sm font-normal  leading-tight">
@@ -68,9 +72,9 @@ const Navbar = () => {
                     </div>
                 </motion.div>
                 <motion.div className="NavbarLink ">
-                    <div className="JoinTheCommunity text-black text-sm font-normal  leading-tight">
+                    <Link href={"https://tally.so/r/nGK8Lo"} target={"_blank"} className="JoinTheCommunity text-black text-sm font-normal  leading-tight">
                         Join the community
-                    </div>
+                    </Link>
                 </motion.div>
                 {isLogin ?
                     <div className={"flex flex-row items-center hover:underline justify-center gap-3"}>

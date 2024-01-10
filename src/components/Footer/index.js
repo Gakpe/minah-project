@@ -1,5 +1,6 @@
 import {motion} from "framer-motion";
 import React from "react";
+import Link from "next/link";
 
 const Footer = () => {
     return (
@@ -32,21 +33,21 @@ const Footer = () => {
                     <div className="flex flex-col gap-3 h-full w-full ">
                         <div className="font-bold">Platform</div>
                         <div className=" flex flex-col h-full  gap-2">
-                            <div
+                            <Link href={"https://minah-io.gitbook.io/minah-litepaper-collection/more-details.../comment-ca-marche-en-bref"} target={"_blank"}
                                 className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">How
                                 does it
                                 work?
-                            </div>
-                            <div
+                            </Link>
+                            <Link href={"https://tally.so/r/nGK8Lo"} target={"_blank"}
                                 className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">You
                                 have a
                                 project
-                            </div>
-                            <div
+                            </Link>
+                            <Link href={"https://tally.so/r/nGK8Lo"} target={"_blank"}
                                 className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">You
                                 want to
                                 invest
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -34,6 +34,7 @@ const Home = () => {
     ];
 
     return (<MainLayout>
+        <title>Minah | Profile</title>
         <div className={"flex flex-col items-center justify-center py-20 gap-8 w-full h-full "}>
             <div className={"flex flex-row w-full px-20 items-center justify-center gap-10 h-full"}>
                 <div className={"w-1/6 h-full"}>

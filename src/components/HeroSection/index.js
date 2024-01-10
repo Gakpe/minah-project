@@ -2,6 +2,7 @@ import {Button, Modal} from "antd";
 import {useEffect, useState} from "react";
 import InvestmentJourney from "@/components/InvestmentJourney";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroSection = () => {
     const [user, setUser] = useState(false);
@@ -22,13 +23,17 @@ const HeroSection = () => {
                 </h1>
 
                 <div className={"flex flex-row items-center  justify-start gap-5 w-full h-full"}>
+                    {user ? <Link href={"https://tally.so/r/nGK8Lo"} target={"_blank"} className={"gradientedBackground text-lg px-3 py-2 h-fit w-fit hover:border-textOrange rounded-full text- text-white"}>Join the Community</Link> : <Button onClick={() => {
+
+                        setClicked(true)
+                    }} className={"gradiented hover:border-textOrange rounded-full px-3 py-2 h-fit w-fit text-white "}
+                                                              size={"large"}>
+                        {user ? "Join the Community" : "Connect to Invest"}
+                    </Button>}
                     <Button onClick={() => {
                         setClicked(true)
-                    }} className={"gradiented hover:border-textOrange rounded-full px-3 py-2 h-fit w-fit text-white "} size={"large"}>
-                        {user ? "Join the Community" : "Connect to Invest"}
-                    </Button><Button onClick={() => {
-                        setClicked(true)
-                    }} className={" bg-white border-textOrange  rounded-full px-3 py-2 h-fit w-fit gradientText "} size={"large"}>
+                    }} className={" bg-white border-textOrange  rounded-full px-3 py-2 h-fit w-fit gradientText "}
+                            size={"large"}>
                         {user ? "Discover the universe" : "Connect to Invest"}
                     </Button>
                 </div>

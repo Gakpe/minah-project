@@ -8,8 +8,7 @@ const BalanceSection = () => {
 
         if (typeof window !== "undefined") {
             const beforeParsing = JSON.parse(localStorage.getItem("userMetaData"))
-            const afterParsing = JSON.parse(beforeParsing.result)
-            setUserInfo(afterParsing.user)
+            setUserInfo(beforeParsing.user)
 
         }
     }, []);

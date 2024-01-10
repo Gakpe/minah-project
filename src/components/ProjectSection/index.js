@@ -20,8 +20,8 @@ const ProjectSection = ({project}) => {
         )
         if (typeof window !== "undefined") {
             const beforeParsing = JSON.parse(localStorage.getItem("userMetaData"))
-            const afterParsing = JSON.parse(beforeParsing.result)
-            setUserInfo(afterParsing.user)
+            console.log("here is before parsing :", beforeParsing)
+            setUserInfo(beforeParsing.user)
 
         }
     }, []);
@@ -57,7 +57,7 @@ const ProjectSection = ({project}) => {
                             </div>
                             <div className={"flex  overflow-y-scroll py-5 w-full  flex-col items-center justify-center gap-2"}>
                                 {userInfo?.amountInvested.map((investment, index) => (
-                                    <div className={"flex flex-row w-full h-full  items-center justify-start gap-2 "}>
+                                    <div key={index} className={"flex flex-row w-full h-full  items-center justify-start gap-2 "}>
                                         <Avatar src={"/Images/circle.svg"} size={20}/>
 
                                     <p key={index} className={"text-xs font-bold"}>Amount Invested ${investment.amount} <span className={"font-normal italic"}>on {moment(investment.timestamp).format("DD/MM/YY")}</span></p>

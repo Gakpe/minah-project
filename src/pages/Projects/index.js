@@ -5,6 +5,8 @@ import {useRouter} from "next/router";
 import {Breadcrumb} from "antd";
 import {useEffect, useState} from "react";
 import {getProjects} from "../../../util";
+import {RightOutlined} from "@ant-design/icons";
+import Link from "next/link";
 
 const Projects = () => {
     const router = useRouter()
@@ -26,10 +28,17 @@ const Projects = () => {
         <MainLayout>
             <title>Minah | Projects</title>
             <div className={"flex flex-col py-8 sm:py-12 lg:py-20 gap-5 lg:px-4 sm:px-8 md:px-12 px-40 w-full"}>
-                <Breadcrumb>
-                    <Breadcrumb.Item onClick={() => router.push("/")}>Home</Breadcrumb.Item>
-                    <Breadcrumb.Item>Projects</Breadcrumb.Item>
-                    {/*<Breadcrumb.Item>Project Title 01</Breadcrumb.Item>*/}
+                <Breadcrumb separator={<RightOutlined/>} className={"w-full"}>
+                    <Breadcrumb.Item className={"text-black"}>
+                        <Link className={"text-black font-extrabold"} href={"/"}>Home</Link>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item className={"text-black"}>
+                        <Link className={"text-textOrange font-extrabold"} href={"/Projects"}>Projects</Link>
+                    </Breadcrumb.Item>
+                    {/*<Breadcrumb.Item className={"text-textOrange"}>*/}
+                    {/*    <Link className={"text-textOrange font-extrabold"} href={"/Projects/ProjectDetails"}>Project*/}
+                    {/*        Title 01</Link>*/}
+                    {/*</Breadcrumb.Item>*/}
                 </Breadcrumb>
                 {projects&& projects.map(
                     (project) => {

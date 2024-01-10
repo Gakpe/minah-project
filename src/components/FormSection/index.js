@@ -98,7 +98,7 @@ const App = () => {
 
         console.log(formDataToSend);
         updateProfile(formDataToSend, user?.issuer).then((res) => {
-                console.log("here is res :", res)
+                console.log("here is res from the server :", res)
                 if (res.responseCode === 200) {
                     localStorage.setItem("userInfo", JSON.stringify(res.result.user))
                     setUserInfo(res.result.user)
@@ -220,7 +220,7 @@ const App = () => {
                 router.push("/Profile")
 
             }} footer={null}>
-                <Success/>
+                <Success />
             </Modal>
             <Modal  open={error} onCancel={()=>{
                 setError(false)

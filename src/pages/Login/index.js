@@ -49,10 +49,14 @@ const Login = () => {
     }
 
     return (
-        <div className='flex flex-col items-center justify-center  w-fit h-fit py-3 px-3'>
-            <div className='flex flex-col gap-5 items-center justify-center w-full h-full'>
-                <EmailForm disabled={disabled} onEmailSubmit={handleLoginWithEmail} />
-                <SocialLogins onSubmit={handleLoginWithSocial} />
+        <div className={"flex flex-col items-center justify-center  w-fit h-fit "}>
+            <div className={"h-6 gradientedBackground rounded-t-lg w-full text-transparent"}>hello</div>
+
+            <div className='flex flex-col items-center justify-center p-10 w-fit h-fit '>
+                <div className='flex flex-col gap-5 items-center justify-center  w-full h-full'>
+                    <EmailForm disabled={disabled} onEmailSubmit={handleLoginWithEmail}/>
+                    <SocialLogins onSubmit={handleLoginWithSocial}/>
+                </div>
             </div>
         </div>
     );

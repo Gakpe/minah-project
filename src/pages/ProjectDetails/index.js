@@ -86,7 +86,7 @@ const ProjectDetails = () => {
                                 <p className={"text-sm text-gray-600 tracking-widest"}>Min/Max amount</p>
                                 <Progress  percent={percent}/>
 
-                                <Button onClick={handleLogout}
+                                <Button disabled={projectDetails?.totalAmountInvest===40000} onClick={handleLogout}
                                         className={" h-11 w-4/5 text-white backgroundGradient rounded-full"}>Invest in
                                     this
                                     Project</Button>

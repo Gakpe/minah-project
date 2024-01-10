@@ -12,12 +12,12 @@ const EmailForm = ({ onEmailSubmit, disabled }) => {
     return (
         <div>
             <form onSubmit={handleSubmit} className='flex flex-col gap-4 items-center'>
-                <h3 className='form-header text-xl'>Login</h3>
+                <h3 className='form-header text-textOrange text-3xl font-semibold'>Login</h3>
                 <div className='input-wrapper w-80 mb-4'>
 
                     <Input
 
-                        rootClassName={"border-primary rounded-md"}
+                        rootClassName={"border-textOrange border rounded-2xl bg-[#FBF4F2] h-11 w-full"}
                         placeholder='Enter your email'
                         size='small'
                         type='email'
@@ -26,8 +26,8 @@ const EmailForm = ({ onEmailSubmit, disabled }) => {
                     />
                 </div>
                 <Button
-                    className={"w-full bg-button_border rounded-md py-3 px-3 h-fit"}
-                    type='primary'
+                    className={"w-full gradientedBackground hover:border-textOrange hover:scale-105 text-white rounded-full py-3 px-3 h-fit"}
+
                     size='small'
                     disabled={disabled}
                     onClick={handleSubmit}

@@ -209,7 +209,7 @@
 
 .ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     color: #C06014 !important; /* Change to your desired active tab text color */
-    font-size: 18px !important;
+    font-size: 30px !important;
 }
 
 .ant-tabs-ink-bar {
