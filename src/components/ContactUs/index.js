@@ -5,7 +5,7 @@ const ContactUs = ({title, button}) => {
 
     return (
         <div
-            className={"flex backk flex-col items-center gap-3 justify-end w-full rounded-md h-contactSection min-h-fit pb-10 px-10 max-h-contactSection bg-primary"}>
+            className={"flex backk flex-col  items-center gap-3 justify-end w-full rounded-md h-contactSection  pb-10 px-10 max-h-contactSection "}>
             <div className={"font-medium text-white text-lg"}>{title ? title : ""}</div>
             <Button onClick={() => {
 

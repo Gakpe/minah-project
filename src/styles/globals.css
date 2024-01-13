@@ -71,9 +71,22 @@
     background-position: center;
     background-size: cover;
 }
+.bgVectored{
+    background-image: url("/Images/bgVectors.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
+}
+.bgGradient{
+    background: linear-gradient(90deg, #B6473B -54.29%, #C3685E 21.82%, #E27B30 75.1%, #DFC74C 132.72%);
+
+}.bgGradientt{
+     background: linear-gradient(98.73deg, #B6473B -53.12%, #C3685E 18.72%, #E27B30 69%, #DFC74C 123.4%);
+
+}
 .backk {
-    background-image: url("/Images/backs.svg");
+    background-image: url("/Images/contactBg.svg");
     background-position: center;
     background-size: cover;
 }

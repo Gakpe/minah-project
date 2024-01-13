@@ -4,12 +4,9 @@ import Link from "next/link";
 
 const Footer = () => {
     return (
-        <div className={"flex flex-col items-center justify-center w-full h-fit px-6 py-10 bg-transparent"}>
-            <p className={"text-lg"}>Lorem Ipsum</p>
-            <p className={"text-xs text-button_border"}>Lorem Ipsum</p>
-
+        <div className={"flex flex-col items-center justify-center w-full h-fit px-6 py-10 bg-white"}>
             <div
-                className="Footer w-full h-fit  py-10 px-5  rounded-t-2xl flex-row justify-between items-center gap-5 inline-flex ">
+                className="Footer w-full h-fit  py-10 px-5  flex-row justify-evenly items-center gap-5 inline-flex ">
                 <div className="LogoWrapper   py-1 flex justify-start items-start">
                     <div className="Logo grow self-stretch justify-center items-center flex">
                         <div className="Copyright  flex flex-col justify-center items-center gap-8">
@@ -29,22 +26,24 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="Column h-full flex-col justify-start items-start gap-6">
+                <div className="Column  h-full flex-col justify-start items-start gap-6">
                     <div className="flex flex-col gap-3 h-full w-full ">
                         <div className="font-bold">Platform</div>
                         <div className=" flex flex-col h-full  gap-2">
-                            <Link href={"https://minah-io.gitbook.io/minah-litepaper-collection/more-details.../comment-ca-marche-en-bref"} target={"_blank"}
+                            <Link
+                                href={"https://minah-io.gitbook.io/minah-litepaper-collection/more-details.../comment-ca-marche-en-bref"}
+                                target={"_blank"}
                                 className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">How
                                 does it
                                 work?
                             </Link>
                             <Link href={"https://tally.so/r/nGK8Lo"} target={"_blank"}
-                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">You
+                                  className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">You
                                 have a
                                 project
                             </Link>
                             <Link href={"https://tally.so/r/nGK8Lo"} target={"_blank"}
-                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">You
+                                  className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">You
                                 want to
                                 invest
                             </Link>
@@ -80,6 +79,31 @@ const Footer = () => {
                             <div
                                 className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">Community
                             </div>
+                            {/*<div className="Link  text-black text-sm font-normal font-inter leading-tight">You want to invest</div>*/}
+                        </div>
+                    </div>
+                </div>
+                <div className="Column h-full flex-col justify-start items-start gap-6">
+                    <div className="flex flex-col gap-3 h-full w-full ">
+                        <div className="font-bold">Help</div>
+                        <div className=" flex flex-col h-full  gap-2">
+                            <div
+                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">Support
+                            </div>
+
+                            {/*<div className="Link  text-black text-sm font-normal font-inter leading-tight">You want to invest</div>*/}
+                        </div>
+                    </div>
+                </div>
+                <div className="Column h-full flex-col justify-start items-start gap-6">
+                    <div className="flex flex-col gap-3 h-full w-full ">
+                        <div className="font-bold">Nos partenaires</div>
+                        <div className=" flex flex-col h-full  gap-2">
+                            <div
+                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">Lorem
+                                ipsum
+                            </div>
+
                             {/*<div className="Link  text-black text-sm font-normal font-inter leading-tight">You want to invest</div>*/}
                         </div>
                     </div>

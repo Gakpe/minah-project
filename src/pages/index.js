@@ -1,51 +1,108 @@
 import MainLayout, {getLayout} from "@/layouts/MainLayout";
 import HeroSection from "@/components/HeroSection";
-import FeatureSections from "@/components/FeatureSection";
 import AboutUs from "@/components/AboutUs";
-import AboutMinah from "@/components/AboutUs/AboutMinah";
 import ContactUs from "@/components/ContactUs";
 import Image from "next/image";
-import {Button} from "antd";
-import {useEffect} from "react";
+import {Button, Progress} from "antd";
+import {useEffect, useState} from "react";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
-    const items = [{
-        title: "Minah Project",
-        description: "Invest in high potential real estate projects located in Togo and West Africa"
-    }, {
-        title: "Minah Project",
-        description: "Invest in high potential real estate projects located in Togo and West Africa"
-    }, {
-        title: "Minah Project",
-        description: "Invest in high potential real estate projects located in Togo and West Africa"
-    }];
-
-
-    const projectData = [{
-        id: 1,
-        imageUrl: "/Images/facebook.png",
-        title: "Project title 1",
-        amountInvested: "$1,000.00",
-        investments: ["$500.00 on xx/xx/xxxx", "$500.00 on xx/xx/xxxx"],
-        viewDetailsText: "View project details",
-    }, {
-        id: 2,
-        imageUrl: "/Images/apple.png",
-        title: "Project title 2",
-        amountInvested: "$2,000.00",
-        investments: ["$1,000.00 on xx/xx/xxxx", "$1,000.00 on xx/xx/xxxx"],
-        viewDetailsText: "View project details",
-    }, // Add more project data as needed
-    ];
-    useEffect(()=>{
-        if(typeof window !==undefined){
-           const test =  localStorage.getItem("userMetaData")
-            if(test){
+    const [activeSlide, setActiveSlide] = useState(0);
+    useEffect(() => {
+        if (typeof window !== undefined) {
+            const test = localStorage.getItem("userMetaData")
+            if (test) {
                 console.log(JSON.parse(test))
             }
         }
-    },[])
-
+    }, [])
+    const settings = {
+        dots: true,
+        autoplay: true,
+        infinite: true,
+        // centerMode:true,
+        arrows: false,
+        slidesToShow: 3,
+        autoplaySpeed: 3000,
+        slidesToScroll: 1,
+        speed: 500,
+        cssEase: "linear",
+        appendDots: dots => (
+            <div>
+                <ul style={{margin: "0px"}}> {dots} </ul>
+            </div>
+        ),
+        customPaging: i => (
+            <div>
+                <Progress
+                    percent={i === activeSlide ? 100 : 0}
+                    showInfo={false}
+                />
+            </div>
+        ),
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+        ],
+        beforeChange: (current, next) => {
+            setActiveSlide(next);
+        },
+    };
+    const settings2 = {
+        dots: true,
+        autoplay: true,
+        infinite: true,
+        // centerMode:true,
+        arrows: false,
+        slidesToShow: 5,
+        autoplaySpeed: 3000,
+        slidesToScroll: 1,
+        speed: 500,
+        cssEase: "linear",
+        appendDots: dots => (
+            <div>
+                <ul style={{margin: "0px"}}> {dots} </ul>
+            </div>
+        ),
+        customPaging: i => (
+            <div>
+                <Progress
+                    percent={i === activeSlide ? 100 : 0}
+                    showInfo={false}
+                />
+            </div>
+        ),
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+        ],
+        beforeChange: (current, next) => {
+            setActiveSlide(next);
+        },
+    };
     return (<MainLayout>
         <title>Minah | Home</title>
         <div className={"flex flex-col items-center justify-center  gap-10 w-full h-full "}>
@@ -59,54 +116,133 @@ const Home = () => {
                 <p className={"w-full text-center"}>We aim to facilitate investment in sub-Saharan real estate and land
                     using
                     blockchain and in-depth local know-how.</p>
-                <div className={"flex flex-row items-center justify-center w-4/5 h-full gap-4"}>
-                    <FeatureSections title={"Minah Project"}
-                                     description={"Invest in high potential real estate projects located in Togo and West Africa"}/>
-                    <FeatureSections title={"Minah Project"}
-                                     description={"Invest in high potential real estate projects located in Togo and West Africa"}/>
-                    <FeatureSections title={"Minah Project"}
-                                     description={"Invest in high potential real estate projects located in Togo and West Africa"}/>
+                <Slider className="w-4/5 h-full center" {...settings}>
 
-                </div>
+                    <div className="flex flex-col w-full h-full items-center justify-center gap-7">
+                        <Image src="/Images/featureImage001.svg" className="w-4/5 h-4/5" alt="" width={100}
+                               height={100}/>
+                        <div className={"flex flex-col items-center justify-center gap-2"}>
+                            <h1 className={"font-bold text-xl"}>
+                                Land and real esate
+                            </h1>
+                            <p className={"text-center"}>
+                                Invest in high potential real estate projects located in Togo and West Africa
+                            </p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col w-full h-full items-center justify-center ">
+                        <Image src="/Images/featureImage002.svg" className="w-4/5 h-4/5" alt="" width={100}
+                               height={100}/>
+                        <div className={"flex flex-col items-center justify-center gap-2"}>
+                            <h1 className={"font-bold text-xl"}>
+                                Blockchain transparency
+                            </h1>
+                            <p className={"text-center"}>
+                                We use Blockchain to make the whole process transparent and keep you updated with
+                                any
+                                major events on the assets you invested in </p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col w-full h-full items-center justify-center gap-4">
+                        <Image src="/Images/featureImage003.svg" className="w-4/5 h-4/5" alt="" width={100}
+                               height={100}/>
+                        <div className={"flex flex-col items-center justify-center gap-2"}>
+                            <h1 className={"font-bold text-xl"}>
+                                Impact investment
+                            </h1>
+                            <p className={"text-center"}>
+                                Join a positive impact investors community dedicated to empower African projects
+                                step by step </p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col w-full h-full items-center justify-center gap-7">
+                        <Image src="/Images/featureImage001.svg" className="w-4/5 h-4/5" alt="" width={100}
+                               height={100}/>
+                        <div className={"flex flex-col items-center justify-center gap-2"}>
+                            <h1 className={"font-bold text-xl"}>
+                                Land and real esate
+                            </h1>
+                            <p className={"text-center"}>
+                                Invest in high potential real estate projects located in Togo and West Africa
+                            </p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col w-full h-full items-center justify-center ">
+                        <Image src="/Images/featureImage002.svg" className="w-4/5 h-4/5" alt="" width={100}
+                               height={100}/>
+                        <div className={"flex flex-col items-center justify-center gap-2"}>
+                            <h1 className={"font-bold text-xl"}>
+                                Blockchain transparency
+                            </h1>
+                            <p className={"text-center"}>
+                                We use Blockchain to make the whole process transparent and keep you updated with
+                                any
+                                major events on the assets you invested in </p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col w-full h-full items-center justify-center gap-4">
+                        <Image src="/Images/featureImage003.svg" className="w-4/5 h-4/5" alt="" width={100}
+                               height={100}/>
+                        <div className={"flex flex-col items-center justify-center gap-2"}>
+                            <h1 className={"font-bold text-xl"}>
+                                Impact investment
+                            </h1>
+                            <p className={"text-center"}>
+                                Join a positive impact investors community dedicated to empower African projects
+                                step by step </p>
+                        </div>
+                    </div>
+
+
+                </Slider>
             </div>
-            <div className={"flex flex-col gap-10 items-center justify-center w-full h-full "}>
-                <h1 className={"text-5xl text-black font-extrabold"}>
-                    <span className={"text-textOrange text-5xl"}>The</span> Concept
-                </h1>
-                <div className={"flex flex-row items-center w-4/5 justify-evenly  "}>
-                    <Image src={"/Images/dummyImage.svg"}
-                           className={"w-1/3 h-1/3 flex justify-end items-end drop-shadow-lg hover:scale-105 hover:duration-300 hover:transition-all"}
-                           alt={""}
-                           width={50} height={50}/>
-                    <div className={"flex w-1/2 flex-col gap-5"}>
-                        <p className={"text-justify"}>
-                            <p>
-                                Minah est un projet pionnier. Fondé par Hervé et Julien, deux frères franco-togolais,
-                                l`&apos;`objectif de Minah est de facilier l`&apos;`investissement en Afrique grâce à la technologie
-                                blockchain.
-                            </p>
-                            <br/>
-                            <p>
-                                Notre mission : financer des projets innovants qui stimulent le développement
-                                socio-économique en Afrique de l`&apos;`Ouest , de l`&apos;`immobilierl`&apos;`énergie renouvelable à
-                                l`&apos;`agriculture durable. Chez Minah.io, chaque transaction est sécurisée, transparente et
-                                efficace, réduisant les coûts et ouvrant des portes à de nouvelles possibilités
-                                d`&apos;`investissement. Nous sommes plus qu`&apos;`une plateforme ; nous sommes un mouvement vers un
-                                avenir où le progrès économique se conjugue avec le bien-être des communautés.
-                                Rejoignez-nous pour faire partie de cette révolution, où chaque investissement crée un
-                                impact positif durable, bâtissant pas à pas un avenir prospère pour l`&apos;`Afrique de
-                                l`&apos;`Ouest.
-                            </p>
-                        </p>
-                        <Button onClick={() => {
+            <div>
+                <div className={"flex flex-col gap-10  bgGradient items-center justify-center w-full h-full "}>
+                    <div className={"flex flex-col items-center  gap-10 justify-center w-full h-full p-32  bgVectored"}>
+                        <h1 className={"text-5xl text-white font-extrabold"}>
+                            <span className={"text-black text-5xl"}>The</span> Concept
+                        </h1>
+                        <div className={"flex flex-row items-center w-4/5 justify-evenly  "}>
+                            <Image src={"/Images/dummyImage.svg"}
+                                   className={"w-1/3 h-1/3 flex justify-end items-end drop-shadow-lg hover:scale-105 hover:duration-300 hover:transition-all"}
+                                   alt={""}
+                                   width={50} height={50}/>
+                            <div className={"flex w-1/2 flex-col gap-5"}>
+                                <p className={"text-justify text-white"}>
+                                    <p>
+                                        Minah est un projet pionnier. Fondé par Hervé et Julien, deux frères
+                                        franco-togolais,
+                                        l`&apos;`objectif de Minah est de facilier l`&apos;`investissement en Afrique
+                                        grâce à la
+                                        technologie
+                                        blockchain.
+                                    </p>
+                                    <br/>
+                                    <p>
+                                        Notre mission : financer des projets innovants qui stimulent le développement
+                                        socio-économique en Afrique de l`&apos;`Ouest , de
+                                        l`&apos;`immobilierl`&apos;`énergie
+                                        renouvelable à
+                                        l`&apos;`agriculture durable. Chez Minah.io, chaque transaction est sécurisée,
+                                        transparente et
+                                        efficace, réduisant les coûts et ouvrant des portes à de nouvelles possibilités
+                                        d`&apos;`investissement. Nous sommes plus qu`&apos;`une plateforme ; nous sommes
+                                        un
+                                        mouvement vers un
+                                        avenir où le progrès économique se conjugue avec le bien-être des communautés.
+                                        Rejoignez-nous pour faire partie de cette révolution, où chaque investissement
+                                        crée un
+                                        impact positif durable, bâtissant pas à pas un avenir prospère pour
+                                        l`&apos;`Afrique de
+                                        l`&apos;`Ouest.
+                                    </p>
+                                </p>
 
-                        }} className={"gradiented  rounded-full px-3 py-2 h-fit w-44 text-white "} size={"large"}>
-                            About Us
-                        </Button>
 
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
             <div
                 className={"flex flex-col items-center gap-5 rounded-lg shadow-2xl bg-[#FAFAFA] w-4/5 h-full justify-center"}>
@@ -140,13 +276,30 @@ const Home = () => {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                     ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 </p>
-                <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
-                    <AboutUs/>
-                    <AboutUs/>
-                    <AboutUs/>
-                    <AboutUs/>
-                    <AboutUs/>
-                </div>
+
+                <Slider {...settings2} className={"w-4/5 h-full "}>
+                    <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                        <AboutUs/>
+                    </div>
+                    <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                        <AboutUs/>
+                    </div>
+                    <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                        <AboutUs/>
+                    </div>
+                    <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                        <AboutUs/>
+                    </div> <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                        <AboutUs/>
+                    </div> <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                        <AboutUs/>
+                    </div> <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                        <AboutUs/>
+                    </div> <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                        <AboutUs/>
+                    </div>
+                </Slider>
+
 
             </div>
             {/*<div className={"flex flex-col justify-center items-center w-full h-full px-5  gap-3"}>*/}
