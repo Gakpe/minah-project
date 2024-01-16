@@ -39,7 +39,7 @@ const Navbar = () => {
 
     return (
         <div
-            className=" w-full  h-fit px-20 py-5 flex flex-row bg-[#FAFAFA] rounded-b-xl border-b  justify-between items-center">
+            className=" w-full NavbarMobile  h-fit px-20 py-5 flex flex-row bg-[#FAFAFA] rounded-b-xl border-b  justify-between items-center">
             {account && (
                 <Modal
                     onCancel={()=>{
@@ -58,7 +58,7 @@ const Navbar = () => {
                     <Image src={"/Images/minah_logo.svg"} alt={"logo"} width={100} height={50}/>
                 </motion.div>
             </div>
-            <div className="NavbarMenu cursor-pointer justify-end items-center gap-10 flex">
+            <div className="NavbarMenu  cursor-pointer justify-end items-center gap-10 flex">
                 {/* Menu items on the right */}
 
                 <motion.div className="NavbarLink">
@@ -99,7 +99,7 @@ const Navbar = () => {
                         onClick={() => {
                             router.push('/Projects');
                         }}
-                        className={`Projects text-black text-sm p-3 font-normal ${
+                        className={`ProjectsMobile text-black text-sm p-3 font-normal ${
                             isProjectActive
                                 ? 'gradiented rounded-full text-white  duration-150 transition-all '
                                 : 'gradiented rounded-full text-white  duration-150 transition-all '

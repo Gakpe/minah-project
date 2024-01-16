@@ -62,7 +62,7 @@
 .backgroundImages {
     background-image: url("/Images/LogoMinahBg.svg");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: right;
     background-size: cover;
 }
 
@@ -245,4 +245,75 @@
     padding-left: 3px !important;
     padding-right: 3px !important;
     @apply text-textOrange
+}
+@media (max-width: 768px) {
+    body {
+        width: 100vh !important;
+
+
+    }
+    .ProjectsMobile{
+        width: fit-content;
+        padding: 6px !important;
+        font-size: 10px !important;
+        text-align: center;
+    }
+
+   .NavbarMobile{
+       padding: 2px 5px !important;
+   }
+   .NavbarMenu{
+       gap: 10px !important;
+       width: 100% !important;
+   }
+    .LoginSignup{
+        padding: 0;
+        width: 20px;
+        height: 20px;
+    }
+    .HeroSection{
+        padding: 10px !important;
+    }
+    .HeroHeading{
+        font-size: 20px !important;
+    }
+    .ImageSection{
+        width: 50vh !important;
+        height: 50vh !important;
+    }
+    .AboutMinah{
+        padding: 10px !important;
+    }
+    .AboutHeading{
+        margin-top: 1.5rem;
+    }
+    .DummyImage{
+        width: 15rem !important;
+        height: 15rem !important;
+    }
+    .AboutSection{
+        margin-bottom: 1rem !important;
+    }
+    .ButtonMobile{
+        padding: 4px 9px ;
+    }
+    .ProjectMobileText{
+        font-size: 20px;
+        text-align: center;
+    }
+    .backgroundImagess {
+        background-image: url("/Images/LogoMinahBg.svg");
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: cover;
+    } .backgroundImages {
+        background-image: url("/Images/LogoMinahBg.svg");
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 20%;
+    }
+      .mobileContact{
+          padding: 40px;
+      }
+
 }

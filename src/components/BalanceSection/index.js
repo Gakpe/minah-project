@@ -36,7 +36,7 @@ const BalanceSection = () => {
 
             </h1>
             </div>
-            <Button className={"w-1/2 h-full text-white backgroundGradient rounded-full hover:border-textOrange"}>Claim MNH</Button>
+            <Button className={"w-fit h-full text-white backgroundGradient rounded-full hover:border-textOrange"}>Claim MNH</Button>
 
         </div>
     </div>)

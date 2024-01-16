@@ -10,7 +10,7 @@ import Error from "@/components/Popups/Error";
 
 const {Option} = Select;
 
-const App = () => {
+const App = ({handleCancel}) => {
     const [form] = Form.useForm();
     const [formLayout, setFormLayout] = useState('vertical');
     const [userInfo, setUserInfo] = useState(null);
@@ -208,7 +208,7 @@ const App = () => {
 
                         </Form.Item> <Form.Item
                         className={'w-full flex flex-col gap-4 text-center'} {...tailFormItemLayout}>
-                        <Button onChange={handleSubmit}
+                        <Button onClick={handleCancel}
                                 className={"w-fit h-full px-10 py-2 text-textOrange border-none  rounded-full hover:border-textOrange"}>Cancel</Button>
 
                     </Form.Item>

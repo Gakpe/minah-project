@@ -57,7 +57,7 @@ const ProfileSection = ({verified, userInfo}) => {
                 </div>
                 <Modal open={editClicked} onCancel={() => {
                     setEditClicked(false)
-                }} footer={null}> <FormSection/>
+                }} footer={null}> <FormSection handleCancel={()=>{setEditClicked(false)}}/>
                 </Modal>
             </div>
         </div>

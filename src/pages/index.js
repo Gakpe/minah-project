@@ -104,8 +104,9 @@ const Home = () => {
         },
     };
     return (<MainLayout>
+        <div className={"flex flex-col items-center justify-center gap-6 backgroundColored"}>
         <title>Minah | Home</title>
-        <div className={"flex flex-col items-center justify-center  gap-10 w-full h-full "}>
+        <div className={"flex flex-col backgroundImages items-center justify-center  gap-10 w-full h-full "}>
             <div className={"flex flex-row w-full h-full  items-center justify-center gap-4"}>
                 <HeroSection/>
 
@@ -116,95 +117,97 @@ const Home = () => {
                 <p className={"w-full text-center"}>We aim to facilitate investment in sub-Saharan real estate and land
                     using
                     blockchain and in-depth local know-how.</p>
-                <Slider className="w-4/5 h-full center" {...settings}>
-
+                <Slider className="w-4/5 h-full center flex flex-row gap-10" {...settings}>
                     <div className="flex flex-col w-full h-full items-center justify-center gap-7">
-                        <Image src="/Images/featureImage001.svg" className="w-4/5 h-4/5" alt="" width={100}
+                        <Image src="/Images/featureImage001.svg" className="w-1/2 h-1/2" alt="" width={100}
                                height={100}/>
-                        <div className={"flex flex-col items-center justify-center gap-2"}>
-                            <h1 className={"font-bold text-xl"}>
-                                Land and real esate
+                        <div className="flex flex-col items-center justify-center gap-2">
+                            <h1 className="font-bold text-xl">
+                                Land and real estate
                             </h1>
-                            <p className={"text-center"}>
+                            <p className="text-center">
                                 Invest in high potential real estate projects located in Togo and West Africa
                             </p>
                         </div>
                     </div>
-                    <div className="flex flex-col w-full h-full items-center justify-center ">
-                        <Image src="/Images/featureImage002.svg" className="w-4/5 h-4/5" alt="" width={100}
+
+                    <div className="flex flex-col w-full h-full items-center justify-center">
+                        <Image src="/Images/featureImage002.svg" className="w-1/2 h-1/2" alt="" width={100}
                                height={100}/>
-                        <div className={"flex flex-col items-center justify-center gap-2"}>
-                            <h1 className={"font-bold text-xl"}>
+                        <div className="flex flex-col items-center justify-center gap-2">
+                            <h1 className="font-bold text-xl">
                                 Blockchain transparency
                             </h1>
-                            <p className={"text-center"}>
-                                We use Blockchain to make the whole process transparent and keep you updated with
-                                any
-                                major events on the assets you invested in </p>
+                            <p className="text-center">
+                                We use Blockchain to make the whole process transparent and keep you updated with any
+                                major events on the assets you invested in
+                            </p>
                         </div>
                     </div>
+
                     <div className="flex flex-col w-full h-full items-center justify-center gap-4">
-                        <Image src="/Images/featureImage003.svg" className="w-4/5 h-4/5" alt="" width={100}
+                        <Image src="/Images/featureImage003.svg" className="w-1/2 h-1/2" alt="" width={100}
                                height={100}/>
-                        <div className={"flex flex-col items-center justify-center gap-2"}>
-                            <h1 className={"font-bold text-xl"}>
+                        <div className="flex flex-col items-center justify-center gap-2">
+                            <h1 className="font-bold text-xl">
                                 Impact investment
                             </h1>
-                            <p className={"text-center"}>
-                                Join a positive impact investors community dedicated to empower African projects
-                                step by step </p>
+                            <p className="text-center">
+                                Join a positive impact investors community dedicated to empowering African projects step
+                                by step
+                            </p>
                         </div>
-                    </div>
-                    <div className="flex flex-col w-full h-full items-center justify-center gap-7">
-                        <Image src="/Images/featureImage001.svg" className="w-4/5 h-4/5" alt="" width={100}
+                    </div><div className="flex flex-col w-full h-full items-center justify-center gap-7">
+                        <Image src="/Images/featureImage001.svg" className="w-1/2 h-1/2" alt="" width={100}
                                height={100}/>
-                        <div className={"flex flex-col items-center justify-center gap-2"}>
-                            <h1 className={"font-bold text-xl"}>
-                                Land and real esate
+                        <div className="flex flex-col items-center justify-center gap-2">
+                            <h1 className="font-bold text-xl">
+                                Land and real estate
                             </h1>
-                            <p className={"text-center"}>
+                            <p className="text-center">
                                 Invest in high potential real estate projects located in Togo and West Africa
                             </p>
                         </div>
                     </div>
-                    <div className="flex flex-col w-full h-full items-center justify-center ">
-                        <Image src="/Images/featureImage002.svg" className="w-4/5 h-4/5" alt="" width={100}
+
+                    <div className="flex flex-col w-full h-full items-center justify-center">
+                        <Image src="/Images/featureImage002.svg" className="w-1/2 h-1/2" alt="" width={100}
                                height={100}/>
-                        <div className={"flex flex-col items-center justify-center gap-2"}>
-                            <h1 className={"font-bold text-xl"}>
+                        <div className="flex flex-col items-center justify-center gap-2">
+                            <h1 className="font-bold text-xl">
                                 Blockchain transparency
                             </h1>
-                            <p className={"text-center"}>
-                                We use Blockchain to make the whole process transparent and keep you updated with
-                                any
-                                major events on the assets you invested in </p>
+                            <p className="text-center">
+                                We use Blockchain to make the whole process transparent and keep you updated with any
+                                major events on the assets you invested in
+                            </p>
                         </div>
                     </div>
+
                     <div className="flex flex-col w-full h-full items-center justify-center gap-4">
-                        <Image src="/Images/featureImage003.svg" className="w-4/5 h-4/5" alt="" width={100}
+                        <Image src="/Images/featureImage003.svg" className="w-1/2 h-1/2" alt="" width={100}
                                height={100}/>
-                        <div className={"flex flex-col items-center justify-center gap-2"}>
-                            <h1 className={"font-bold text-xl"}>
+                        <div className="flex flex-col items-center justify-center gap-2">
+                            <h1 className="font-bold text-xl">
                                 Impact investment
                             </h1>
-                            <p className={"text-center"}>
-                                Join a positive impact investors community dedicated to empower African projects
-                                step by step </p>
+                            <p className="text-center">
+                                Join a positive impact investors community dedicated to empowering African projects step
+                                by step
+                            </p>
                         </div>
                     </div>
-
-
                 </Slider>
             </div>
             <div>
-                <div className={"flex flex-col gap-10  bgGradient items-center justify-center w-full h-full "}>
-                    <div className={"flex flex-col items-center  gap-10 justify-center w-full h-full p-32  bgVectored"}>
-                        <h1 className={"text-5xl text-white font-extrabold"}>
+                <div className={"flex flex-col gap-10 About  bgGradient items-center justify-center w-full h-full "}>
+                    <div className={"flex flex-col items-center  gap-10 justify-center w-full h-full p-32 AboutMinah  bgVectored"}>
+                        <h1 className={"text-5xl text-white AboutHeading font-extrabold"}>
                             <span className={"text-black text-5xl"}>The</span> Concept
                         </h1>
-                        <div className={"flex flex-row items-center w-4/5 justify-evenly  "}>
+                        <div className={"flex flex-row items-center AboutSection w-4/5 justify-evenly  "}>
                             <Image src={"/Images/dummyImage.svg"}
-                                   className={"w-1/3 h-1/3 flex justify-end items-end drop-shadow-lg hover:scale-105 hover:duration-300 hover:transition-all"}
+                                   className={"w-1/3 h-1/3 DummyImage flex justify-end items-end drop-shadow-lg hover:scale-105 hover:duration-300 hover:transition-all"}
                                    alt={""}
                                    width={50} height={50}/>
                             <div className={"flex w-1/2 flex-col gap-5"}>
@@ -289,13 +292,17 @@ const Home = () => {
                     </div>
                     <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
                         <AboutUs/>
-                    </div> <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                    </div>
+                    <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
                         <AboutUs/>
-                    </div> <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                    </div>
+                    <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
                         <AboutUs/>
-                    </div> <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                    </div>
+                    <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
                         <AboutUs/>
-                    </div> <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                    </div>
+                    <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
                         <AboutUs/>
                     </div>
                 </Slider>
@@ -323,6 +330,7 @@ const Home = () => {
                 <ContactUs title={"You are located in west Africa and you need financing for your project?"}
                            button={"Contact Us"}/>
             </div>
+        </div>
         </div>
     </MainLayout>);
 };
