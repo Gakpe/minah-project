@@ -78,9 +78,9 @@ const ProjectDetails = () => {
                 </Breadcrumb>
 
                 <ProjectOverview/>
-                <div className={"flex flex-row w-full gap-8"}>
+                <div className={"flex flex-row w-full sm:flex-col sm:w-fit gap-8"}>
                     <ProjectTabsSection/>
-                    <div className={"flex gap-8 flex-col items-center justify-center w-1/4 h-full"}>
+                    <div className={"flex gap-8 flex-col items-center justify-center w-1/4 sm:w-full h-full"}>
                         {isLogin ?
                             <div className={"flex w-full  flex-col p-5 gap-4 bg-[#FAFAFA] drop-shadow-lg rounded-md "}>
                                 <div className={"flex w-full flex-row gap-4 items-center"}>
@@ -102,7 +102,7 @@ const ProjectDetails = () => {
                                 <Progress percent={percentage}/>
 
                                 <Button disabled={macInvest} onClick={handleLogout}
-                                        className={" h-11 w-4/5 text-white backgroundGradient rounded-full"}>Invest in
+                                        className={" h-11 w-4/5 sm:w-full text-white backgroundGradient rounded-full"}>Invest in
                                     this
                                     Project</Button>
                             </div> :
