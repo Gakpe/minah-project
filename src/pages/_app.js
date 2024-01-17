@@ -8,7 +8,20 @@ import '@/styles/globals.css'
 
 function MyApp({Component, pageProps}) {
     const [user, setUser] = useState();
+    useEffect(() => {
+        const handleBeforeUnload = () => {
+            // Clear localStorage when the window is about to unload
+            localStorage.clear();
+        };
 
+        // Attach the event listener when the component mounts
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
+        // Detach the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+    }, []);
     // If isLoggedIn is true, set the UserContext with user data
     // Otherwise, redirect to /login and set UserContext to { user: null }
     useEffect(() => {

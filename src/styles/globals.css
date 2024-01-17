@@ -68,7 +68,7 @@
 
 .backgroundColored {
     background-image: url("/Images/BackgroundColored.svg");
-    background-position: center;
+
     background-size: cover;
 }
 .bgVectored{
