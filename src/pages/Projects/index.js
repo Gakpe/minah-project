@@ -27,7 +27,10 @@ const Projects = () => {
     return (
         <MainLayout>
             <title>Minah | Projects</title>
-            <div className={"flex flex-col backgroundColored py-8 sm:py-12 lg:py-20 gap-5 lg:px-4 sm:px-8 md:px-12 px-40 w-full"}>
+            <link rel="icon" href="/Images/favicon.png"/>
+
+            <div
+                className={"flex flex-col backgroundColored py-8 sm:py-12 lg:py-20 gap-5 lg:px-4 sm:px-8 md:px-12 px-40 w-full"}>
                 <Breadcrumb separator={<RightOutlined/>} className={"w-full"}>
                     <Breadcrumb.Item className={"text-black"}>
                         <Link className={"text-black font-extrabold"} href={"/"}>Home</Link>
@@ -40,14 +43,14 @@ const Projects = () => {
                     {/*        Title 01</Link>*/}
                     {/*</Breadcrumb.Item>*/}
                 </Breadcrumb>
-                {projects&& projects.map(
+                {projects && projects.map(
                     (project) => {
                         return (
                             <ProjectCards
                                 projectDetails={project}
                                 key={project._id}
                                 title={project.name}
-                                description={project.description?project.description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+                                description={project.description ? project.description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
                                 imageUrl={project.image}
                                 id={project.id}
                             />
@@ -58,8 +61,10 @@ const Projects = () => {
                 {/*              description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit "}/>*/}
                 {/*<ProjectCards/>*/}
                 {/*<ProjectCards/>*/}
-                <div className={"flex flex-col w-full h-full rounded-xl  border-dashed border-4 border-textOrange  py-14 border-spacing-x-44 gap-10 items-center justify-between"}>
-                    <div className={"text-textOrange text-5xl font-extrabold ProjectMobileText"}>And Many More Projects <span className={"text-black text-5xl font-bold"}>To Come</span></div>
+                <div
+                    className={"flex flex-col w-full h-full rounded-xl  border-dashed border-4 border-textOrange  py-14 border-spacing-x-44 gap-10 items-center justify-between"}>
+                    <div className={"text-textOrange text-5xl font-extrabold ProjectMobileText"}>And Many More
+                        Projects <span className={"text-black text-5xl font-bold"}>To Come</span></div>
                     <div className={"text-xl font-semibold text-textOrange"}>Comming Soon</div>
                 </div>
                 <div className={"flex flex-row sm:flex-row items-center gap-4 justify-center"}>

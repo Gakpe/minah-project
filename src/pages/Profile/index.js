@@ -35,10 +35,12 @@ const Home = () => {
 
     return (<MainLayout>
         <title>Minah | Profile</title>
+        <link rel="icon" href="/Images/favicon.png"/>
+
         <div className={"flex flex-col items-center backgroundColored justify-center py-20 gap-8 w-full h-full "}>
             <div className={"flex flex-row w-full px-20 items-center justify-center gap-10 h-full"}>
                 <div className={"w-1/6 sm:w-full h-full"}>
-                    <ProfileSection userInfo={userInfo?userInfo:null} verified={true}/>
+                    <ProfileSection userInfo={userInfo ? userInfo : null} verified={true}/>
                 </div>
                 <div className={"w-1/2 sm:w-full h-full"}>
                     <ProjectSection project={projectData}/>

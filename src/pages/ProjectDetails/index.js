@@ -49,6 +49,8 @@ const ProjectDetails = () => {
                 <InvestmentJourney/>
             </Modal>
             <title>Minah | Project Details</title>
+            <link rel="icon" href="/Images/favicon.png"/>
+
             <div className={"flex  flex-col items-center justify-center gap-7 w-full h-full p-10"}>
                 <Breadcrumb separator={<RightOutlined/>} className={"w-full"}>
                     <Breadcrumb.Item className={"text-black"}>
@@ -76,7 +78,8 @@ const ProjectDetails = () => {
                                         ? `data:image/svg+xml;base64,${userInfo.picture.data}`
                                         : userInfo?.picture
                                     } size={40}/>
-                                    <p className={"w-3/5"}>You already invested {projectDetails?.totalAmountInvested}$ in this project</p>
+                                    <p className={"w-3/5"}>You already invested {projectDetails?.totalAmountInvested}$
+                                        in this project</p>
 
                                 </div>
                                 <div className={"text-textOrange text-xl font-extrabold"}><span
@@ -84,9 +87,9 @@ const ProjectDetails = () => {
                                     ($ 40’000.00)
                                 </div>
                                 <p className={"text-sm text-gray-600 tracking-widest"}>Min/Max amount</p>
-                                <Progress  percent={percent}/>
+                                <Progress percent={percent}/>
 
-                                <Button disabled={projectDetails?.totalAmountInvest===40000} onClick={handleLogout}
+                                <Button disabled={projectDetails?.totalAmountInvest === 40000} onClick={handleLogout}
                                         className={" h-11 w-4/5 text-white backgroundGradient rounded-full"}>Invest in
                                     this
                                     Project</Button>

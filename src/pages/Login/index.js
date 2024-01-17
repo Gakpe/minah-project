@@ -50,6 +50,8 @@ const Login = () => {
 
     return (
         <div className={"flex flex-col items-center justify-center  w-fit h-fit "}>
+            <link rel="icon" href="/Images/favicon.png"/>
+
             <div className={"h-6 gradientedBackground rounded-t-lg w-full text-transparent"}>hello</div>
 
             <div className='flex flex-col items-center justify-center p-10 w-fit h-fit '>
