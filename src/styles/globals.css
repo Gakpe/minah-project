@@ -66,6 +66,22 @@
     background-size:  auto ;
     background-attachment: fixed;
 }
+.dropDownEntrance {
+    animation-duration: 0.5s;
+    animation-name: fadeInDown;
+    animation-direction: alternate;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .backgroundColored {
     background-image: url("/Images/backgroundColored.png");

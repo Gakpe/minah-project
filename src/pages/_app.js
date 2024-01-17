@@ -33,6 +33,7 @@ function MyApp({Component, pageProps}) {
                 setUser(userData);
             }
         };
+        checkUserAndRedirect()
 
         // Attach the beforeunload event listener
         const handleBeforeUnload = () => {
