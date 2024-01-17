@@ -3,19 +3,25 @@ import HeroSection from "@/components/HeroSection";
 import AboutUs from "@/components/AboutUs";
 import ContactUs from "@/components/ContactUs";
 import Image from "next/image";
-import {Button, Progress} from "antd";
+import {Button, Modal, Progress} from "antd";
 import {useEffect, useState} from "react";
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Login from "@/pages/Login";
 
 const Home = () => {
+    const [clicked,SetClicked]= useState(false)
     const [activeSlide, setActiveSlide] = useState(0);
+    const [user,setUser]= useState(false)
     useEffect(() => {
         if (typeof window !== undefined) {
-            const test = localStorage.getItem("userMetaData")
-            if (test) {
-                console.log("here is test ",JSON.parse(test))
+
+            const user = localStorage.getItem("user")
+            console.log("USER" , user)
+            if(user!==null&& user!==""){
+                console.log("I WAS HERE")
+                setUser(true)
             }
         }
     }, [])
@@ -282,12 +288,16 @@ const Home = () => {
                             <li> - Land owners with local network</li>
                         </ol>
                         <Button onClick={() => {
-
+                            SetClicked(true)
                         }} className={"gradiented hover:underline hover:scale-105 hover:duration-300 hover:font-bold text-sm hover:border-textOrange rounded-full px-3 py-2 h-fit w-44 text-white "} size={"large"}>
-                            Join the Community
+                            {user===true ?  "Join the Community" : "Connect to Invest"}
                         </Button>
                     </div>
-
+                    <Modal className=" h-fit flex  " open={user===false&&clicked} footer={null} onCancel={() => {
+                        SetClicked(false)
+                    }}>
+                        <Login/>
+                    </Modal>
                 </div>
                 <div className={"flex flex-col gap-5 items-center justify-center w-4/5"}>
                     <h1 className={"text-black text-5xl font-extrabold"}>

@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import InvestmentJourney from "@/components/InvestmentJourney";
 import Image from "next/image";
 import Link from "next/link";
+import Login from "@/pages/Login";
 
 const HeroSection = () => {
     const [user, setUser] = useState(false);
@@ -42,11 +43,17 @@ const HeroSection = () => {
                         {user ? "Discover the universe" : "Connect to Invest"}
                     </Button>
                 </div>
-                <Modal open={clicked} footer={null} onCancel={() => {
+                <Modal open={clicked&&user} footer={null} onCancel={() => {
                     setClicked(false)
                 }}>
                     <InvestmentJourney/>
                 </Modal>
+                <Modal className=" h-fit flex  " open={clicked} footer={null} onCancel={() => {
+                    setClicked(false)
+                }}>
+                    <Login/>
+                </Modal>
+
             </div>
             <Image src={"/Images/MinahHero.svg"}
                    className={"w-fit h-fit hover:scale-105 sm:pr-10 duration-300 transition-all ImageSection "}
