@@ -3,7 +3,6 @@ import MainLayout from "@/layouts/MainLayout";
 import ProjectOverview from "@/components/ProjectComponents/ProjectOverview";
 import ProjectTabsSection from "@/components/ProjectComponents/ProjectTabsSection";
 import {Avatar, Breadcrumb, Button, Modal, Progress} from "antd";
-import {magic} from "@/lib/magic";
 import {useRouter} from "next/navigation";
 import Link from "next/link";
 import {RightOutlined} from "@ant-design/icons";
@@ -21,7 +20,6 @@ const ProjectDetails = () => {
     //     await magic.user.logout();
     //     setAccount(null);
     // };
-    const maxInvested = userInfo?.totalAmountInvested === 40000 || userInfo.totalAmountInvested>40000;
 
     const handleLogout = async () => {
 
@@ -33,16 +31,27 @@ const ProjectDetails = () => {
             if (localStorage.getItem("didToken")) {
                 setIsLogin(true)
             }
-            if(localStorage.getItem("userMetaData")){
+            if (localStorage.getItem("userMetaData")) {
                 const data = JSON.parse(localStorage.getItem("userMetaData"))
+                console.log("data is here, ", data)
                 setUserInfo(data.user)
             }
-            if(localStorage.getItem("projectDetails")){
+            if (localStorage.getItem("projectDetails")) {
                 setProjectDetails(JSON.parse(localStorage.getItem("projectDetails")))
             }
         }
-    },[])
-    const percent = userInfo?.totalAmountInvested >= 40000 ? 100 : ((userInfo?.totalAmountInvested / 40000) * 100).toFixed(2);
+    }, [])
+    const [percentage, setPercentage] = useState()
+    const [macInvest, setMaxInvest] = useState(false)
+    useEffect(() => {
+        if (userInfo) {
+            console.log("here is the userInfor", userInfo)
+            const percent = userInfo?.totalAmountInvested >= 40000 ? 100 : ((userInfo?.totalAmountInvested / 40000) * 100).toFixed(2);
+            const maxInvested = userInfo?.totalAmountInvested === 40000 || userInfo.totalAmountInvested > 40000;
+            setMaxInvest(maxInvested)
+            setPercentage(percent)
+        }
+    })
     return (
 
         <MainLayout>
@@ -90,9 +99,9 @@ const ProjectDetails = () => {
                                     ($ 40’000.00)
                                 </div>
                                 <p className={"text-sm text-gray-600 tracking-widest"}>Min/Max amount</p>
-                                <Progress percent={percent}/>
+                                <Progress percent={percentage}/>
 
-                                <Button disabled={maxInvested} onClick={handleLogout}
+                                <Button disabled={macInvest} onClick={handleLogout}
                                         className={" h-11 w-4/5 text-white backgroundGradient rounded-full"}>Invest in
                                     this
                                     Project</Button>

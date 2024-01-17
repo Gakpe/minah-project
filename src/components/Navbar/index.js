@@ -63,23 +63,23 @@ const Navbar = () => {
             <div className="NavbarMenu  cursor-pointer justify-end items-center gap-10 flex">
                 {/* Menu items on the right */}
 
-                <motion.div className="NavbarLink">
-                    <Link href={"https://minah-io.gitbook.io/minah-litepaper-collection/minah-litepaper/welcome-to-minah.io"} target={"_blank"} className="Litepaper text-black text-sm font-normal  leading-tight">
+                <motion.div className="NavbarLink hover:underline hover:scale-105 hover:duration-300 hover:font-bold">
+                    <Link  href={"https://minah-io.gitbook.io/minah-litepaper-collection/minah-litepaper/welcome-to-minah.io"} target={"_blank"} className="Litepaper text-black text-sm   leading-tight">
                         Litepaper
                     </Link>
                 </motion.div>
-                <motion.div className="NavbarLink">
-                    <div className="AboutUs text-black text-sm font-normal  leading-tight">
+                <motion.div className="NavbarLink hover:underline hover:scale-105 hover:duration-300 hover:font-bold">
+                    <div className="AboutUs text-black text-sm   leading-tight">
                         About us
                     </div>
                 </motion.div>
-                <motion.div className="NavbarLink ">
-                    <Link href={"https://tally.so/r/nGK8Lo"} target={"_blank"} className="JoinTheCommunity text-black text-sm font-normal  leading-tight">
+                <motion.div className="NavbarLink hover:underline hover:scale-105 hover:duration-300 hover:font-bold ">
+                    <Link href={"https://tally.so/r/nGK8Lo"} target={"_blank"} className="JoinTheCommunity text-black text-sm   leading-tight">
                         Join the community
                     </Link>
                 </motion.div>
                 {isLogin ?
-                    <div className={"flex flex-row items-center hover:underline justify-center gap-3"}>
+                    <div className={"flex flex-row items-center hover:underline hover:scale-105 hover:duration-300 hover:font-bold justify-center gap-3"}>
                         <Avatar className={"bordered"} onClick={() => {
                             router.push("/Profile")
                         }} src={userInfo?.picture?.data
@@ -96,7 +96,7 @@ const Navbar = () => {
                         </div>
                     </motion.div>
                 }
-                <motion.div className="NavbarLink  ">
+                <motion.div className="NavbarLink hover:scale-105 hover:duration-300 font-bold  ">
                     <div
                         onClick={() => {
                             router.push('/Projects');

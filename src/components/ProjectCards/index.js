@@ -1,11 +1,20 @@
 import {Button} from "antd";
 import {useRouter} from "next/router";
 import Image from "next/image";
+import {useEffect, useState} from "react";
 
 const ProjectCard = ({title, description, onExplore, onInvest, projectDetails}) => {
     const router = useRouter();
+    const [users,setUser] = useState()
     console.log("here is projectDetails :", projectDetails)
-
+useEffect(()=>{
+    if(typeof window !== "undefined"){
+        const user = localStorage.getItem("user")
+        if(user!==""&& user!=null){
+            setUser(user)
+        }
+    }
+})
     return (
         <div className="project-card drop-shadow-lg  bg-[#FAFAFA] px-10 py-5">
             <div className="title-section testClass py-5" onClick={() => {
@@ -33,7 +42,8 @@ const ProjectCard = ({title, description, onExplore, onInvest, projectDetails}) 
             <div className="button-section">
                 <Button className="text-white hover:border-textOrange rounded-full gradiented" size="large"
                         onClick={onInvest}>
-                    Connect to invest
+                    {users?
+                    "Invest In this Project":"Connect to invest"}
                 </Button>
 
                 <Button className="text-black rounded-full gradientText border-textOrange" size="large"

@@ -9,7 +9,7 @@ const ContactUs = ({title, button}) => {
             <div className={"font-medium text-white text-lg"}>{title ? title : ""}</div>
             <Button onClick={() => {
 
-            }} className={"gradiented  rounded-full px-3 py-2 h-fit w-44 text-white "} size={"large"}>
+            }} className={"gradiented hover:underline hover:scale-105 hover:duration-300 hover:font-bold hover:border-textOrange rounded-full px-3 py-2 h-fit w-44 text-white "} size={"large"}>
                 Contact Us
             </Button>
 
