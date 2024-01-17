@@ -10,24 +10,7 @@ import {usePathname} from "next/navigation";
 function MyApp({Component, pageProps}) {
     const [user, setUser] = useState();
     const router = useRouter()
-    useEffect(() => {
-        const handleBeforeUnload = (event) => {
-            // Check if the event is due to a page refresh or route change
-            const isPageRefresh = !event.currentTarget.performance.navigation.type;
-            if (!isPageRefresh) {
-                // Clear localStorage when the window is about to unload
-                localStorage.clear();
-            }
-        };
 
-        // Attach the event listener when the component mounts
-        window.addEventListener('beforeunload', handleBeforeUnload);
-
-        // Detach the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
-    }, []);
     const pathName = usePathname()
     useEffect(() => {
         const checkUserAndRedirect = async () => {
@@ -51,8 +34,20 @@ function MyApp({Component, pageProps}) {
             }
         };
 
-        checkUserAndRedirect();
+        // Attach the beforeunload event listener
+        const handleBeforeUnload = () => {
+            // Clear local storage when the tab is closed
+            localStorage.clear();
+        };
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
     }, [router]);
+
 
     return (
         <UserContext.Provider value={[user, setUser]}>
