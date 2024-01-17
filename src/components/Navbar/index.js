@@ -24,8 +24,10 @@ const Navbar = () => {
             if (localStorage.getItem("didToken")) {
                 setIsLogin(true)
             }
-            if(localStorage.getItem("userInfo")){
-                setUserInfo(JSON.parse(localStorage.getItem("userInfo")))
+            if(localStorage.getItem("userMetaData")){
+                console.log(JSON.parse(localStorage.getItem("userMetaData")))
+                const userData = JSON.parse(localStorage.getItem("userMetaData"))
+                setUserInfo(userData.user)
             }
         }, []
     )

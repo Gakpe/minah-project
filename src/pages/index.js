@@ -15,7 +15,7 @@ const Home = () => {
         if (typeof window !== undefined) {
             const test = localStorage.getItem("userMetaData")
             if (test) {
-                console.log(JSON.parse(test))
+                console.log("here is test ",JSON.parse(test))
             }
         }
     }, [])

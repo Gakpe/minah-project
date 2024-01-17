@@ -17,9 +17,9 @@ const Login = () => {
 
             let didToken = await magic.auth.loginWithMagicLink({
                 email,
-                redirectURI: new URL('/callback', window.location.origin).href,
+                // redirectURI: new URL('https://auth.magic.link', window.location.origin).href,
             });
-
+            console.log(didToken)
             const res = await fetch('/api/login', {
                 method: 'POST',
                 headers: {
@@ -29,10 +29,11 @@ const Login = () => {
             });
 
             if (res.status === 200) {
-                console.log("here is res :", res)
+                console.log("here is res :", await res.json())
                 let userMetadata = await magic.user.getMetadata();
-                await setUser(userMetadata);
-                Router.push('/Profile');
+                console.log("user we got",userMetadata)
+                // await setUser(userMetadata);
+                // Router.push('/Profile');
             }
         } catch (error) {
             setDisabled(false);

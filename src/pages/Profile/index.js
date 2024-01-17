@@ -10,8 +10,9 @@ const Home = () => {
     useEffect(
         () => {
             if (typeof window !== "undefined") {
-                if (localStorage.getItem("userInfo")) {
-                    setUserInfo(JSON.parse(localStorage.getItem("userInfo")))
+                if (localStorage.getItem("userMetaData")) {
+                    const data = JSON.parse(localStorage.getItem("userMetaData"))
+                    setUserInfo(data.user)
                 }
             }
         }, []

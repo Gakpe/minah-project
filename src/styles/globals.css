@@ -60,14 +60,17 @@
 }
 
 .backgroundImages {
-    background-image: url("/Images/LogoMinahBg.svg");
+    background-image: url("/Images/LogoMinahBg.png");
     background-repeat: no-repeat;
-    background-position: right;
-    background-size: cover;
+    background-position: top right ;
+    background-size:  auto ;
+    background-attachment: fixed;
 }
 
 .backgroundColored {
-    background-image: url("/Images/BackgroundColored.svg");
+    background-image: url("/Images/backgroundColored.png");
+    background-attachment: fixed;
+
 
     background-size: cover;
 }
@@ -316,4 +319,15 @@
           padding: 40px;
       }
 
+}
+.ProjectSection{
+    max-height: 52vh !important;
+}
+.mainSetting::-webkit-scrollbar {
+    display: none;
+}
+
+.mainSetting {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }

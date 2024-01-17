@@ -28,10 +28,10 @@ const ProjectSection = ({project}) => {
 
     return (
         <div
-            className={"bg-[#FAFAFA] shadow-xl  drop-shadow-xl flex flex-col gap-4 w-full sm:p-7  overflow-y-scroll rounded-md p-7 "}>
+            className={"bg-[#FAFAFA] shadow-xl ProjectSection mainSetting drop-shadow-xl flex flex-col gap-4 w-full sm:p-7  overflow-y-scroll rounded-md p-7 "}>
             <div className={"text-2xl font-bold "}><span className={"text-textOrange font-bold"}>My</span> Projects
             </div>
-            <div className={"flex flex-col items-center gap-3 rounded-md justify-center w-full h-full"}>
+            <div className={"flex flex-col  items-center gap-3 rounded-md justify-center w-full h-full"}>
                 {projects ? projects.map((project, index) => (
                     <div key={index}
                          className={"flex flex-row py-7 px-5 items-center rounded-lg justify-start w-full h-full bg-[#FBF4F2] gap-7"}>
@@ -56,11 +56,13 @@ const ProjectSection = ({project}) => {
                                 {/*<div className="icon">15</div>*/}
                             </div>
                             <div className={"flex sm:max-h-64 overflow-y-scroll py-5 w-full  flex-col items-center justify-center gap-2"}>
-                                {userInfo?.amountInvested.map((investment, index) => (
-                                    <div key={index} className={"flex flex-row w-full h-full  items-center justify-start gap-2 "}>
-                                        <Avatar src={"/Images/circle.svg"} size={20}/>
+                                {userInfo?.amountInvested.slice(0, 8).map((investment, index) => (
+                                    <div key={index} className={"flex flex-row w-full h-full items-center justify-start gap-2 "}>
+                                        <Avatar src={"/Images/circle.svg"} size={20} />
 
-                                    <p key={index} className={"text-xs font-bold"}>Amount Invested ${investment.amount} <span className={"font-normal italic"}>on {moment(investment.timestamp).format("DD/MM/YY")}</span></p>
+                                        <p key={index} className={"text-xs font-bold"}>
+                                            Amount Invested ${investment.amount} <span className={"font-normal italic"}>on {moment(investment.timestamp).format("DD/MM/YY")}</span>
+                                        </p>
                                     </div>
                                 ))}
                             </div>

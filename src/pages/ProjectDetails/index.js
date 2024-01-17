@@ -21,6 +21,8 @@ const ProjectDetails = () => {
     //     await magic.user.logout();
     //     setAccount(null);
     // };
+    const maxInvested = userInfo?.totalAmountInvested === 40000 || userInfo.totalAmountInvested>40000;
+
     const handleLogout = async () => {
 
         setClicked(true);
@@ -31,15 +33,16 @@ const ProjectDetails = () => {
             if (localStorage.getItem("didToken")) {
                 setIsLogin(true)
             }
-            if(localStorage.getItem("userInfo")){
-                setUserInfo(JSON.parse(localStorage.getItem("userInfo")))
+            if(localStorage.getItem("userMetaData")){
+                const data = JSON.parse(localStorage.getItem("userMetaData"))
+                setUserInfo(data.user)
             }
             if(localStorage.getItem("projectDetails")){
                 setProjectDetails(JSON.parse(localStorage.getItem("projectDetails")))
             }
         }
     },[])
-    const percent = projectDetails?.totalAmountInvested >= 40000 ? 100 : (projectDetails?.totalAmountInvested / 40000) * 100;
+    const percent = userInfo?.totalAmountInvested >= 40000 ? 100 : ((userInfo?.totalAmountInvested / 40000) * 100).toFixed(2);
     return (
 
         <MainLayout>
@@ -78,7 +81,7 @@ const ProjectDetails = () => {
                                         ? `data:image/svg+xml;base64,${userInfo.picture.data}`
                                         : userInfo?.picture
                                     } size={40}/>
-                                    <p className={"w-3/5"}>You already invested {projectDetails?.totalAmountInvested}$
+                                    <p className={"w-3/5"}>You already invested {userInfo?.totalAmountInvested}$
                                         in this project</p>
 
                                 </div>
@@ -89,7 +92,7 @@ const ProjectDetails = () => {
                                 <p className={"text-sm text-gray-600 tracking-widest"}>Min/Max amount</p>
                                 <Progress percent={percent}/>
 
-                                <Button disabled={projectDetails?.totalAmountInvest === 40000} onClick={handleLogout}
+                                <Button disabled={maxInvested} onClick={handleLogout}
                                         className={" h-11 w-4/5 text-white backgroundGradient rounded-full"}>Invest in
                                     this
                                     Project</Button>

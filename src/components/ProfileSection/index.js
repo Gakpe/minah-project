@@ -9,9 +9,8 @@ const ProfileSection = ({verified, userInfo}) => {
     const [editClicked, setEditClicked] = React.useState(false)
     const handleLogout = async () => {
         if (typeof window !== "undefined") {
-            localStorage.removeItem("didToken")
-            localStorage.removeItem("user")
-            localStorage.removeItem("userInfo")
+
+            localStorage.clear()
             router.push("/")
         }
     }

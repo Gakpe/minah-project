@@ -17,7 +17,7 @@ const EmailForm = ({ onEmailSubmit, disabled }) => {
 
                     <Input
 
-                        rootClassName={"border-textOrange border rounded-2xl bg-[#FBF4F2] h-11 w-full"}
+                        rootClassName={"border-textOrange px-5 border rounded-2xl bg-[#FBF4F2] h-11 w-full"}
                         placeholder='Enter your email'
                         size='small'
                         type='email'
