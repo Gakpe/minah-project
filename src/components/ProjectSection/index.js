@@ -28,7 +28,7 @@ const ProjectSection = ({project}) => {
 
     return (
         <div
-            className={"bg-[#FAFAFA] shadow-xl  drop-shadow-xl flex flex-col gap-4 w-full sm:p-2  overflow-y-scroll rounded-md p-7 "}>
+            className={"bg-[#FAFAFA] shadow-xl  drop-shadow-xl flex flex-col gap-4 w-full sm:p-7  overflow-y-scroll rounded-md p-7 "}>
             <div className={"text-2xl font-bold "}><span className={"text-textOrange font-bold"}>My</span> Projects
             </div>
             <div className={"flex flex-col items-center gap-3 rounded-md justify-center w-full h-full"}>
