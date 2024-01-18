@@ -6,6 +6,7 @@ import Login from '@/pages/Login';
 import {Avatar, Modal} from "antd";
 import Image from "next/image";
 import Link from "next/link";
+import {magic} from "@/lib/magic";
 
 const Navbar = () => {
     const router = useRouter();
@@ -32,7 +33,18 @@ const Navbar = () => {
         }, []
     )
     const handleLogin = async () => {
-        setAccount(true);
+        // setAccount(true);
+        magic.wallet.connectWithUI().on('id-token-created', (params) => {
+
+            const { idToken } = params
+
+            console.log("HELLO  " +idToken)
+
+            // send to your resource server for validation
+
+            // ...
+
+        });
     };
 
     const closeLoginPopup = () => {
@@ -42,18 +54,7 @@ const Navbar = () => {
     return (
         <div
             className=" w-full NavbarMobile  h-fit px-20 py-5 flex flex-row bg-[#FAFAFA] rounded-b-xl border-b  justify-between items-center">
-            {account && (
-                <Modal
-                    onCancel={()=>{
-                        setAccount(false)
-                    }}
-                    open={account}
-                    className=" h-fit flex  "
-                    footer={[]}
-                >
-                    <Login/>
-                </Modal>
-            )}
+
             <div onClick={()=>{router.push("/")}} className=" cursor-pointer items-center flex">
                 {/* Logo on the left */}
                 <motion.div className="NavbarBrand" whileHover={{scale: 1.1}}>

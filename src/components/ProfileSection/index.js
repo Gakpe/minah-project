@@ -32,9 +32,9 @@ const ProfileSection = ({verified, userInfo}) => {
                         router.push("/Profile")
                     }} src={userInfo?.picture?.data
                         ? `data:image/svg+xml;base64,${userInfo.picture.data}`
-                        : userInfo?.picture || "/Images/avatar.svg"
+                        : userInfo?.picture || ""
                     } size={130}/>
-                    <div className="font-bold text-center w-full">{userInfo ?userInfo?.name ?  userInfo.name: userInfo?.first_name + userInfo?.last_name:"Name Surname" }</div>
+                    <div className="font-bold text-center w-full">{userInfo ?userInfo?.name ?  userInfo.name: userInfo?.first_name + " " + userInfo?.last_name:"Name Surname" }</div>
                     <div className="text-sm text-center w-full"> {user?.substring(0, 10)}</div>
                     <div className="text-sm italic text-center w-full">Joined on {moment(userInfo?.createdAt).format("DD/MM/YY")}</div>
                     {verified ? (

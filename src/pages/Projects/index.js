@@ -46,7 +46,9 @@ const Projects = () => {
                 {projects && projects.map(
                     (project) => {
                         return (
+                            <div key={project._id} className={"w-full flex flex-col items-center justify-center gap-6"}>
                             <ProjectCards
+                                image={true}
                                 projectDetails={project}
                                 key={project._id}
                                 title={project.name}
@@ -54,6 +56,17 @@ const Projects = () => {
                                 imageUrl={project.image}
                                 id={project.id}
                             />
+                                <ProjectCards
+                                    image={false}
+                                    bg={"white"}
+                                    projectDetails={project}
+                                    key={project._id}
+                                    title={project.name}
+                                    description={project.description ? project.description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+                                    imageUrl={project.image}
+                                    id={project.id}
+                                />
+                            </div>
                         )
                     }
                 )}
@@ -61,8 +74,9 @@ const Projects = () => {
                 {/*              description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit "}/>*/}
                 {/*<ProjectCards/>*/}
                 {/*<ProjectCards/>*/}
+
                 <div
-                    className={"flex flex-col w-full h-full rounded-xl  border-dashed border-4 border-textOrange  py-14 border-spacing-x-44 gap-10 items-center justify-between"}>
+                    className={"flex flex-col w-full h-full rounded-xl    py-14  gap-10 items-center justify-between"}>
                     <div className={"text-textOrange text-5xl font-extrabold ProjectMobileText"}>And Many More
                         Projects <span className={"text-black text-5xl font-bold"}>To Come</span></div>
                     <div className={"text-xl font-semibold text-textOrange"}>Comming Soon</div>
@@ -70,11 +84,11 @@ const Projects = () => {
                 <div className={"flex flex-row sm:flex-row items-center gap-4 justify-center"}>
                     <ContactUs
                         button={"Contact Us"}
-                        title={"You are located in west Africa and you need financing for your project?"}
+                        title={"You have a project?"}
                     />
                     <ContactUs
-                        button={"Contact Us"}
-                        title={"You are located in west Africa and you need financing for your project?"}
+                        button={"Join the community"}
+                        title={"You want to invest?"}
                     />
                 </div>
                 <div className={"h-20 text-transparent"}>.</div>

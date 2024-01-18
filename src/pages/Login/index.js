@@ -15,10 +15,7 @@ const Login = () => {
         try {
             setDisabled(true);
 
-            let didToken = await magic.auth.loginWithMagicLink({
-                email,
-                // redirectURI: new URL('https://auth.magic.link', window.location.origin).href,
-            });
+            let didToken = await magic.wallet.connectWithUI()
             console.log(didToken)
             const res = await fetch('/api/login', {
                 method: 'POST',

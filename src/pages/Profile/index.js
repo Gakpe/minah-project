@@ -53,11 +53,14 @@ const Home = () => {
 
             </div>
             <div className={"flex flex-row mobileContact gap-3"}>
-                <ContactUs title={"You are located in west Africa and you need financing for your project?"}
-                           button={"Contact Us"}/>
                 <ContactUs
-                    title={"You are located in west Africa and you need financing for your project?"}
-                    button={"Contact Us"}/>
+                    button={"Contact Us"}
+                    title={"You have a project?"}
+                />
+                <ContactUs
+                    button={"Join the community"}
+                    title={"You want to invest?"}
+                />
             </div>
         </div>
     </MainLayout>);

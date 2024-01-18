@@ -18,8 +18,9 @@ const App = ({handleCancel}) => {
         if (typeof window !== "undefined") {
 
 
-            if (localStorage.getItem("userInfo")) {
-                setUserInfo(JSON.parse(localStorage.getItem("userInfo")))
+            if (localStorage.getItem("userMetaData")) {
+                const data = JSON.parse(localStorage.getItem("userMetaData"))
+                setUserInfo(data.user)
             }
 
         }
@@ -100,8 +101,10 @@ const App = ({handleCancel}) => {
         updateProfile(formDataToSend, user?.issuer).then((res) => {
                 console.log("here is res from the server :", res)
                 if (res.responseCode === 200) {
-                    localStorage.setItem("userInfo", JSON.stringify(res.result.user))
-                    setUserInfo(res.result.user)
+                    console.log("Here was the result ", res.result)
+                    localStorage.setItem("userMetaData", JSON.stringify(res.result))
+                    console.log("I WAS HERE")
+                    // setUserInfo(res.result.user)
                     // router.push("/Profile")
                     setSuccess(true)
                 }else {

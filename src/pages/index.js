@@ -119,14 +119,16 @@ const Home = () => {
                     <HeroSection/>
 
                 </div>
-                <div className={"flex flex-col justify-center  items-center w-full h-full px-5  gap-3"}>
+                <div className={"flex flex-col justify-center  items-center w-full h-[100vh] px-5  gap-10"}>
+                    <div className={"w-full flex flex-col gap-6 items-center justify-center"}>
                     <h1 className={"text-5xl text-black font-extrabold"}><span
                         className={"text-textOrange text-5xl"}>Minah</span> project</h1>
                     <p className={"w-full text-center"}>We aim to facilitate investment in sub-Saharan real estate and
                         land
                         using
                         blockchain and in-depth local know-how.</p>
-                    <Slider className="w-4/5 h-full center flex flex-row gap-10" {...settings}>
+                    </div>
+                    <Slider className="w-4/5 mt-6 items-center justify-center center flex flex-row gap-10" {...settings}>
                         <div className="flex flex-col w-full h-full items-center justify-center gap-7">
                             <Image src="/Images/featureImage001.svg" className="w-1/2 h-1/2" alt="" width={100}
                                    height={100}/>
@@ -213,21 +215,21 @@ const Home = () => {
                         </div>
                     </Slider>
                 </div>
-                <div>
+                <div className={"h-[100vh]"}>
                     <div
                         className={"flex flex-col gap-10 About  bgGradient items-center justify-center w-full h-full "}>
                         <div
-                            className={"flex flex-col items-center  gap-10 justify-center w-full h-full p-32 AboutMinah  bgVectored"}>
+                            className={"flex flex-col items-center  gap-10 justify-center w-full h-full  AboutMinah  bgVectored"}>
                             <h1 className={"text-5xl text-white AboutHeading font-extrabold"}>
                                 <span className={"text-black text-5xl"}>The</span> Concept
                             </h1>
                             <div className={"flex flex-row items-center AboutSection w-4/5 justify-evenly  "}>
                                 <Image src={"/Images/dummyImage.svg"}
-                                       className={"w-1/3 h-1/3 DummyImage flex justify-end items-end drop-shadow-lg hover:scale-105 hover:duration-300 hover:transition-all"}
+                                       className={"w-2/3 h-2/3 DummyImage flex justify-end items-end drop-shadow-lg hover:scale-105 hover:duration-300 hover:transition-all"}
                                        alt={""}
-                                       width={50} height={50}/>
+                                       width={150} height={150}/>
                                 <div className={"flex w-1/2 flex-col gap-5"}>
-                                    <p className={"text-justify text-white"}>
+                                    <p className={"text-justify text-md text-white"}>
                                         <p>
                                             Minah est un projet pionnier. Fondé par Hervé et Julien, deux frères
                                             franco-togolais,
@@ -271,7 +273,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div
-                    className={"flex flex-col items-center gap-5 rounded-lg shadow-2xl bg-[#FAFAFA] w-4/5 h-full justify-center"}>
+                    className={"flex flex-col items-center gap-5 rounded-lg shadow-2xl bg-[#FAFAFA] w-4/5 h-[100vh] justify-center"}>
                     <div className={"p-10 gap-5 flex flex-col items-center justify-center w-4/5"}>
                         <h1 className={"text-black text-5xl font-extrabold"}>
                             <span className={"text-textOrange text-5xl"}>Minah</span> Labs
@@ -299,17 +301,19 @@ const Home = () => {
                         <Login/>
                     </Modal>
                 </div>
-                <div className={"flex flex-col gap-5 items-center justify-center w-4/5"}>
-                    <h1 className={"text-black text-5xl font-extrabold"}>
-                        <span className={"text-textOrange text-5xl"}>Our</span> Partners
-                    </h1>
-                    <p className={"w-4/5"}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                        ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    </p>
+                <div className={"flex flex-col justify-center  items-center w-full h-full px-5  gap-10"}>
+                    <div className={"w-full flex flex-col gap-6 items-center justify-center"}>
 
+                        <h1 className={"text-black text-5xl text-center font-extrabold"}>
+                            <span className={"text-textOrange text-5xl"}>Our</span> Partners
+                        </h1>
+                        <p className={"w-full text-center"}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        </p>
+                    </div>
                     <Slider {...settings2} className={"w-4/5 h-full "}>
-                        <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
+                    <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
                             <AboutUs/>
                         </div>
                         <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
@@ -352,11 +356,15 @@ const Home = () => {
                 {/*<div className={"w-full h-full"}>*/}
                 {/*    <AboutMinah/>*/}
                 {/*</div>*/}
-                <div className={"flex flex-row mb-10  px-20 w-full h-full gap-4"}>
-                    <ContactUs title={"You are located in west Africa and you need financing for your project?"}
-                               button={"Contact Us"}/>
-                    <ContactUs title={"You are located in west Africa and you need financing for your project?"}
-                               button={"Contact Us"}/>
+                <div className={"flex flex-row mb-10 items-center gap-10  w-4/5 h-full justify-between"}>
+                    <ContactUs
+                        button={"Contact Us"}
+                        title={"You have a project?"}
+                    />
+                    <ContactUs
+                        button={"Join the community"}
+                        title={"You want to invest?"}
+                    />
                 </div>
             </div>
         </div>

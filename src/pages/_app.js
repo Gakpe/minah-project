@@ -33,20 +33,20 @@ function MyApp({Component, pageProps}) {
                 setUser(userData);
             }
         };
-        checkUserAndRedirect()
+        // checkUserAndRedirect()
 
         // Attach the beforeunload event listener
-        const handleBeforeUnload = () => {
-            // Clear local storage when the tab is closed
-            localStorage.clear();
-        };
-
-        window.addEventListener('beforeunload', handleBeforeUnload);
-
-        // Clean up the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
+        // const handleBeforeUnload = () => {
+        //     // Clear local storage when the tab is closed
+        //     localStorage.clear();
+        // };
+        //
+        // window.addEventListener('beforeunload', handleBeforeUnload);
+        //
+        // // Clean up the event listener when the component unmounts
+        // return () => {
+        //     window.removeEventListener('beforeunload', handleBeforeUnload);
+        // };
     }, [router]);
 
 

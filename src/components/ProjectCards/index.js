@@ -3,7 +3,7 @@ import {useRouter} from "next/router";
 import Image from "next/image";
 import {useEffect, useState} from "react";
 
-const ProjectCard = ({title, description, onExplore, onInvest, projectDetails}) => {
+const ProjectCard = ({title, description, onExplore, onInvest, projectDetails, image, bg}) => {
     const router = useRouter();
     const [users,setUser] = useState()
     console.log("here is projectDetails :", projectDetails)
@@ -16,7 +16,7 @@ useEffect(()=>{
     }
 })
     return (
-        <div className="project-card drop-shadow-lg  bg-[#FAFAFA] px-10 py-5">
+        <div className={`${image?"project-card":"project-card2 "} drop-shadow-lg ${bg?`bg-white/50`:"bg-[#FAFAFA]"}  px-10 py-5`}>
             <div className="title-section testClass py-5" onClick={() => {
                 localStorage.setItem("projectDetails", JSON.stringify(projectDetails))
                 router.push("/ProjectDetails")
