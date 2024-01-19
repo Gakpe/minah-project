@@ -366,3 +366,25 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+.FooterBlur {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* Linear gradient for a fading effect */
+
+}
+
+.FooterBlur::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px; /* Adjust the height of the blurred area */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* Linear gradient for a fading effect */
+    filter: blur(10px); /* Adjust the blur radius as needed */
+    z-index: -1;
+}
+.slick-dots{
+    bottom: -70px!important;
+}
