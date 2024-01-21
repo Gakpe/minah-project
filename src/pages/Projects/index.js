@@ -30,7 +30,8 @@ const Projects = () => {
             <link rel="icon" href="/Images/favicon.png"/>
 
             <div
-                className={"flex flex-col backgroundColored py-8 sm:py-12 lg:py-20 gap-5 lg:px-4 sm:px-8 md:px-12 px-40 w-full"}>
+                className={"flex flex-col backgroundImages h-full  sm:py-12 lg:py-20 gap-5 lg:px-4 sm:px-8 md:px-12 px-40 w-full"}>
+                <div className={" h-full w-full"}></div>
                 <Breadcrumb separator={<RightOutlined/>} className={"w-full"}>
                     <Breadcrumb.Item className={"text-black"}>
                         <Link className={"text-black font-extrabold"} href={"/"}>Home</Link>

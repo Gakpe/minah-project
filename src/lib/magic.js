@@ -6,6 +6,7 @@ const createMagic = (key) => {
     return (
         typeof window != 'undefined' &&
         new Magic(key, {
+            network: 'mainnet',
             extensions: [new OAuthExtension()],
         })
     );

@@ -16,7 +16,7 @@ useEffect(()=>{
     }
 })
     return (
-        <div className={`${image?"project-card":"project-card2 "} drop-shadow-lg ${bg?`bg-white/50`:"bg-[#FAFAFA]"}  px-10 py-5`}>
+        <div className={`${image?"project-card":"project-card2 "} drop-shadow-lg ${bg?`bg-white/60`:"bg-[#FAFAFA]"}  px-10 py-5`}>
             <div className="title-section testClass py-5" onClick={() => {
                 localStorage.setItem("projectDetails", JSON.stringify(projectDetails))
                 router.push("/ProjectDetails")
