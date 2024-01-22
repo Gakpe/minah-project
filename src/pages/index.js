@@ -26,17 +26,15 @@ const Home = () => {
         }
     }, [])
     const settings = {
-        dots: false,
+        dots: true,
         autoplay: false,
         infinite: false,
-        // centerMode:true,
-        // className: "center",
-        // centerMode: true,
-        // centerPadding: "60px",
+
+
         arrows: false,
         slidesToShow: 3,
-        // autoplaySpeed: 3000,
-        // slidesToScroll: 1,
+        autoplaySpeed: 3000,
+        slidesToScroll: 1,
 
         cssEase: "linear",
         appendDots: dots => (
@@ -155,7 +153,7 @@ const Home = () => {
                     <Slider
                         className="w-4/5 mt-6 items-center justify-center center flex flex-row gap-10" {...settings}>
                         <div className={"flex  flex-col w-full h-full items-center justify-center gap-6"}>
-                            <Image src="/Images/featureImage001.svg" className="w-1/2 h-1/2" alt="" width={100}
+                            <Image loading={"lazy"} quality={20} src="/Images/featureImage001.svg" className="w-1/2 h-1/2" alt="" width={100}
                                    height={100}/>
                             <div className="flex flex-col items-center justify-center gap-4">
                                 <h1 className="font-bold text-xl">
@@ -168,7 +166,7 @@ const Home = () => {
                         </div>
 
                         <div className="flex flex-col w-full h-full items-center justify-center gap-6">
-                            <Image src="/Images/featureImage002.svg" className="w-1/2 h-1/2" alt="" width={100}
+                            <Image loading={"lazy"} quality={20} src="/Images/featureImage002.svg" className="w-1/2 h-1/2" alt="" width={100}
                                    height={100}/>
                             <div className="flex flex-col items-center justify-center gap-4">
                                 <h1 className="font-bold text-xl">
@@ -183,7 +181,7 @@ const Home = () => {
                         </div>
 
                         <div className="flex flex-col w-full h-full items-center justify-center gap-6">
-                            <Image src="/Images/featureImage003.svg" className="w-1/2 h-1/2" alt="" width={100}
+                            <Image loading={"lazy"} quality={20} src="/Images/featureImage003.svg" className="w-1/2 h-1/2" alt="" width={100}
                                    height={100}/>
                             <div className="flex flex-col items-center justify-center gap-4">
                                 <h1 className="font-bold text-xl">
@@ -198,13 +196,13 @@ const Home = () => {
                         </div>
 
                     </Slider>
-                    <CustomDots active={activeSlide} slides={[
+                    {/*<CustomDots active={activeSlide} slides={[*/}
 
-                        <div key={1} className={"duration-300 transition all ease-in-out"}>Slide 1</div>,
-                        <div key={2}>Slide 2</div>,
-                        <div key={3}>Slide 3</div>,
-                        // Add more elements for additional slides
-                    ]} onClick={(index) => setActiveSlide(index)}/>
+                    {/*    <div key={1} className={"duration-300 transition all ease-in-out"}>Slide 1</div>,*/}
+                    {/*    <div key={2}>Slide 2</div>,*/}
+                    {/*    <div key={3}>Slide 3</div>,*/}
+                    {/*    // Add more elements for additional slides*/}
+                    {/*]} onClick={(index) => setActiveSlide(index)}/>*/}
                 </div>
                 <div className={"h-[100vh]"}>
                     <div

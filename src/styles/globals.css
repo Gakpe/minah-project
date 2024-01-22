@@ -85,7 +85,7 @@
 
 .backgroundColored {
     background-image: url("/Images/testBackground.png");
-
+    background-attachment: fixed;
 
 
     background-size: cover;
