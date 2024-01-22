@@ -1,15 +1,14 @@
 // const url = "https://hammadayub34.pagekite.me/"
 const url = "http://localhost:8080"
-const herokuUrl = "https://test-minah-6b1a807102f0.herokuapp.com/"
+// const herokuUrl = "https://test-minah-6b1a807102f0.herokuapp.com/"
+const herokuUrl = "https://768f-154-80-18-104.ngrok-free.app/"
 
 export async function postToken(token) {
     var requestOptions = {
         method: "POST", // headers: {
         //     "Content-Type": "multipart/form-data",
         // },
-        headers: {
-            Authorization: "Bearer " + token,
-        }, // Assuming formData is an object, convert it to JSON string
+        body: JSON.stringify(token), // Assuming formData is an object, convert it to JSON string
         redirect: "follow",
     };
     try {
@@ -104,7 +103,6 @@ export async function postInvestment(investedAmount, userId) {
         headers: {
             "Content-Type": "application/json",
         },
-
 
 
         redirect: "follow",
