@@ -16,7 +16,7 @@ const HeroSection = () => {
     return (
 
         <div
-            className={"w-4/5 HeroSection dropDownEntrance h-full flex flex-row  backgroundImagess  xl:p-20 items-center justify-between p-32 "}>
+            className={"w-4/5 HeroSection dropDownEntrance h-full flex flex-row  backgroundImagess  xl:p-14 items-center justify-between p-28 "}>
             <div className={"flex dropDownEntrance flex-col w-full h-full gap-5 items-center justify-center"}>
                 <h1 className={"text-5xl break-all sm:justify-center sm:px-14 w-full HeroHeading font-semibold text-black "}>
                     <span className={"font-extrabold text-[#E27B30] HeroHeading text-5xl"}>Investing </span> in
