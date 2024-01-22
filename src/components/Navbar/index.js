@@ -121,7 +121,8 @@ localStorage.clear()
                             {localStorage.getItem("user")?.substring(0, 10)?localStorage.getItem("user")?.substring(0, 10):"0xx9xxxx"}
                         </div>
                     </div> : <motion.div className="NavbarLink w-fit h-fit ">
-                        <div onClick={handleLogin}
+                        <div
+                            // onClick={handleLogin}
                              className="LoginSignup   w-full h-full px-4 py-3 text-black text-sm font-normal  leading-tight">
                             <Image src={"/Images/LoginButton.svg"} alt={""} width={75} height={75}/>
                         </div>
@@ -130,8 +131,8 @@ localStorage.clear()
                 <motion.div className="NavbarLink hover:scale-105 hover:duration-300 font-bold  ">
                     <div
                         onClick={() => {
-                            // router.push('/Projects');
-                            handleDisconnect()
+                            router.push('/Projects');
+                            // handleDisconnect()
                         }}
                         className={`ProjectsMobile text-black text-sm p-3 font-normal ${
                             isProjectActive

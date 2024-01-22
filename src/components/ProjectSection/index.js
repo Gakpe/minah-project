@@ -19,9 +19,12 @@ const ProjectSection = ({project}) => {
             }
         )
         if (typeof window !== "undefined") {
-            const beforeParsing = JSON.parse(localStorage.getItem("userMetaData"))
-            console.log("here is before parsing :", beforeParsing)
-            setUserInfo(beforeParsing.user)
+            if(localStorage.getItem("userMetaData")) {
+                const beforeParsing = JSON.parse(localStorage.getItem("userMetaData"))
+                console.log("here is before parsing :", beforeParsing)
+                setUserInfo(beforeParsing.user)
+            }
+
 
         }
     }, []);
@@ -56,15 +59,25 @@ const ProjectSection = ({project}) => {
                                 {/*<div className="icon">15</div>*/}
                             </div>
                             <div className={"flex sm:max-h-64 overflow-y-scroll py-5 w-full  flex-col items-center justify-center gap-2"}>
-                                {userInfo?.amountInvested.slice(0, 8).map((investment, index) => (
-                                    <div key={index} className={"flex flex-row w-full h-full items-center justify-start gap-2 "}>
-                                        <Avatar src={"/Images/circle.svg"} size={20} />
+                                {userInfo ? userInfo?.amountInvested.slice(0, 8).map((investment, index) => (
+                                    <div key={index}
+                                         className={"flex flex-row w-full h-full items-center justify-start gap-2 "}>
+                                        <Avatar src={"/Images/circle.svg"} size={20}/>
 
                                         <p key={index} className={"text-xs font-bold"}>
-                                            Amount Invested ${investment.amount} <span className={"font-normal italic"}>on {moment(investment.timestamp).format("DD/MM/YY")}</span>
+                                            Amount Invested ${investment.amount} <span
+                                            className={"font-normal italic"}>on {moment(investment.timestamp).format("DD/MM/YY")}</span>
                                         </p>
                                     </div>
-                                ))}
+                                )) : <div
+                                          className={"flex flex-row w-full h-full items-center justify-start gap-2 "}>
+                                    <Avatar src={"/Images/circle.svg"} size={20}/>
+
+                                    <p  className={"text-xs font-bold"}>
+                                        Amount Invested $5000 <span
+                                        className={"font-normal italic"}>on {moment().format("DD/MM/YY")}</span>
+                                    </p>
+                                </div>}
                             </div>
                             <p className={"text-sm font-bold text-textOrange  text-center  w-full"}>View Project
                                 Details</p>

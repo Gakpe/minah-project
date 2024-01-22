@@ -52,7 +52,7 @@ const Home = () => {
                 </div>
 
             </div>
-            <div className={"flex flex-row mobileContact gap-3"}>
+            <div className={"flex flex-row mobileContact w-4/5 gap-3"}>
                 <ContactUs
                     button={"Contact Us"}
                     title={"You have a project?"}

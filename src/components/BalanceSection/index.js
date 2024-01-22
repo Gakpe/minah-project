@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from "react";
 import {Button} from "antd";
-import {getProjects} from "../../../util";
 
 const BalanceSection = () => {
     const [userInfo, setUserInfo] = useState()
     useEffect(() => {
 
         if (typeof window !== "undefined") {
-            const beforeParsing = JSON.parse(localStorage.getItem("userMetaData"))
-            setUserInfo(beforeParsing.user)
-
+            if (localStorage.getItem("userMetaData")) {
+                const beforeParsing = JSON.parse(localStorage.getItem("userMetaData"))
+                setUserInfo(beforeParsing.user)
+            }
         }
     }, []);
     return (<div
@@ -18,10 +18,10 @@ const BalanceSection = () => {
             <div className={"bg-[#FBF4F2]  w-full h-full  text-textOrange font-bold rounded-lg p-6"}>
                 <span className={"text-black font-bold text-lg"}>Balance:</span>
                 <h1>
-                    {userInfo?.totalAmountInvested} MNH
+                    {userInfo? userInfo?.totalAmountInvested:""} MNH
                 </h1><h1>
-                    ($ 40’000.00)
-                </h1>
+                ($ 40’000.00)
+            </h1>
             </div>
             <div className={"bg-[#FBF4F2]  w-full h-fit text-textOrange font-light text-sm rounded-lg p-6"}>
                 <span className={"text-black font-bold text-lg"}>Next Claims:</span>
@@ -36,7 +36,8 @@ const BalanceSection = () => {
 
             </h1>
             </div>
-            <Button className={"w-fit h-full text-white backgroundGradient rounded-full hover:border-textOrange"}>Claim MNH</Button>
+            <Button className={"w-fit h-full text-white backgroundGradient rounded-full hover:border-textOrange"}>Claim
+                MNH</Button>
 
         </div>
     </div>)
