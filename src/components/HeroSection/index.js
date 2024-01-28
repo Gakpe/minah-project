@@ -30,7 +30,7 @@ const HeroSection = () => {
 
                 <div className={"flex flex-row items-center sm:justify-center justify-start gap-5 w-full h-full"}>
                     <Link 
-                        href={"https://tally.so/r/nGK8Lo"}
+                        href={"https://tally.so/r/w8x8BO"}
                         target={"_blank"}
                         className={"gradientedBackground text-sm hover:underline hover:scale-105 hover:duration-300 hover:font-bold px-3  py-2 h-fit w-fit hover:border-textOrange rounded-full text- text-white"}>
                         Join the waitlist

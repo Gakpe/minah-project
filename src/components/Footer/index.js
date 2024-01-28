@@ -33,16 +33,15 @@ const Footer = () => {
                             <Link
                                 href={"https://minah-io.gitbook.io/minah-litepaper-collection/more-details.../comment-ca-marche-en-bref"}
                                 target={"_blank"}
-                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">How
-                                does it
-                                work?
+                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">
+                                How does it work?
                             </Link>
-                            <Link href={"https://tally.so/r/nGK8Lo"} target={"_blank"}
+                            <Link href={"https://tally.so/r/meRYNQ"} target={"_blank"}
                                   className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">You
                                 have a
                                 project
                             </Link>
-                            <Link href={"https://tally.so/r/nGK8Lo"} target={"_blank"}
+                            <Link href={"https://tally.so/r/w8x8BO"} target={"_blank"}
                                   className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">You
                                 want to
                                 invest
@@ -54,17 +53,19 @@ const Footer = () => {
                     <div className="flex flex-col gap-3 h-full w-full ">
                         <div className="font-bold">COMPANY</div>
                         <div className=" flex flex-col h-full  gap-2">
+                            <Link
+                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight"
+                                href={"https://minah.io"}
+                                target={"_blank"}>    
+                                Minah.io
+                            </Link>
                             <div
-                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">Minah.io
+                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">
+                                Terms and Conditions
                             </div>
                             <div
-                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">Terms
-                                and
-                                Conditions
-                            </div>
-                            <div
-                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">About
-                                us
+                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">
+                                About us
                             </div>
                         </div>
                     </div>
@@ -73,11 +74,17 @@ const Footer = () => {
                     <div className="flex flex-col gap-3 h-full w-full ">
                         <div className="font-bold">Ressources</div>
                         <div className=" flex flex-col h-full  gap-2">
+                            <Link
+                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight"
+                                href="https://minah-io.gitbook.io/minah-litepaper-collection/minah-litepaper/welcome-to-minah.io"
+                                target="_blank">
+                                Litepaper
+                            </Link>
                             <div
-                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">Litepaper
-                            </div>
-                            <div
-                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">Community
+                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight"
+                                href="https://tally.so/r/w8x8BO"
+                                target="_blanck">
+                                Community
                             </div>
                             {/*<div className="Link  text-black text-sm font-normal font-inter leading-tight">You want to invest</div>*/}
                         </div>
@@ -88,27 +95,15 @@ const Footer = () => {
                         <div className="font-bold">Help</div>
                         <div className=" flex flex-col h-full  gap-2">
                             <div
-                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">Support
+                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">
+                                    Support
                             </div>
+                       
 
                             {/*<div className="Link  text-black text-sm font-normal font-inter leading-tight">You want to invest</div>*/}
                         </div>
                     </div>
                 </div>
-                <div className="Column h-full flex-col justify-start items-start gap-6">
-                    <div className="flex flex-col gap-3 h-full w-full ">
-                        <div className="font-bold">Nos partenaires</div>
-                        <div className=" flex flex-col h-full  gap-2">
-                            <div
-                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">Lorem
-                                ipsum
-                            </div>
-
-                            {/*<div className="Link  text-black text-sm font-normal font-inter leading-tight">You want to invest</div>*/}
-                        </div>
-                    </div>
-                </div>
-
 
             </div>
         </div>

@@ -140,7 +140,7 @@ localStorage.clear()
                                 : 'gradiented rounded-full text-white  duration-150 transition-all '
                         } leading-tight `}
                     >
-                        Projects / Discover the universe
+                        Discover our projects
                     </div>
                 </motion.div>
 

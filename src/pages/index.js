@@ -264,9 +264,6 @@ const Home = () => {
                                 <span className={"text-textOrange text-5xl"}>Our</span> Partners
                             </h1>
                             <p className={"w-full text-center"}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                             </p>
                         </div>
                         <Slider {...settings2} className={"w-4/5  "}>
@@ -329,13 +326,17 @@ const Home = () => {
                 </div>
 
                 <div className={"flex flex-row mb-10 items-center gap-10  w-4/5 h-[50vh] justify-between"}>
-                    <ContactUs
-                        button={"Contact Us"}
-                        title={"You have a project?"}
-                    />
+"
+                        <ContactUs
+                            button={"Contact Us"}
+                            title={"You have a project?"}
+                            link={"https://tally.so/r/meRYNQ"}
+                        />
+
                     <ContactUs
                         button={"Join the community"}
                         title={"You want to invest?"}
+                        link={"https://tally.so/r/w8x8BO"}
                     />
                 </div>
             </div>

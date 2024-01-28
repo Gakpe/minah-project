@@ -55,15 +55,15 @@ const Projects = () => {
                                 key={project._id}
                                 title={project.name}
                                 description=
-                                    " Introducing Minah.io flagship Alpha Project, setting the stage for a new era of investment in Africa
-                                    Strategically located in the heart of Lomé, the beautiful capital city of Togo in West Africa this first 
-                                    project is directly managed by the core Minah Team. It relies on two main assets : One rental building 
+                                    " Introducing Minah.io flagship Alpha Project, setting the stage for a new era of investment in Africa.
+                                    Strategically located in the heart of Lomé, Togo in West Africa this first project is directly managed by
+                                    the core Minah Team. It relies on two main assets : One rental building 
                                     that includes a commercial space destined to host a community-benefiting business and a span of agricultural 
                                     land awaiting cultivation on the city's outskirts.
                                     Stay tuned for more info ! "
                                 imageUrl={project.image}
-                                id={project.id}
-                            />
+                                id={project.id}/>
+                                
                                 <ProjectCards2
                                     image={false}
                                     bg={"white"}
