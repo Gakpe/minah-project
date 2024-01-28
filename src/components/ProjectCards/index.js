@@ -50,7 +50,6 @@ useEffect(()=>{
                 */}
 
                 <Button className="text-black rounded-full gradientText border-textOrange" size="large"
-                        size="large"
                         href="https://tally.so/r/w8x8BO"
                         target="_blank">
                     Be a early investor 
