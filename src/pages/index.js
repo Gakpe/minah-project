@@ -215,7 +215,7 @@ const Home = () => {
                                         We foster a movement where economic growth meets the greater good, where each step is one more towards inclusivity and shared prosperity. 
                                         From real estate, renewable energy, and sustainable farming we provided access to secured and meaningful opportunities, unlocking the potential of promising sectors and impactful projects. 
                                         <br/> 
-                                        Join us and be part of a collective journey to shape and redefine the building blocks of West Africa's economic renaissance.
+                                        Join us and be part of a collective journey to shape and redefine the building blocks of West Africa`&apos;`s economic renaissance.
                                         </p>
                                     </p>
 
@@ -235,7 +235,7 @@ const Home = () => {
                             <p className={"text-justify"}>
                             Minah Labs stands as the cornerstone of the Minah ecosystem, dedicated to developing and maintaining the technological infrastructure of the Minah platform. 
                             <br/> <br/>
-                            As a non-profit entity, Minah Labs mission is to ensure the stability and reliability of the platform while fostering a thriving ecosystem united by a shared goal: to accelerate Africa's development. 
+                            As a non-profit entity, Minah Labs mission is to ensure the stability and reliability of the platform while fostering a thriving ecosystem united by a shared goal: to accelerate Africa`&apos;`s development. 
                             Minah Lab is also the architect of a multidisciplinary network a vibrant community of builders, forward-thinking individuals, landowners with deep local roots and blockchain infrastructure actors like Polygon and Fireblocks.  
                             <br/> <br/>
 
