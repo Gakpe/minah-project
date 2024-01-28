@@ -17,11 +17,13 @@ useEffect(()=>{
 })
     return (
         <div className={`${image?"project-card":"project-card2 "} drop-shadow-lg ${bg?`bg-white/60`:"bg-[#FAFAFA]"}  px-10 py-5`}>
-            <div className="title-section testClass py-5" onClick={() => {
+           {/* <div className="title-section testClass py-5"  onClick={() => {
                 localStorage.setItem("projectDetails", JSON.stringify(projectDetails))
                 router.push("/ProjectDetails")
             }}>
-                <h1 className="text-black text-5xl font-extrabold"><span className={"title"}>Project</span> Title 01
+            */}
+            <div className="title-section testClass py-5">
+                <h1 className="text-black text-5xl font-extrabold"><span className={"title"}>Alpha project</span> - Lomé/Kovié
                 </h1>
             </div>
             <p className="description text-justify">{description}</p>
@@ -40,15 +42,18 @@ useEffect(()=>{
                 {/*<div className="icon">15</div>*/}
             </div>
             <div className="button-section">
+                {/*
                 <Button className="text-white hover:border-textOrange rounded-full gradiented" size="large"
                         onClick={onInvest}>
-                    {users?
-                    "Invest In this Project":"Connect to invest"}
+                    {users? "Invest In this Project":"Connect to invest"}
                 </Button>
+                */}
 
                 <Button className="text-black rounded-full gradientText border-textOrange" size="large"
-                        onClick={onExplore}>
-                    Discover the project
+                        size="large"
+                        href="https://tally.so/r/w8x8BO"
+                        target="_blank">
+                    Be a early investor 
                 </Button>
             </div>
         </div>

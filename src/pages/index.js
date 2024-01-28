@@ -144,65 +144,52 @@ const Home = () => {
                     <div className={"w-full flex flex-col gap-6 items-center justify-center"}>
                         <h1 className={"text-5xl text-black font-extrabold"}><span
                             className={"text-textOrange text-5xl"}>Minah</span> project</h1>
-                        <p className={"w-full text-center"}>We aim to facilitate investment in sub-Saharan real estate
-                            and
-                            land
-                            using
-                            blockchain and in-depth local know-how.</p>
+                        <p className={"w-full text-center"}>
+                        Where Blockchain Meets African real estate and sustainable development 
+                        </p>
                     </div>
                     <Slider
                         className="w-4/5 mt-6 items-center justify-center center flex flex-row gap-10" {...settings}>
                         <div className={"flex  flex-col w-full h-full items-center justify-center gap-6"}>
-                            <Image loading={"lazy"} quality={20} src="/Images/featureImage001.svg" className="w-1/2 h-1/2" alt="" width={100}
+                            <Image loading={"lazy"} quality={20} src="/Images/Fichier1.svg" className="w-1/2 h-1/2" alt="" width={100}
                                    height={100}/>
                             <div className="flex flex-col items-center justify-center gap-4">
                                 <h1 className="font-bold text-xl">
                                     Land and real estate
                                 </h1>
                                 <p className="text-center">
-                                    Invest in high potential real estate projects located in Togo and West Africa
-                                </p>
+                                Your portal to the most promising real estate projects in West Africa                                </p>
                             </div>
                         </div>
 
                         <div className="flex flex-col w-full h-full items-center justify-center gap-6">
-                            <Image loading={"lazy"} quality={20} src="/Images/featureImage002.svg" className="w-1/2 h-1/2" alt="" width={100}
+                            <Image loading={"lazy"} quality={20} src="/Images/Fichier2.svg" className="w-1/2 h-1/2" alt="" width={100}
                                    height={100}/>
                             <div className="flex flex-col items-center justify-center gap-4">
                                 <h1 className="font-bold text-xl">
                                     Blockchain transparency
                                 </h1>
                                 <p className="text-center">
-                                    We use Blockchain to make the whole process transparent and keep you updated with
-                                    any
-                                    major events on the assets you invested in
+                                    Experience unmatched transparency thanks to our blockchain based technology
                                 </p>
                             </div>
                         </div>
 
                         <div className="flex flex-col w-full h-full items-center justify-center gap-6">
-                            <Image loading={"lazy"} quality={20} src="/Images/featureImage003.svg" className="w-1/2 h-1/2" alt="" width={100}
+                            <Image loading={"lazy"} quality={20} src="/Images/Fichier3.svg" className="w-1/2 h-1/2" alt="" width={100}
                                    height={100}/>
                             <div className="flex flex-col items-center justify-center gap-4">
                                 <h1 className="font-bold text-xl">
                                     Impact investment
                                 </h1>
                                 <p className="text-center">
-                                    Join a positive impact investors community dedicated to empowering African projects
-                                    step
-                                    by step
+                                    Join a positive impact investors community dedicated to empowering African project
                                 </p>
                             </div>
                         </div>
 
                     </Slider>
-                    {/*<CustomDots active={activeSlide} slides={[*/}
 
-                    {/*    <div key={1} className={"duration-300 transition all ease-in-out"}>Slide 1</div>,*/}
-                    {/*    <div key={2}>Slide 2</div>,*/}
-                    {/*    <div key={3}>Slide 3</div>,*/}
-                    {/*    // Add more elements for additional slides*/}
-                    {/*]} onClick={(index) => setActiveSlide(index)}/>*/}
                 </div>
                 <div className={"h-[100vh]"}>
                     <div
@@ -213,45 +200,22 @@ const Home = () => {
                                 <span className={"text-black text-5xl"}>The</span> Concept
                             </h1>
                             <div className={"flex flex-row items-center AboutSection w-4/5 justify-evenly  "}>
-                                <Image src={"/Images/dummyImage.svg"}
+                                <Image src={"/Images/Fichier4.svg"}
                                        className={"w-2/3 h-2/3 DummyImage flex justify-end items-end drop-shadow-lg hover:scale-105 hover:duration-300 hover:transition-all"}
                                        alt={""}
                                        width={150} height={150}/>
                                 <div className={"flex w-1/2 flex-col gap-5"}>
                                     <p className={"text-justify text-md text-white"}>
                                         <p>
-                                            Minah est un projet pionnier. Fondé par Hervé et Julien, deux frères
-                                            franco-togolais,
-                                            l`&apos;`objectif de Minah est de facilier l`&apos;`investissement en
-                                            Afrique
-                                            grâce à la
-                                            technologie
-                                            blockchain.
-                                        </p>
-                                        <br/>
-                                        <p>
-                                            Notre mission : financer des projets innovants qui stimulent le
-                                            développement
-                                            socio-économique en Afrique de l`&apos;`Ouest , de
-                                            l`&apos;`immobilierl`&apos;`énergie
-                                            renouvelable à
-                                            l`&apos;`agriculture durable. Chez Minah.io, chaque transaction est
-                                            sécurisée,
-                                            transparente et
-                                            efficace, réduisant les coûts et ouvrant des portes à de nouvelles
-                                            possibilités
-                                            d`&apos;`investissement. Nous sommes plus qu`&apos;`une plateforme ; nous
-                                            sommes
-                                            un
-                                            mouvement vers un
-                                            avenir où le progrès économique se conjugue avec le bien-être des
-                                            communautés.
-                                            Rejoignez-nous pour faire partie de cette révolution, où chaque
-                                            investissement
-                                            crée un
-                                            impact positif durable, bâtissant pas à pas un avenir prospère pour
-                                            l`&apos;`Afrique de
-                                            l`&apos;`Ouest.
+                                        At the core of Minah lies a vision inspired by heritage and driven innovation. 
+                                        Founded by Julien and Hervé, two Franco-Togolese brothers, the Minah initiative is marked by strong ambition : a quest to harness the transformative power of blockchain to pave the way for a bright and sustainable future for Africa.
+                                        Minah transcends mere transactions. 
+                                        <br/> <br/>
+                                        Our mission is to ignite socio-economic progress through strategic funding of groundbreaking projects — catalyzing a new era for local communities. 
+                                        We foster a movement where economic growth meets the greater good, where each step is one more towards inclusivity and shared prosperity. 
+                                        From real estate, renewable energy, and sustainable farming we provided access to secured and meaningful opportunities, unlocking the potential of promising sectors and impactful projects. 
+                                        <br/> 
+                                        Join us and be part of a collective journey to shape and redefine the building blocks of West Africa's economic renaissance.
                                         </p>
                                     </p>
 
@@ -268,23 +232,22 @@ const Home = () => {
                             <h1 className={"text-black text-5xl font-extrabold"}>
                                 <span className={"text-textOrange text-5xl"}>Minah</span> Labs
                             </h1>
-                            <p className={"text-center"}>Minah Labs is be the backbone of the Minah platform. It brings
-                                together
-                                all necessary assets
-                                and players to create an ecosystem enabling reliable and easy real estate investment in
-                                Africa</p>
-                            <ol className={"flex flex-col items-start justify-center"}>
-                                <li>- Infrastructure platforms (Polygon, Fireblocks etc.)</li>
-                                <li> - Community of builders</li>
-                                <li> - Individual investors</li>
-                                <li> - Land owners with local network</li>
-                            </ol>
-                            <Button onClick={() => {
-                                SetClicked(true)
-                            }}
+                            <p className={"text-justify"}>
+                            Minah Labs stands as the cornerstone of the Minah ecosystem, dedicated to developing and maintaining the technological infrastructure of the Minah platform. 
+                            <br/> <br/>
+                            As a non-profit entity, Minah Labs mission is to ensure the stability and reliability of the platform while fostering a thriving ecosystem united by a shared goal: to accelerate Africa's development. 
+                            Minah Lab is also the architect of a multidisciplinary network a vibrant community of builders, forward-thinking individuals, landowners with deep local roots and blockchain infrastructure actors like Polygon and Fireblocks.  
+                            <br/> <br/>
+
+                            Together, we are crafting an environment that simplifies and secures real estate investment in Africa, making it an accessible and impactful experience for all.
+                                </p>
+                       
+                            <Button
                                     className={"gradiented hover:underline hover:scale-105 hover:duration-300 hover:font-bold text-sm hover:border-textOrange rounded-full px-3 py-2 h-fit w-44 text-white "}
-                                    size={"large"}>
-                                {user === true ? "Join the Community" : "Connect to Invest"}
+                                    size={"large"}
+                                    href="https://tally.so/r/nGK8Lo"
+                                    target="_blank">
+                            Join the Community
                             </Button>
                         </div>
                         <Modal className=" h-fit flex  " open={user === false && clicked} footer={null}
@@ -307,50 +270,64 @@ const Home = () => {
                             </p>
                         </div>
                         <Slider {...settings2} className={"w-4/5  "}>
-                            <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
-                                <AboutUs/>
+                            <div className={"flex flex-col gap-2 items-center justify-center w-full h-full"}>
+                                 <Image 
+                                     src={"/Images/Parte.files/Alchemy.svg"} 
+                                     alt={""} 
+                                     className={"w-1/2 rounded-lg  h-1/2"} 
+                                     width={50} 
+                                     height={50}/>
                             </div>
-                            <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
-                                <AboutUs/>
+
+                            <div className={"flex flex-col gap-2 items-center justify-center w-full h-full"}>
+                                 <Image 
+                                     src={"/Images/Parte.files/Fireblocks.svg"} 
+                                     alt={""} 
+                                     className={"w-1/2 rounded-lg  h-1/2"} 
+                                     width={50} 
+                                     height={50}/>
                             </div>
-                            <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
-                                <AboutUs/>
+
+                            <div className={"flex flex-col gap-2 items-center justify-center w-full h-full"}>
+                                 <Image 
+                                     src={"/Images/Parte.files/LabsNS.svg"} 
+                                     alt={""} 
+                                     className={"w-1/2 rounded-lg  h-1/2"} 
+                                     width={50} 
+                                     height={50}/>
                             </div>
-                            <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
-                                <AboutUs/>
+
+                            <div className={"flex flex-col gap-2 items-center justify-center w-full h-full"}>
+                                 <Image 
+                                     src={"/Images/Parte.files/mt-pelerin.svg"} 
+                                     alt={""} 
+                                     className={"w-1/2 rounded-lg  h-1/2"} 
+                                     width={50} 
+                                     height={50}/>
                             </div>
-                            <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
-                                <AboutUs/>
+
+                            <div className={"flex flex-col gap-2 items-center justify-center w-full h-full"}>
+                                 <Image 
+                                     src={"/Images/Parte.files/Polygon.svg"} 
+                                     alt={""} 
+                                     className={"w-1/2 rounded-lg  h-1/2"} 
+                                     width={50} 
+                                     height={50}/>
                             </div>
-                            <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
-                                <AboutUs/>
-                            </div>
-                            <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
-                                <AboutUs/>
-                            </div>
-                            <div className={"flex flex-row items-center justify-evenly w-full h-full gap-10"}>
-                                <AboutUs/>
+
+                            <div className={"flex flex-col gap-2 items-center justify-center w-full h-full"}>
+                                 <Image 
+                                     src={"/Images/Parte.files/Yellowcard.svg"} 
+                                     alt={""} 
+                                     className={"w-1/2 rounded-lg  h-1/2"} 
+                                     width={100} 
+                                     height={50}/>
                             </div>
                         </Slider>
 
-
                     </div>
                 </div>
-                {/*<div className={"flex flex-col justify-center items-center w-full h-full px-5  gap-3"}>*/}
-                {/*    <h1>About Us</h1>*/}
-                {/*    <p className={"w-1/3"}>We aim to facilitate investment in sub-Saharan real estate and land using*/}
-                {/*        blockchain and in-depth local know-how.</p>*/}
-                {/*    <div className={"flex flex-row items-center justify-center w-full h-full gap-4"}>*/}
-                {/*        <AboutUs/>*/}
-                {/*        <AboutUs/>*/}
-                {/*        <AboutUs/>*/}
-                {/*        <AboutUs/>*/}
-                {/*    </div>*/}
 
-                {/*</div>*/}
-                {/*<div className={"w-full h-full"}>*/}
-                {/*    <AboutMinah/>*/}
-                {/*</div>*/}
                 <div className={"flex flex-row mb-10 items-center gap-10  w-4/5 h-[50vh] justify-between"}>
                     <ContactUs
                         button={"Contact Us"}

@@ -1,5 +1,6 @@
 import MainLayout from "@/layouts/MainLayout";
 import ProjectCards from "@/components/ProjectCards";
+import ProjectCards2 from "@/components/ProjectCards2";
 import ContactUs from "@/components/ContactUs";
 import {useRouter} from "next/router";
 import {Breadcrumb} from "antd";
@@ -53,17 +54,25 @@ const Projects = () => {
                                 projectDetails={project}
                                 key={project._id}
                                 title={project.name}
-                                description={project.description ? project.description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+                                description=
+                                    " Introducing Minah.io flagship Alpha Project, setting the stage for a new era of investment in Africa
+                                    Strategically located in the heart of Lomé, the beautiful capital city of Togo in West Africa this first 
+                                    project is directly managed by the core Minah Team. It relies on two main assets : One rental building 
+                                    that includes a commercial space destined to host a community-benefiting business and a span of agricultural 
+                                    land awaiting cultivation on the city's outskirts.
+                                    Stay tuned for more info ! "
                                 imageUrl={project.image}
                                 id={project.id}
                             />
-                                <ProjectCards
+                                <ProjectCards2
                                     image={false}
                                     bg={"white"}
                                     projectDetails={project}
                                     key={project._id}
                                     title={project.name}
-                                    description={project.description ? project.description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+                                    description=
+                                    "Once the first project is completed, the Beta project will offer a bigger opportunity to contribute to the Togolese development. 
+                                    As the Minah project will grow, liquidity and quality of investment will thrive too. ETA : end 2024"
                                     imageUrl={project.image}
                                     id={project.id}
                                 />
@@ -71,15 +80,12 @@ const Projects = () => {
                         )
                     }
                 )}
-                {/*<ProjectCards title={"Project Title 01 "}*/}
-                {/*              description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit "}/>*/}
-                {/*<ProjectCards/>*/}
-                {/*<ProjectCards/>*/}
+
 
                 <div
-                    className={"flex flex-col w-full h-full rounded-xl    py-14  gap-10 items-center justify-between"}>
-                    <div className={"text-textOrange text-5xl font-extrabold ProjectMobileText"}>And Many More
-                        Projects <span className={"text-black text-5xl font-bold"}>To Come</span></div>
+                    className={"flex flex-col w-full h-full rounded-xl py-14  gap-10 items-center justify-between"}>
+                    <div className={"text-textOrange text-5xl font-extrabold ProjectMobileText"}>And many more
+                        projects <span className={"text-black text-5xl font-bold"}>to come</span></div>
                     <div className={"text-xl font-semibold text-textOrange"}>Comming Soon</div>
                 </div>
                 <div className={"flex flex-row sm:flex-row items-center gap-4 justify-center"}>
