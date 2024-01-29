@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@amplitude/analytics-browser": "^2.4.0",
     "@ant-design/icons": "^5.2.6",
     "@magic-ext/oauth": "^15.3.2",
     "@magic-sdk/admin": "^2.0.1",
