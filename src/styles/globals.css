@@ -387,3 +387,6 @@
 .slick-dots{
     bottom: -70px!important;
 }
+.aspect-ratio-1\:1 {
+   aspect-ratio: 3/2;
+}

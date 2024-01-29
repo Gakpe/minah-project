@@ -1,6 +1,5 @@
 import MainLayout, {getLayout} from "@/layouts/MainLayout";
 import HeroSection from "@/components/HeroSection";
-import AboutUs from "@/components/AboutUs";
 import ContactUs from "@/components/ContactUs";
 import Image from "next/image";
 import {Button, Modal, Progress} from "antd";
@@ -26,45 +25,27 @@ const Home = () => {
         }
     }, [])
     const settings = {
-        dots: true,
-        autoplay: false,
-        infinite: false,
+        dots: true, autoplay: false, infinite: false,
 
 
-        arrows: false,
-        slidesToShow: 3,
-        autoplaySpeed: 3000,
-        slidesToScroll: 1,
+        arrows: false, slidesToShow: 3, autoplaySpeed: 3000, slidesToScroll: 1,
 
-        cssEase: "linear",
-        appendDots: dots => (
-            <div>
-                <ul style={{margin: "0px"}}> {dots} </ul>
-            </div>
-        ),
-        customPaging: i => (
-            <div>
-                <Progress
-                    percent={i === activeSlide ? 100 : 0}
-                    showInfo={false}
-                />
-            </div>
-        ),
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                },
+        cssEase: "linear", appendDots: dots => (<div>
+            <ul style={{margin: "0px"}}> {dots} </ul>
+        </div>), customPaging: i => (<div>
+            <Progress
+                percent={i === activeSlide ? 100 : 0}
+                showInfo={false}
+            />
+        </div>), responsive: [{
+            breakpoint: 768, settings: {
+                slidesToShow: 1,
             },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                },
+        }, {
+            breakpoint: 480, settings: {
+                slidesToShow: 1,
             },
-        ],
-        beforeChange: (current, next) => {
+        },], beforeChange: (current, next) => {
             setActiveSlide(next);
         },
     };
@@ -73,8 +54,7 @@ const Home = () => {
         autoplay: true,
         infinite: true,
         centerMode: true,
-        className: "center",
-        // centerMode: true,
+        className: "center", // centerMode: true,
         centerPadding: "60px",
         arrows: false,
         slidesToShow: 5,
@@ -82,53 +62,40 @@ const Home = () => {
         slidesToScroll: 1,
         speed: 500,
         cssEase: "linear",
-        appendDots: dots => (
-            <div>
-                <ul style={{margin: "0px"}}> {dots} </ul>
-            </div>
-        ),
-        customPaging: i => (
-            <div>
-                <Progress
-                    percent={i === activeSlide ? 100 : 0}
-                    showInfo={false}
-                />
-            </div>
-        ),
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                },
+        appendDots: dots => (<div>
+            <ul style={{margin: "0px"}}> {dots} </ul>
+        </div>),
+        customPaging: i => (<div>
+            <Progress
+                percent={i === activeSlide ? 100 : 0}
+                showInfo={false}
+            />
+        </div>),
+        responsive: [{
+            breakpoint: 768, settings: {
+                slidesToShow: 1,
             },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                },
+        }, {
+            breakpoint: 480, settings: {
+                slidesToShow: 1,
             },
-        ],
+        },],
         beforeChange: (current, next) => {
             setActiveSlide(next);
         },
     };
     const CustomDots = ({active, onClick, slides}) => {
-        return (
-            <div>
-                <ul className={"flex flex-row gap-5 w-full"} style={{margin: "0px"}}>
-                    {slides?.map((slide, index) => (
-                        <li key={index} onClick={() => onClick(index)}>
-                            <Progress
-                                className={`${index === active ? "w-32 duration-200 transition all ease-in-out delay-75" : "w-11 duration-200 transition all ease-in-out delay-75"}`}
-                                percent={index === active ? 100 : 0}
-                                showInfo={false}
-                            />
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        );
+        return (<div>
+            <ul className={"flex flex-row gap-5 w-full"} style={{margin: "0px"}}>
+                {slides?.map((slide, index) => (<li key={index} onClick={() => onClick(index)}>
+                    <Progress
+                        className={`${index === active ? "w-32 duration-200 transition all ease-in-out delay-75" : "w-11 duration-200 transition all ease-in-out delay-75"}`}
+                        percent={index === active ? 100 : 0}
+                        showInfo={false}
+                    />
+                </li>))}
+            </ul>
+        </div>);
     };
     return (<MainLayout>
         <div className={"flex flex-col items-center justify-center gap-6 backgroundColored"}>
@@ -145,25 +112,27 @@ const Home = () => {
                         <h1 className={"text-5xl text-black font-extrabold"}><span
                             className={"text-textOrange text-5xl"}>Minah</span> project</h1>
                         <p className={"w-full text-center"}>
-                        Where Blockchain Meets African real estate and sustainable development 
+                            Where Blockchain Meets African real estate and sustainable development
                         </p>
                     </div>
                     <Slider
                         className="w-4/5 mt-6 items-center justify-center center flex flex-row gap-10" {...settings}>
                         <div className={"flex  flex-col w-full h-full items-center justify-center gap-6"}>
-                            <Image loading={"lazy"} quality={20} src="/Images/Fichier1.svg" className="w-1/2 h-1/2" alt="" width={100}
+                            <Image loading={"lazy"} quality={20} src="/Images/Fichier1.svg" className="w-1/2 h-1/2"
+                                   alt="" width={100}
                                    height={100}/>
                             <div className="flex flex-col items-center justify-center gap-4">
                                 <h1 className="font-bold text-xl">
                                     Land and real estate
                                 </h1>
                                 <p className="text-center">
-                                Your portal to the most promising real estate projects in West Africa                                </p>
+                                    Your portal to the most promising real estate projects in West Africa </p>
                             </div>
                         </div>
 
                         <div className="flex flex-col w-full h-full items-center justify-center gap-6">
-                            <Image loading={"lazy"} quality={20} src="/Images/Fichier2.svg" className="w-1/2 h-1/2" alt="" width={100}
+                            <Image loading={"lazy"} quality={20} src="/Images/Fichier2.svg" className="w-1/2 h-1/2"
+                                   alt="" width={100}
                                    height={100}/>
                             <div className="flex flex-col items-center justify-center gap-4">
                                 <h1 className="font-bold text-xl">
@@ -176,7 +145,8 @@ const Home = () => {
                         </div>
 
                         <div className="flex flex-col w-full h-full items-center justify-center gap-6">
-                            <Image loading={"lazy"} quality={20} src="/Images/Fichier3.svg" className="w-1/2 h-1/2" alt="" width={100}
+                            <Image loading={"lazy"} quality={20} src="/Images/Fichier3.svg" className="w-1/2 h-1/2"
+                                   alt="" width={100}
                                    height={100}/>
                             <div className="flex flex-col items-center justify-center gap-4">
                                 <h1 className="font-bold text-xl">
@@ -207,15 +177,24 @@ const Home = () => {
                                 <div className={"flex w-1/2 flex-col gap-5"}>
                                     <p className={"text-justify text-md text-white"}>
                                         <p>
-                                        At the core of Minah lies a vision inspired by heritage and driven innovation. 
-                                        Founded by Julien and Hervé, two Franco-Togolese brothers, the Minah initiative is marked by strong ambition : a quest to harness the transformative power of blockchain to pave the way for a bright and sustainable future for Africa.
-                                        Minah transcends mere transactions. 
-                                        <br/> <br/>
-                                        Our mission is to ignite socio-economic progress through strategic funding of groundbreaking projects — catalyzing a new era for local communities. 
-                                        We foster a movement where economic growth meets the greater good, where each step is one more towards inclusivity and shared prosperity. 
-                                        From real estate, renewable energy, and sustainable farming we provided access to secured and meaningful opportunities, unlocking the potential of promising sectors and impactful projects. 
-                                        <br/> 
-                                        Join us and be part of a collective journey to shape and redefine the building blocks of West Africa`&apos;`s economic renaissance.
+                                            At the core of Minah lies a vision inspired by heritage and driven
+                                            innovation.
+                                            Founded by Julien and Hervé, two Franco-Togolese brothers, the Minah
+                                            initiative is marked by strong ambition : a quest to harness the
+                                            transformative power of blockchain to pave the way for a bright and
+                                            sustainable future for Africa.
+                                            Minah transcends mere transactions.
+                                            <br/> <br/>
+                                            Our mission is to ignite socio-economic progress through strategic funding
+                                            of groundbreaking projects — catalyzing a new era for local communities.
+                                            We foster a movement where economic growth meets the greater good, where
+                                            each step is one more towards inclusivity and shared prosperity.
+                                            From real estate, renewable energy, and sustainable farming we provided
+                                            access to secured and meaningful opportunities, unlocking the potential of
+                                            promising sectors and impactful projects.
+                                            <br/>
+                                            Join us and be part of a collective journey to shape and redefine the
+                                            building blocks of West Africa`&apos;`s economic renaissance.
                                         </p>
                                     </p>
 
@@ -233,21 +212,27 @@ const Home = () => {
                                 <span className={"text-textOrange text-5xl"}>Minah</span> Labs
                             </h1>
                             <p className={"text-justify"}>
-                            Minah Labs stands as the cornerstone of the Minah ecosystem, dedicated to developing and maintaining the technological infrastructure of the Minah platform. 
-                            <br/> <br/>
-                            As a non-profit entity, Minah Labs mission is to ensure the stability and reliability of the platform while fostering a thriving ecosystem united by a shared goal: to accelerate Africa`&apos;`s development. 
-                            Minah Lab is also the architect of a multidisciplinary network a vibrant community of builders, forward-thinking individuals, landowners with deep local roots and blockchain infrastructure actors like Polygon and Fireblocks.  
-                            <br/> <br/>
+                                Minah Labs stands as the cornerstone of the Minah ecosystem, dedicated to developing and
+                                maintaining the technological infrastructure of the Minah platform.
+                                <br/> <br/>
+                                As a non-profit entity, Minah Labs mission is to ensure the stability and reliability of
+                                the platform while fostering a thriving ecosystem united by a shared goal: to accelerate
+                                Africa`&apos;`s development.
+                                Minah Lab is also the architect of a multidisciplinary network a vibrant community of
+                                builders, forward-thinking individuals, landowners with deep local roots and blockchain
+                                infrastructure actors like Polygon and Fireblocks.
+                                <br/> <br/>
 
-                            Together, we are crafting an environment that simplifies and secures real estate investment in Africa, making it an accessible and impactful experience for all.
-                                </p>
-                       
+                                Together, we are crafting an environment that simplifies and secures real estate
+                                investment in Africa, making it an accessible and impactful experience for all.
+                            </p>
+
                             <Button
-                                    className={"gradiented hover:underline hover:scale-105 hover:duration-300 hover:font-bold text-sm hover:border-textOrange rounded-full px-3 py-2 h-fit w-44 text-white "}
-                                    size={"large"}
-                                    href="https://tally.so/r/nGK8Lo"
-                                    target="_blank">
-                            Join the Community
+                                className={"gradiented hover:underline hover:scale-105 hover:duration-300 hover:font-bold text-sm hover:border-textOrange rounded-full px-3 py-2 h-fit w-44 text-white "}
+                                size={"large"}
+                                href="https://tally.so/r/nGK8Lo"
+                                target="_blank">
+                                Join the Community
                             </Button>
                         </div>
                         <Modal className=" h-fit flex  " open={user === false && clicked} footer={null}
@@ -266,59 +251,65 @@ const Home = () => {
                             <p className={"w-full text-center"}>
                             </p>
                         </div>
-                        <Slider {...settings2} className={"w-4/5  "}>
-                            <div className={"flex flex-col gap-2 items-center justify-center w-full h-full"}>
-                                 <Image 
-                                     src={"/Images/Parte.files/Alchemy.svg"} 
-                                     alt={""} 
-                                     className={"w-1/2 rounded-lg  h-1/2"} 
-                                     width={50} 
-                                     height={50}/>
+                        <Slider {...settings2} className={"w-4/5"}>
+                            <div className={"slider-item aspect-ratio-1:1"}>
+                                <Image
+                                    src={"/Images/Parte.files/Alchemy.svg"}
+                                    alt={""}
+                                    className={"rounded-lg"}
+                                    width={100}
+                                    height={100}
+                                />
                             </div>
 
-                            <div className={"flex flex-col gap-2 items-center justify-center w-full h-full"}>
-                                 <Image 
-                                     src={"/Images/Parte.files/Fireblocks.svg"} 
-                                     alt={""} 
-                                     className={"w-1/2 rounded-lg  h-1/2"} 
-                                     width={50} 
-                                     height={50}/>
+                            <div className={"slider-item aspect-ratio-1:1"}>
+                                <Image
+                                    src={"/Images/Parte.files/Fireblocks.svg"}
+                                    alt={""}
+                                    className={"rounded-lg"}
+                                    width={100}
+                                    height={100}
+                                />
                             </div>
 
-                            <div className={"flex flex-col gap-2 items-center justify-center w-full h-full"}>
-                                 <Image 
-                                     src={"/Images/Parte.files/LabsNS.svg"} 
-                                     alt={""} 
-                                     className={"w-1/2 rounded-lg  h-1/2"} 
-                                     width={50} 
-                                     height={50}/>
+                            {/*<div className={"slider-item aspect-ratio-1:1"}>*/}
+                            {/*    <Image*/}
+                            {/*        src={"/Images/Parte.files/LabsNS.svg"}*/}
+                            {/*        alt={""}*/}
+                            {/*        className={"rounded-lg"}*/}
+                            {/*        width={50}*/}
+                            {/*        height={50}*/}
+                            {/*    />*/}
+                            {/*</div>*/}
+
+                            <div className={"slider-item aspect-ratio-1:1"}>
+                                <Image
+                                    src={"/Images/Parte.files/mt-pelerin.svg"}
+                                    alt={""}
+                                    className={"rounded-lg"}
+                                    width={100}
+                                    height={100}
+                                />
                             </div>
 
-                            <div className={"flex flex-col gap-2 items-center justify-center w-full h-full"}>
-                                 <Image 
-                                     src={"/Images/Parte.files/mt-pelerin.svg"} 
-                                     alt={""} 
-                                     className={"w-1/2 rounded-lg  h-1/2"} 
-                                     width={50} 
-                                     height={50}/>
+                            <div className={"slider-item aspect-ratio-1:1"}>
+                                <Image
+                                    src={"/Images/Parte.files/Polygon.svg"}
+                                    alt={""}
+                                    className={"rounded-lg"}
+                                    width={100}
+                                    height={100}
+                                />
                             </div>
 
-                            <div className={"flex flex-col gap-2 items-center justify-center w-full h-full"}>
-                                 <Image 
-                                     src={"/Images/Parte.files/Polygon.svg"} 
-                                     alt={""} 
-                                     className={"w-1/2 rounded-lg  h-1/2"} 
-                                     width={50} 
-                                     height={50}/>
-                            </div>
-
-                            <div className={"flex flex-col gap-2 items-center justify-center w-full h-full"}>
-                                 <Image 
-                                     src={"/Images/Parte.files/Yellowcard.svg"} 
-                                     alt={""} 
-                                     className={"w-1/2 rounded-lg  h-1/2"} 
-                                     width={100} 
-                                     height={50}/>
+                            <div className={"slider-item aspect-ratio-1:1"}>
+                                <Image
+                                    src={"/Images/Parte.files/Yellowcard.svg"}
+                                    alt={""}
+                                    className={"rounded-lg"}
+                                    width={100}
+                                    height={100}
+                                />
                             </div>
                         </Slider>
 
@@ -326,12 +317,12 @@ const Home = () => {
                 </div>
 
                 <div className={"flex flex-row mb-10 items-center gap-10  w-4/5 h-[50vh] justify-between"}>
-"
-                        <ContactUs
-                            button={"Contact Us"}
-                            title={"You have a project?"}
-                            link={"https://tally.so/r/meRYNQ"}
-                        />
+                    "
+                    <ContactUs
+                        button={"Contact Us"}
+                        title={"You have a project?"}
+                        link={"https://tally.so/r/meRYNQ"}
+                    />
 
                     <ContactUs
                         button={"Join the community"}
