@@ -8,6 +8,8 @@ import {useEffect, useState} from "react";
 import {getProjects} from "../../../util";
 import {RightOutlined} from "@ant-design/icons";
 import Link from "next/link";
+import * as amplitude from '@amplitude/analytics-browser';
+
 
 const Projects = () => {
     const router = useRouter()
