@@ -53,9 +53,8 @@ const Home = () => {
         dots: true,
         autoplay: true,
         infinite: true,
-        centerMode: true,
-        className: "center", // centerMode: true,
-        centerPadding: "60px",
+
+
         arrows: false,
         slidesToShow: 5,
         autoplaySpeed: 3000,
@@ -97,6 +96,16 @@ const Home = () => {
             </ul>
         </div>);
     };
+
+    const images = [
+        { src: "/Images/Parte.files/Alchemy.svg", alt: "" },
+        { src: "/Images/Parte.files/Fireblocks.svg", alt: "" },
+        { src: "/Images/Parte.files/LabsNS.svg", alt: "" },
+        { src: "/Images/Parte.files/mt-pelerin.svg", alt: "" },
+        { src: "/Images/Parte.files/Polygon.svg", alt: "" },
+        { src: "/Images/Parte.files/Yellowcard.svg", alt: "" },
+    ];
+
     return (<MainLayout>
         <div className={"flex flex-col items-center justify-center gap-6 backgroundColored"}>
             <title>Minah | Home</title>
@@ -252,72 +261,25 @@ const Home = () => {
                             </p>
                         </div>
                         <Slider {...settings2} className={"w-4/5"}>
-                            <div className={"slider-item aspect-ratio-1:1"}>
-                                <Image
-                                    src={"/Images/Parte.files/Alchemy.svg"}
-                                    alt={""}
-                                    className={"rounded-lg"}
-                                    width={100}
-                                    height={100}
-                                />
-                            </div>
-
-                            <div className={"slider-item aspect-ratio-1:1"}>
-                                <Image
-                                    src={"/Images/Parte.files/Fireblocks.svg"}
-                                    alt={""}
-                                    className={"rounded-lg"}
-                                    width={100}
-                                    height={100}
-                                />
-                            </div>
-
-                            {/*<div className={"slider-item aspect-ratio-1:1"}>*/}
-                            {/*    <Image*/}
-                            {/*        src={"/Images/Parte.files/LabsNS.svg"}*/}
-                            {/*        alt={""}*/}
-                            {/*        className={"rounded-lg"}*/}
-                            {/*        width={50}*/}
-                            {/*        height={50}*/}
-                            {/*    />*/}
-                            {/*</div>*/}
-
-                            <div className={"slider-item aspect-ratio-1:1"}>
-                                <Image
-                                    src={"/Images/Parte.files/mt-pelerin.svg"}
-                                    alt={""}
-                                    className={"rounded-lg"}
-                                    width={100}
-                                    height={100}
-                                />
-                            </div>
-
-                            <div className={"slider-item aspect-ratio-1:1"}>
-                                <Image
-                                    src={"/Images/Parte.files/Polygon.svg"}
-                                    alt={""}
-                                    className={"rounded-lg"}
-                                    width={100}
-                                    height={100}
-                                />
-                            </div>
-
-                            <div className={"slider-item aspect-ratio-1:1"}>
-                                <Image
-                                    src={"/Images/Parte.files/Yellowcard.svg"}
-                                    alt={""}
-                                    className={"rounded-lg"}
-                                    width={100}
-                                    height={100}
-                                />
-                            </div>
+                            {images.map((image, index) => (
+                                <div key={index} className={"slider-item aspect-ratio-1:1"}>
+                                    <div className="image-container">
+                                        <Image
+                                            src={image.src}
+                                            alt={image.alt}
+                                            className={"rounded-lg equal-image"}
+                                            width={100}
+                                            height={100}
+                                        />
+                                    </div>
+                                </div>
+                            ))}
                         </Slider>
-
                     </div>
                 </div>
 
                 <div className={"flex flex-row mb-10 items-center gap-10  w-4/5 h-[50vh] justify-between"}>
-                    "
+
                     <ContactUs
                         button={"Contact Us"}
                         title={"You have a project?"}

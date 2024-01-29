@@ -387,6 +387,25 @@
 .slick-dots{
     bottom: -70px!important;
 }
-.aspect-ratio-1\:1 {
-   aspect-ratio: 3/2;
+
+
+.slider-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Adjust the height based on your design */
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.equal-image {
+
+    object-fit: cover;
+    border-radius: 8px; /* Adjust the border-radius based on your design */
 }
