@@ -37,13 +37,13 @@ const EmailForm = ({ onEmailSubmit, disabled }) => {
             </form>
             <style jsx>{`
         form {
-          text-align: center;
-          margin-top: 20px;
+            text-align: center;
+            margin-top: 20px;
         }
 
         .form-header {
-          font-size: 22px;
-          margin: 25px 0;
+            font-size: 22px;
+            margin: 25px 0;
         }
 
         .input-wrapper {

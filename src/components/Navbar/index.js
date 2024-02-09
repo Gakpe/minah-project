@@ -46,11 +46,14 @@ const Navbar = () => {
                 const walletInfo = await magic.user.getInfo()
                 const provider = await magic.wallet.getProvider();
                 console.log("provider", provider)
+                console.log("walletInfo", walletInfo)
 
                 if (walletInfo !== null) {
                     try {
                         setLoading(true)
+                        // enregistrer le user dans la base de données
                         const response = await postToken(walletInfo)
+                        console.log("response", response)
                         if (response.responseCode === 200) {
                             message.success("Login Successful")
                             setLoading(false)
@@ -70,7 +73,6 @@ const Navbar = () => {
                 if (walletInfo !== null) {
                     localStorage.setItem("userInfo", JSON.stringify(walletInfo))
                 }
-                console.log(walletInfo)
             }
             // If connection to the wallet was successful, initialize new Web3 instance
         } catch (error) {
