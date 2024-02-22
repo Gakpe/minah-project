@@ -5,7 +5,6 @@ import InvestmentJourney from "@/components/InvestmentJourney";
 import Image from "next/image";
 import Link from "next/link";
 import Login from "@/pages/Login";
-import * as amplitude from '@amplitude/analytics-browser';
 import { track } from '@amplitude/analytics-browser';
 track('Button Clicked');
 

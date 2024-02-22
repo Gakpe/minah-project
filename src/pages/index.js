@@ -8,8 +8,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Login from "@/pages/Login";
-import * as amplitude from '@amplitude/analytics-browser';
-amplitude.init('d1c422fa8d386cacb5fa7919c87e8d1b', 'j.gakpe@gmail.com');
+
 import { track } from '@amplitude/analytics-browser';
 
 
