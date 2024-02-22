@@ -12,9 +12,6 @@ import Login from "@/pages/Login";
 import { track } from '@amplitude/analytics-browser';
 
 
-
-amplitude.init('d1c422fa8d386cacb5fa7919c87e8d1b');
-
 const Home = () => {
     const [clicked, SetClicked] = useState(false)
     const [activeSlide, setActiveSlide] = useState(0);
