@@ -103,10 +103,10 @@ const Home = () => {
     const images = [
         { src: "/Images/Parte.files/Alchemy.svg", alt: "" },
         { src: "/Images/Parte.files/Fireblocks.svg", alt: "" },
+        { src: "/Images/Parte.files/YellowCardLogo.svg", alt: "" },
         { src: "/Images/Parte.files/LabsNS.svg", alt: "" },
         { src: "/Images/Parte.files/mt-pelerin.svg", alt: "" },
         { src: "/Images/Parte.files/Polygon.svg", alt: "" },
-        { src: "/Images/Parte.files/Yellowcard.svg", alt: "" },
     ];
 
     return (<MainLayout>
@@ -206,7 +206,7 @@ const Home = () => {
                                             promising sectors and impactful projects.
                                             <br/>
                                             Join us and be part of a collective journey to shape and redefine the
-                                            building blocks of West Africa`&apos;`s economic renaissance.
+                                            building blocks of West Africa&rsquo;s economic renaissance.
                                         </p>
                                     </p>
 
@@ -229,7 +229,7 @@ const Home = () => {
                                 <br/> <br/>
                                 As a non-profit entity, Minah Labs mission is to ensure the stability and reliability of
                                 the platform while fostering a thriving ecosystem united by a shared goal: to accelerate
-                                Africa`&apos;`s development.
+                                Africa&rsquo;s development.
                                 Minah Lab is also the architect of a multidisciplinary network a vibrant community of
                                 builders, forward-thinking individuals, landowners with deep local roots and blockchain
                                 infrastructure actors like Polygon and Fireblocks.
@@ -290,7 +290,7 @@ const Home = () => {
                     />
 
                     <ContactUs
-                        button={"Join the community"}
+                        button={"Join the waitlist"}
                         title={"You want to invest?"}
                         link={"https://tally.so/r/w8x8BO"}
                     />

@@ -60,8 +60,8 @@ const HeroSection = () => {
                 </Modal>
 
             </div>
-            <Image quality={50} src={"/Images/MinahHero.svg"}
-                   className={"w-full dropDownEntrance h-full hover:scale-105 sm:pr-10 duration-300 transition-all ImageSection "}
+            <embed quality={50} src={"/Images/MinahHero.svg"}
+                   className={"w-full dropDownEntrance h-full hover:scale-105 sm:pr-10 duration-700 transition-all ImageSection "}
                    height={30} width={30} alt={""}/>
 
         </div>
