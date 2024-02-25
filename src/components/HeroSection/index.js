@@ -5,6 +5,7 @@ import InvestmentJourney from "@/components/InvestmentJourney";
 import Image from "next/image";
 import Link from "next/link";
 import Login from "@/pages/Login";
+import * as amplitude from '@amplitude/analytics-browser';
 import { track } from '@amplitude/analytics-browser';
 track('Button Clicked');
 
@@ -31,7 +32,7 @@ const HeroSection = () => {
                     made easy <br/>
                 </h1>
 
-                <div className={"flex flex-row items-center sm:justify-center justify-start gap-5 w-full h-full"}>
+                <div className={"flex sm:flex-col sm:flex-row items-center gap-5 w-full h-full"}>
                     <Link 
                         href={"https://tally.so/r/w8x8BO"}
                         target={"_blank"}
@@ -43,9 +44,9 @@ const HeroSection = () => {
                         onClick={() => {
                             router.push('/Projects');
                     }}  
-                            className={" bg-white hover:underline hover:scale-105 hover:duration-300 hover:font-bold border-textOrange text-sm ButtonMobile rounded-full px-3 py-2 h-fit w-fit gradientText "}
+                            className={" bg-white hover:underline hover:scale-105 hover:duration-300 hover:font-bold border-textOrange text-sm ButtonMobile rounded-full px-3 py-2 h-fit w-fit gradientText"}
                             size={"small"}>
-                        Discover our projects
+                            Discover our projects
                     </Button>
                 </div>
               <Modal open={clicked&&user} footer={null} onCancel={() => {
@@ -60,8 +61,8 @@ const HeroSection = () => {
                 </Modal>
 
             </div>
-            <embed quality={50} src={"/Images/MinahHero.svg"}
-                   className={"w-full dropDownEntrance h-full hover:scale-105 sm:pr-10 duration-700 transition-all ImageSection "}
+            <Image quality={50} src={"/Images/MinahHero.svg"}
+                   className={"w-full dropDownEntrance h-full hover:scale-105 sm:pr-10 duration-300 transition-all ImageSection "}
                    height={30} width={30} alt={""}/>
 
         </div>

@@ -5,6 +5,7 @@ import {magic} from '@/lib/magic';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '@/styles/globals.css'
+import LoadingPage from '../components/LoadingPage';
 import {usePathname} from "next/navigation";
 
 function MyApp({Component, pageProps}) {
