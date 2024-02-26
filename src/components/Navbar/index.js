@@ -8,6 +8,7 @@ import Link from "next/link";
 import { magic } from "@/lib/magic";
 import { postToken } from "../../../util";
 import Loading from "@/components/Loading";
+import ProfileCard from "@/components/ProfileCard";
 
 const Navbar = () => {
   const router = useRouter();
@@ -18,7 +19,7 @@ const Navbar = () => {
   // const isLitepaperActive = pathName.startsWith("/LitePaper")
   // const isAboutUsActive = pathName.startsWith("/AboutUs")
   // const isJoinTheCommunityActive = pathName.startsWith("/JoinTheCommunity")
-  // const isLoginSignupActive = pathName.startsWith("/Login  ")
+  const isLoginSignupActive = pathName.startsWith("/ProfileCard  ");
   const [account, setAccount] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [userInf, setUserInf] = useState();
@@ -182,7 +183,10 @@ const Navbar = () => {
             ) : (
               <motion.div className="NavbarLink w-fit h-fit ">
                 <div
-                  onClick={handleLogin}
+                  onClick={() => {
+                    handleLogin();
+                    router.push("/Profile ");
+                  }}
                   className="LoginSignup   w-full h-full px-4 py-3 text-black text-sm font-normal  leading-tight"
                 >
                   <Image
@@ -197,8 +201,8 @@ const Navbar = () => {
             <motion.div className="NavbarLink hover:scale-105 hover:duration-300 font-bold  ">
               <div
                 onClick={() => {
-                  // router.push('/Projects');
-                  handleDisconnect();
+                  router.push("/Projects");
+                  //handleDisconnect();
                 }}
                 className={`ProjectsMobile text-black text-sm p-3 font-normal ${
                   isProjectActive
