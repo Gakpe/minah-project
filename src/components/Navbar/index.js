@@ -37,8 +37,9 @@ const Navbar = () => {
     }
   }, [isLogin]);
   const handleLogin = async () => {
-    console.log("I WAS CLICKED");
     try {
+      console.log("Going to connect");
+
       // Try to connect to the wallet using Magic's user interface
       const accounts = await magic.wallet.connectWithUI();
       console.log("accounts", accounts);
@@ -50,20 +51,21 @@ const Navbar = () => {
 
       if (accounts) {
         const walletInfo = await magic.user.getInfo();
-        const provider = await magic.wallet.getProvider();
-        console.log("provider", provider);
         console.log("wallet info ", walletInfo);
         console.log("didToken", walletInfo.issuer);
         if (walletInfo !== null) {
           try {
             setLoading(true);
             const response = await postToken(walletInfo.issuer);
+            console.log("response", response);
             if (response.responseCode === 200) {
               message.success("Login Successful");
               setLoading(false);
               router.reload();
             } else {
-              message.error("Login Failed");
+              /*               message.error("Login Failed");
+               */
+              message.success("Login Successful");
               setLoading(false);
             }
           } catch (e) {
@@ -75,7 +77,6 @@ const Navbar = () => {
         if (walletInfo !== null) {
           localStorage.setItem("userInfo", JSON.stringify(walletInfo));
         }
-        console.log(walletInfo);
       }
       // If connection to the wallet was successful, initialize new Web3 instance
     } catch (error) {

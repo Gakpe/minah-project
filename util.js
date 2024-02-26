@@ -1,5 +1,4 @@
-// const url = "https://hammadayub34.pagekite.me/"
-const url = "http://localhost:8080";
+const url = "http://localhost:8087";
 const herokuUrl = "https://test-minah-6b1a807102f0.herokuapp.com/";
 
 export async function postToken(didToken) {
