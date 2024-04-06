@@ -14,16 +14,14 @@ const Home = () => {
   const [clicked, SetClicked] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const [user, setUser] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   useEffect(() => {
-    if (typeof window !== undefined) {
+      setIsClient(true);
       const user = localStorage.getItem("user");
-      console.log("USER", user);
       if (user !== null && user !== "") {
-        console.log("Begin frontend with users");
         setUser(true);
       }
-      console.log("Begin frontend");
-    }
+    
   }, []);
   const settings = {
     dots: true,
@@ -127,7 +125,8 @@ const Home = () => {
       </div>
     );
   };
-  return (
+  return (<>
+    {isClient && (
     <MainLayout>
       <div
         className={
@@ -333,6 +332,7 @@ const Home = () => {
                   <li> - Individual investors</li>
                   <li> - Land owners with local network</li>
                 </ol>
+                
                 <Button
                   onClick={() => {
                     SetClicked(true);
@@ -344,6 +344,7 @@ const Home = () => {
                 >
                   {user === true ? "Join the Community" : "Connect to Invest"}
                 </Button>
+                
               </div>
               <Modal
                 className=" h-fit flex  "
@@ -467,6 +468,8 @@ const Home = () => {
         </div>
       </div>
     </MainLayout>
+    )}
+    </>
   );
 };
 

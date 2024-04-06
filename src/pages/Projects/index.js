@@ -7,22 +7,22 @@ import {useEffect, useState} from "react";
 import {getProjects} from "../../../util";
 import {RightOutlined} from "@ant-design/icons";
 import Link from "next/link";
-
-const Projects = () => {
+export async function getServerSideProps() {
+    // Fetch data from an external API
+    const res = await getProjects();
+    console.log(res.result);
+    const projects = await res.result.projects
+  
+    // The returned object will be passed as props to the page component
+    return {
+      props: {
+        projects,
+      },
+    }
+  }
+const Projects = ({ projects }) => {
     const router = useRouter()
-    const [projects, setProjects] = useState([]);
-    useEffect(() => {
-        getProjects().then(
-            (res) => {
-                console.log("here is res :", res)
-                setProjects(res.result.projects)
-            }
-        ).catch(
-            (err) => {
-                console.log("here is err :", err)
-            }
-        )
-    }, []);
+   
     console.log("here is projects :", projects)
     return (
         <MainLayout>
@@ -48,7 +48,7 @@ const Projects = () => {
                     (project) => {
                         return (
                             <div key={project._id} className={"w-full flex flex-col items-center justify-center gap-6"}>
-                            <ProjectCards
+                            {/* <ProjectCards
                                 image={true}
                                 projectDetails={project}
                                 key={project._id}
@@ -56,7 +56,7 @@ const Projects = () => {
                                 description={project.description ? project.description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
                                 imageUrl={project.image}
                                 id={project.id}
-                            />
+                            /> */}
                                 <ProjectCards
                                     image={false}
                                     bg={"white"}

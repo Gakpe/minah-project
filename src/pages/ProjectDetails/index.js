@@ -3,7 +3,7 @@ import MainLayout from "@/layouts/MainLayout";
 import ProjectOverview from "@/components/ProjectComponents/ProjectOverview";
 import ProjectTabsSection from "@/components/ProjectComponents/ProjectTabsSection";
 import {Avatar, Breadcrumb, Button, Modal, Progress} from "antd";
-import {useRouter} from "next/navigation";
+import {useRouter} from "next/router";
 import Link from "next/link";
 import {RightOutlined} from "@ant-design/icons";
 import InvestmentJourney from "@/components/InvestmentJourney";
@@ -15,7 +15,9 @@ const ProjectDetails = () => {
     const [projectDetails, setProjectDetails] = React.useState();
     const [isLogin, setIsLogin] = React.useState(false);
     const [userInfo, setUserInfo] = useState(null);
-
+    const { data } = router.query;
+    const project = data ? JSON.parse(decodeURIComponent(data)) : null;
+    console.log(project)
     // const handleLogout = async () => {
     //     await magic.user.logout();
     //     setAccount(null);
@@ -25,22 +27,7 @@ const ProjectDetails = () => {
 
         setClicked(true);
     };
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-
-            if (localStorage.getItem("didToken")) {
-                setIsLogin(true)
-            }
-            if (localStorage.getItem("userMetaData")) {
-                const data = JSON.parse(localStorage.getItem("userMetaData"))
-                console.log("data is here, ", data)
-                setUserInfo(data.user)
-            }
-            if (localStorage.getItem("projectDetails")) {
-                setProjectDetails(JSON.parse(localStorage.getItem("projectDetails")))
-            }
-        }
-    }, [])
+   
     const [percentage, setPercentage] = useState()
     const [macInvest, setMaxInvest] = useState(false)
     useEffect(() => {
@@ -73,11 +60,11 @@ const ProjectDetails = () => {
                     </Breadcrumb.Item>
                     <Breadcrumb.Item className={"text-textOrange"}>
                         <Link className={"text-textOrange font-extrabold"} href={"/Projects/ProjectDetails"}>Project
-                            Title 01</Link>
+                            {project.name}</Link>
                     </Breadcrumb.Item>
                 </Breadcrumb>
 
-                <ProjectOverview/>
+                <ProjectOverview projectDetails={project}/>
                 <div className={"flex flex-row w-full sm:flex-col sm:w-fit gap-8"}>
                     <ProjectTabsSection/>
                     <div className={"flex gap-8 flex-col items-center justify-center w-1/4 sm:w-full h-full"}>

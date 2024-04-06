@@ -7,7 +7,7 @@ let mAdmin = new Magic(process.env.MAGIC_SECRET_KEY);
 
 export default async function login(req, res) {
     try {
-
+        console.log("aaaaaaaaaaa")
         // Grab the DID token from our headers and parse it
         const didToken = mAdmin.utils.parseAuthorizationHeader(
             req.headers.authorization,

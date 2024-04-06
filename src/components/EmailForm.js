@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Input, Button } from 'antd';
 
-const EmailForm = ({ onEmailSubmit, disabled }) => {
+const EmailForm = ({ onEmailSubmit, disabled  }) => {
     const [email, setEmail] = useState('');
 
     const handleSubmit = async (e) => {

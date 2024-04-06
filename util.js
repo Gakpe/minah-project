@@ -1,32 +1,30 @@
+import axios from "axios";
 const url = "http://localhost:8087";
-const herokuUrl = "https://test-minah-6b1a807102f0.herokuapp.com/";
+const herokuUrl = "http://localhost:8087/";
+// const herokuUrl = "https://test-minah-6b1a807102f0.herokuapp.com/";
 
 export async function postToken(didToken) {
   console.log("Post the data");
-  try {
-    const response = await fetch(`${herokuUrl}user/login`, {
-      headers: new Headers({
-        Authorization: "Bearer " + didToken,
-      }),
-      withCredentials: true,
-      credentials: "same-origin",
-      method: "POST",
+    axios({
+      method: 'get', // Assuming it's a POST request; adjust as needed
+      url: `${herokuUrl}user/passportAuth`,
+      headers: {
+        Authorization: `Bearer ${didToken}`,
+      },
+    })
+    .then(function (response) {
+      console.log(response)
+      return {
+        responseCode: response.status,
+        result: response.data,
+      };
+    })
+    .catch(function (error) {
+      console.error(error);
     });
-    console.log("server ", herokuUrl);
-    const result = await response.text();
-    console.log("result", result);
 
-    return {
-      responseCode: response.status,
-      result: result,
-    };
-  } catch (error) {
-    return {
-      responseCode: null,
-      result: null,
-      error: error,
-    };
-  }
+    
+
 }
 
 export async function updateProfile(formData, issuer) {
@@ -60,7 +58,7 @@ export async function getProjects() {
   try {
     const response = await fetch(herokuUrl + "project", requestOptions);
     const result = await response.json();
-
+    console.log(result)
     return {
       responseCode: response.status,
       result: result,

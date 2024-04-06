@@ -1,27 +1,42 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Router from 'next/router';
 import { UserContext } from '@/lib/UserContext';
-import { magic } from '@/lib/magic';
+import { OAuthExtension } from '@magic-ext/oauth';
+
+// import { magic } from '@/lib/magic';
+import {Magic} from "magic-sdk"
 import EmailForm from '@/components/EmailForm';
 import SocialLogins from '@/components/SocialLogin';
 
 const Login = () => {
     const [disabled, setDisabled] = useState(false);
     const [user, setUser] = useContext(UserContext);
+    const magic = new Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY, {
+        extensions: [new OAuthExtension()],
+      });
 
+    async function handleLoginWithSocial(provider) {
+            setDisabled(true);
+            console.log(provider);
+            await magic.oauth.loginWithRedirect({
+                provider:provider, // can be 'google', 'facebook', etc.
+                redirectURI: `${window.location.origin}/callback`, // Make sure this URI is registered in your Magic dashboard
+              });
+        
+    }
 
 
     async function handleLoginWithEmail(email) {
         try {
             setDisabled(true);
-            
-            let didToken = await magic.wallet.connectWithUI()
-            console.log(didToken)
-            const res = await fetch('/api/login', {
+            console.log("ok");
+            const did = await magic.auth.loginWithEmailOTP({ email: email});
+            console.log(`DID Token: ${did}`);  
+            const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URI+'/user/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: 'Bearer ' + didToken,
+                    Authorization: 'Bearer ' + did,
                 },
             });
 
@@ -48,9 +63,10 @@ const Login = () => {
 
             <div className='flex flex-col items-center justify-center p-10 w-fit h-fit '>
                 <div className='flex flex-col gap-5 items-center justify-center  w-full h-full'>
-                    <EmailForm disabled={disabled} onEmailSubmit={handleLoginWithEmail}/>
+                    <EmailForm disabled={disabled} onEmailSubmit={handleLoginWithEmail} />
                     <SocialLogins 
-                   // onSubmit={handleLoginWithSocial}
+                   onSubmit={handleLoginWithSocial}
+                   disabled={disabled}
                     />
                 </div>
             </div>
