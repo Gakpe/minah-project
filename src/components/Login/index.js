@@ -41,11 +41,18 @@ const Login = () => {
             });
 
             if (res.status === 200) {
-                console.log("here is res :", await res.json())
+               
+                const data = await res.json();
+                localStorage.setItem('userMetaData', JSON.stringify(data));
                 let userMetadata = await magic.user.getMetadata();
-                console.log("user we got",userMetadata)
+                console.log("here is user metadata :", userMetadata)
+                // localStorage.setItem('userMetaInfo', JSON.stringify(userMetadata))
+                localStorage.setItem('user', userMetadata.publicAddress);
+                window.location.reload();
                 // await setUser(userMetadata);
                 // Router.push('/Profile');
+                setDisabled(false);
+
             }
         } catch (error) {
             setDisabled(false);

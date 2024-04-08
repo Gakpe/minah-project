@@ -4,13 +4,7 @@ import { getProjects } from "../../../util";
 
 const BalanceSection = () => {
   const [userInfo, setUserInfo] = useState();
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const beforeParsing = JSON.parse(localStorage.getItem("userMetaData"));
-      /*             setUserInfo(beforeParsing.user)
-       */
-    }
-  }, []);
+  
   return (
     <div
       className={

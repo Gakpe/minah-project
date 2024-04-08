@@ -29,17 +29,14 @@ const Navbar = () => {
   const [userInf, setUserInf] = useState();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    // if (typeof window !== "undefined")
-    //   if (localStorage.getItem("userInfo")) {
-    //     const userinfo = localStorage.getItem("userInfo");
-    //     setUserInf(JSON.parse(userinfo));
-    //     setIsLogin(true);
-    //   }
-    // if (localStorage.getItem("userMetaData")) {
-    //   console.log(JSON.parse(localStorage.getItem("userMetaData")));
-    //   const userData = JSON.parse(localStorage.getItem("userMetaData"));
-    //   setUserInfo(userData.user);
-    // }
+     
+    if (localStorage.getItem("userMetaData")) {
+      console.log(JSON.parse(localStorage.getItem("userMetaData")));
+      const userData = JSON.parse(localStorage.getItem("userMetaData"));
+      setUserInfo(userData.user);
+      setIsLogin(true);
+
+    }
   }, [isLogin]);
   const handleLogin = async () => {
     try {

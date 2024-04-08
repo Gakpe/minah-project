@@ -57,7 +57,7 @@ const Callback = () => {
                 // console.log("here is response in return :", await res.json())
                 const data = await res.json();
                 console.log("here is data :", data)
-                localStorage.setItem('userMetaData', data.result);
+                localStorage.setItem('userMetaData', JSON.stringify(data));
                 let userMetadata = await magic.user.getMetadata();
                 console.log("here is user metadata :", userMetadata)
                 // localStorage.setItem('userMetaInfo', JSON.stringify(userMetadata))
