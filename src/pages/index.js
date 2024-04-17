@@ -9,7 +9,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Login from "@/pages/Login";
 
-
 const Home = () => {
     const [clicked, SetClicked] = useState(false)
     const [activeSlide, setActiveSlide] = useState(0);
@@ -85,7 +84,6 @@ const Home = () => {
         },
     };
     const CustomDots = ({active, onClick, slides}) => {
-
         return (<div>
             <ul className={"flex flex-row gap-5 w-full"} style={{margin: "0px"}}>
                 {slides?.map((slide, index) => (<li key={index} onClick={() => onClick(index)}>
@@ -108,7 +106,8 @@ const Home = () => {
         { src: "/Images/Parte.files/Polygon.svg", alt: "" },
     ];
 
-    return (<MainLayout>
+    return (
+<MainLayout>
         <div className={"flex flex-col items-center justify-center gap-6 backgroundColored"}>
             <title>Minah | Home</title>
             <link rel="icon" href="/Images/favicon.png"/>
