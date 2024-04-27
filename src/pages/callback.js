@@ -35,7 +35,7 @@ const Callback = () => {
         if (router.query.magic_credential) {
             magic.auth
                 .loginWithCredential()
-                .then((didToken) => authenticateWithServer(didToken))
+                .then((didToken) => console.log(didToken), authenticateWithServer(didToken))
                 .catch((error) => {
                     console.error("Error during email redirect login:", error);
                     setError("An error occurred during login. Please try again.");
@@ -45,7 +45,7 @@ const Callback = () => {
 
     const authenticateWithServer = async (didToken) => {
         try {
-            let res = await fetch('/api/login', {
+            let res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URI+'/user/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const Callback = () => {
                 // console.log("here is response in return :", await res.json())
                 const data = await res.json();
                 console.log("here is data :", data)
-                localStorage.setItem('userMetaData', data.result);
+                localStorage.setItem('userMetaData', JSON.stringify(data));
                 let userMetadata = await magic.user.getMetadata();
                 console.log("here is user metadata :", userMetadata)
                 // localStorage.setItem('userMetaInfo', JSON.stringify(userMetadata))

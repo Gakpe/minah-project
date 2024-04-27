@@ -18,10 +18,13 @@ useEffect(()=>{
     return (
         <div className={`${image?"project-card":"project-card2 "} drop-shadow-lg ${bg?`bg-white/60`:"bg-[#FAFAFA]"}  px-10 py-5`}>
             <div className="title-section testClass py-5" onClick={() => {
-                localStorage.setItem("projectDetails", JSON.stringify(projectDetails))
-                router.push("/ProjectDetails")
+                router.push({
+                pathname:    "/ProjectDetails",
+                query: { data: JSON.stringify(projectDetails) }
+               }
+                )
             }}>
-                <h1 className="text-black text-5xl font-extrabold"><span className={"title"}>Project</span> Title 01
+                <h1 className="text-black text-5xl font-extrabold"><span className={"title"}>Project</span> {title}
                 </h1>
             </div>
             <p className="description text-justify">{description}</p>
@@ -47,7 +50,13 @@ useEffect(()=>{
                 </Button>
 
                 <Button className="text-black rounded-full gradientText border-textOrange" size="large"
-                        onClick={onExplore}>
+                         onClick={() => {
+                            router.push({
+                            pathname:    "/ProjectDetails",
+                            query: { data: JSON.stringify(projectDetails) }
+                           }
+                            )
+                        }}>
                     Discover the project
                 </Button>
             </div>

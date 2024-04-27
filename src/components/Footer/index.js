@@ -16,13 +16,13 @@ const Footer = () => {
                             >
                                 <motion.img
                                     className="Logo w-36 h-9"
-                                    src="/Images/Logo.svg"
+                                    src="/Images/minah_logo.svg"
                                     alt="Logo"
                                     whileHover={{scale: 1.1}}
                                     transition={{duration: 0.3}}
                                 />
                             </motion.div>
-                            <div className="text-xs hover:underline cursor-pointer">© 2023 minah.io</div>
+                            <div className="text-xs hover:underline cursor-pointer">© 2024 minah.io</div>
                         </div>
                     </div>
                 </div>
@@ -86,23 +86,14 @@ const Footer = () => {
                 <div className="Column h-full flex-col justify-start items-start gap-6">
                     <div className="flex flex-col gap-3 h-full w-full ">
                         <div className="font-bold">Help</div>
+                      
+
                         <div className=" flex flex-col h-full  gap-2">
                             <div
                                 className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">Support
                             </div>
-
-                            {/*<div className="Link  text-black text-sm font-normal font-inter leading-tight">You want to invest</div>*/}
-                        </div>
-                    </div>
-                </div>
-                <div className="Column h-full flex-col justify-start items-start gap-6">
-                    <div className="flex flex-col gap-3 h-full w-full ">
-                        <div className="font-bold">Nos partenaires</div>
-                        <div className=" flex flex-col h-full  gap-2">
-                            <div
-                                className="Link  text-black text-sm font-normal font-inter hover:underline cursor-pointer leading-tight">Lorem
-                                ipsum
-                            </div>
+                            <div className="font-bold"></div>
+                            <div className="font-bold"></div>
 
                             {/*<div className="Link  text-black text-sm font-normal font-inter leading-tight">You want to invest</div>*/}
                         </div>

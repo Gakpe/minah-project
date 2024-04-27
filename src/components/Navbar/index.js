@@ -2,18 +2,22 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
-import { Avatar, message } from "antd";
+import { Avatar, message,Button, Modal } from "antd";
+
 import Image from "next/image";
 import Link from "next/link";
 import { magic } from "@/lib/magic";
 import { postToken } from "../../../util";
 import Loading from "@/components/Loading";
 import ProfileCard from "@/components/ProfileCard";
+import Login from "@/components/Login";
 
 const Navbar = () => {
   const router = useRouter();
   const pathName = usePathname();
   const [userInfo, setUserInfo] = useState(null);
+  const [clicked, setClicked] = useState(false);
+
   const isProjectActive =
     pathName.startsWith("/Projects") || pathName.startsWith("/ProjectDetails");
   // const isLitepaperActive = pathName.startsWith("/LitePaper")
@@ -25,61 +29,22 @@ const Navbar = () => {
   const [userInf, setUserInf] = useState();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    if (typeof window !== "undefined")
-      if (localStorage.getItem("userInfo")) {
-        const userinfo = localStorage.getItem("userInfo");
-        setUserInf(JSON.parse(userinfo));
-        setIsLogin(true);
-      }
-    if (localStorage.getItem("userMetaData")) {
+     
+  if (localStorage.getItem("userMetaData")) {
       console.log(JSON.parse(localStorage.getItem("userMetaData")));
-      const userData = JSON.parse(localStorage.getItem("userMetaData"));
+     const userData = JSON.parse(localStorage.getItem("userMetaData"));
       setUserInfo(userData.user);
-    }
+      setIsLogin(true);
+
+  }
   }, [isLogin]);
   const handleLogin = async () => {
     try {
       console.log("Going to connect");
-
-      // Try to connect to the wallet using Magic's user interface
-      const accounts = await magic.wallet.connectWithUI();
-      console.log("accounts", accounts);
-      //please make sure that email is being returned as well
-      //please authenticate with server
-
-      // peut etre changer setiSLogin
-      setIsLogin(true);
-
-      if (accounts) {
-        const walletInfo = await magic.user.getInfo();
-        console.log("wallet info ", walletInfo);
-        console.log("didToken", walletInfo.issuer);
-        if (walletInfo !== null) {
-          try {
-            setLoading(true);
-            const response = await postToken(walletInfo.issuer);
-            console.log("response", response);
-            if (response.responseCode === 200) {
-              message.success("Login Successful");
-              setLoading(false);
-              router.reload();
-            } else {
-              /*               message.error("Login Failed");
-               */
-              message.success("Login Successful");
-              setLoading(false);
-            }
-          } catch (e) {
-            setLoading(false);
-            message.error("Login Failed");
-          }
-        }
-
-        if (walletInfo !== null) {
-          localStorage.setItem("userInfo", JSON.stringify(walletInfo));
-        }
-      }
-      // If connection to the wallet was successful, initialize new Web3 instance
+      setClicked(true);
+    
+      // setIsLogin(true);
+     
     } catch (error) {
       // Log any errors that occur during the connection process
       console.error("handleConnect:", error);
@@ -109,6 +74,12 @@ const Navbar = () => {
       {loading ? (
         <Loading />
       ) : (
+        <>
+        <Modal className=" h-fit flex  " open={clicked} footer={null} onCancel={() => {
+          setClicked(false)
+      }}>
+          <Login/>
+      </Modal>
         <div className=" w-full NavbarMobile sticky top-0 z-50  shadow h-fit px-20 py-5 flex flex-row bg-[#FAFAFA] rounded-b-xl border-b  justify-between items-center">
           <div
             onClick={() => {
@@ -185,7 +156,7 @@ const Navbar = () => {
                 <div
                   onClick={() => {
                     handleLogin();
-                    router.push("/Profile ");
+                    // router.push("/Profile ");
                   }}
                   className="LoginSignup   w-full h-full px-4 py-3 text-black text-sm font-normal  leading-tight"
                 >
@@ -215,6 +186,7 @@ const Navbar = () => {
             </motion.div>
           </div>
         </div>
+        </>
       )}
     </div>
   );

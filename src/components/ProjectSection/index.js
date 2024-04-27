@@ -17,8 +17,8 @@ const ProjectSection = ({ project }) => {
         console.log("here is err :", err);
       });
     if (typeof window !== "undefined") {
-      const beforeParsing = JSON.parse(localStorage.getItem("userMetaData"));
-      console.log("here is before parsing :", beforeParsing);
+      // const beforeParsing = JSON.parse(localStorage.getItem("userMetaData"));
+      // console.log("here is before parsing :", beforeParsing);
       /*             setUserInfo(beforeParsing.user)
        */
     }

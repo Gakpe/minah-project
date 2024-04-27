@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Button } from 'antd';
+import { magic } from '@/lib/magic';
+
 import Image from "next/image";
 
 const SocialLogins = ({ onSubmit }) => {
-    const providers = ['apple', 'google'];
+    const providers = ['google'];
     const [isRedirecting, setIsRedirecting] = useState(false);
-
     return (
         <div className="w-full flex flex-col h-full gap-6 items-center justify-center">
             <div className="or-login-with text-base">Or login with</div>

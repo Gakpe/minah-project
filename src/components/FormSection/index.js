@@ -15,15 +15,14 @@ const App = ({handleCancel}) => {
     const [formLayout, setFormLayout] = useState('vertical');
     const [userInfo, setUserInfo] = useState(null);
     useEffect(() => {
-        if (typeof window !== "undefined") {
 
+            console.log(localStorage.getItem("userMetaData"))
+            // if (localStorage.getItem("userMetaData")) {
+            //     const data = JSON.parse(localStorage.getItem("userMetaData"))
+            //     setUserInfo(data.user)
+            // }
 
-            if (localStorage.getItem("userMetaData")) {
-                const data = JSON.parse(localStorage.getItem("userMetaData"))
-                setUserInfo(data.user)
-            }
-
-        }
+        
     }, [])
 
     const formItemLayout =

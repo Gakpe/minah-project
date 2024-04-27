@@ -14,7 +14,7 @@ const Login = () => {
     async function handleLoginWithEmail(email) {
         try {
             setDisabled(true);
-
+            
             let didToken = await magic.wallet.connectWithUI()
             console.log(didToken)
             const res = await fetch('/api/login', {
@@ -38,13 +38,7 @@ const Login = () => {
         }
     }
 
-    async function handleLoginWithSocial(provider) {
-       const response = await magic.oauth.loginWithRedirect({
-            provider,
-            redirectURI: new URL('/callback', window.location.origin).href,
-        });
-        console.log("here is response :", response)
-    }
+   
 
     return (
         <div className={"flex flex-col items-center justify-center  w-fit h-fit "}>
@@ -55,7 +49,9 @@ const Login = () => {
             <div className='flex flex-col items-center justify-center p-10 w-fit h-fit '>
                 <div className='flex flex-col gap-5 items-center justify-center  w-full h-full'>
                     <EmailForm disabled={disabled} onEmailSubmit={handleLoginWithEmail}/>
-                    <SocialLogins onSubmit={handleLoginWithSocial}/>
+                    <SocialLogins 
+                   // onSubmit={handleLoginWithSocial}
+                    />
                 </div>
             </div>
         </div>

@@ -9,12 +9,11 @@ const Home = () => {
     const [userInfo, setUserInfo] = useState(null);
     useEffect(
         () => {
-            if (typeof window !== "undefined") {
-                if (localStorage.getItem("userMetaData")) {
-                    const data = JSON.parse(localStorage.getItem("userMetaData"))
-                    setUserInfo(data.user)
-                }
+            if (localStorage.getItem("userMetaData")) {
+                        const data = JSON.parse(localStorage.getItem("userMetaData"))
+                        setUserInfo(data.user)
             }
+           
         }, []
     )
     const projectData = [{

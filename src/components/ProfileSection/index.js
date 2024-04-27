@@ -14,6 +14,22 @@ const ProfileSection = ({verified, userInfo}) => {
             router.push("/")
         }
     }
+    const getFirstNameLastName =  () => {
+        let first_Name = "";
+        let last_Name = "";
+        if (userInfo)
+        {
+            if (userInfo.name )
+            {
+                first_Name =userInfo?.name ;
+            }
+            else if(userInfo.last_name){
+                last_Name  = userInfo?.last_name ;
+            }
+        return first_Name+" "+last_Name;
+        }
+         
+    }
     console.log(userInfo)
     const [user, setUser] = React.useState(null);
     useEffect(() => {
@@ -34,8 +50,9 @@ const ProfileSection = ({verified, userInfo}) => {
                         ? `data:image/svg+xml;base64,${userInfo.picture.data}`
                         : userInfo?.picture || ""
                     } size={130}/>
-                    <div className="font-bold text-center w-full">{userInfo ?userInfo?.name ?  userInfo.name: userInfo?.first_name + " " + userInfo?.last_name:"Name Surname" }</div>
+                    <div className="font-bold text-center w-full">{getFirstNameLastName()}</div>
                     <div className="text-sm text-center w-full"> {user?.substring(0, 10)}</div>
+
                     <div className="text-sm italic text-center w-full">Joined on {moment(userInfo?.createdAt).format("DD/MM/YY")}</div>
                     {verified ? (
                         <div className="font-medium text-center text-sm w-full"><CheckCircleOutlined
