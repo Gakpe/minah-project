@@ -52,7 +52,6 @@ const ProfileSection = ({verified, userInfo}) => {
                     } size={130}/>
                     <div className="font-bold text-center w-full">{getFirstNameLastName()}</div>
                     <div className="text-sm text-center w-full"> {user?.substring(0, 10)}</div>
-                    <div className="text-sm text-center w-full"> {userInfo.email}</div>
 
                     <div className="text-sm italic text-center w-full">Joined on {moment(userInfo?.createdAt).format("DD/MM/YY")}</div>
                     {verified ? (

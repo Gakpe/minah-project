@@ -30,13 +30,13 @@ const Navbar = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
      
-    if (localStorage.getItem("userMetaData")) {
+  if (localStorage.getItem("userMetaData")) {
       console.log(JSON.parse(localStorage.getItem("userMetaData")));
-      const userData = JSON.parse(localStorage.getItem("userMetaData"));
+     const userData = JSON.parse(localStorage.getItem("userMetaData"));
       setUserInfo(userData.user);
       setIsLogin(true);
 
-    }
+  }
   }, [isLogin]);
   const handleLogin = async () => {
     try {
