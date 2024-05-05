@@ -60,7 +60,7 @@ const ProjectDetails = () => {
                     </Breadcrumb.Item>
                     <Breadcrumb.Item className={"text-textOrange"}>
                         <Link className={"text-textOrange font-extrabold"} href={"/Projects/ProjectDetails"}>Project
-                            {project.name}</Link>
+                            {project?.name}</Link>
                     </Breadcrumb.Item>
                 </Breadcrumb>
 
