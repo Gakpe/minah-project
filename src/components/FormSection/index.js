@@ -214,6 +214,12 @@ const App = ({handleCancel}) => {
                                 className={"w-fit h-full px-10 py-2 text-textOrange border-none  rounded-full hover:border-textOrange"}>Cancel</Button>
 
                     </Form.Item>
+                    {/* {<Form.Item
+                        className={'w-full flex flex-col gap-4 text-center'} {...tailFormItemLayout}>
+                        <Button onClick={handleDelete}
+                                className={"w-fit h-full px-10 py-2 text-textOrange border-none  rounded-full hover:border-textOrange"}>Delete</Button>
+
+                    </Form.Item>} */}
                     </div>
                 </Form>
             </div>
