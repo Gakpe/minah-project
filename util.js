@@ -72,14 +72,14 @@ export async function getProjects() {
   }
 }
 
-export async function deleteProfile(formData) {
+export async function deleteProfile(issuer) {
   var requestOptions = {
     method: "DELETE", // headers: {
     redirect: "follow",
   };
   try {
     const response = await fetch(
-      herokuUrl + `user/delete/${formData}`,
+      herokuUrl + `user/delete/${issuer}`,
       requestOptions
     );
     const result = await response.text();

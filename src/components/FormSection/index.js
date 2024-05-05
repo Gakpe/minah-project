@@ -4,7 +4,7 @@ import {EditOutlined, GlobalOutlined, MailOutlined, UserOutlined} from '@ant-des
 import {useDropzone} from 'react-dropzone';
 import {UserContext} from '@/lib/UserContext';
 import {useRouter} from 'next/router';
-import {updateProfile} from "../../../util";
+import {updateProfile,deleteProfile} from "../../../util";
 import Success from "@/components/Popups/Success";
 import Error from "@/components/Popups/Error";
 
@@ -17,6 +17,7 @@ const App = ({handleCancel}) => {
     useEffect(() => {
 
             console.log(localStorage.getItem("userMetaData"))
+            setUserInfo(JSON.parse(localStorage.getItem("userMetaData")))
             // if (localStorage.getItem("userMetaData")) {
             //     const data = JSON.parse(localStorage.getItem("userMetaData"))
             //     setUserInfo(data.user)
@@ -96,8 +97,8 @@ const App = ({handleCancel}) => {
         // formDataToSend.append('address', formData.address);
         // formDataToSend.append('issuer', user?.issuer ? user.issuer : '');
 
-        console.log(formDataToSend);
-        updateProfile(formDataToSend, user?.issuer).then((res) => {
+        console.log(userInfo);
+        updateProfile(formDataToSend, userInfo?.user.issuer).then((res) => {
                 console.log("here is res from the server :", res)
                 if (res.responseCode === 200) {
                     console.log("Here was the result ", res.result)
@@ -115,6 +116,29 @@ const App = ({handleCancel}) => {
 
     };
 
+    // const handleDelete = async (e) => {
+    //     e.preventDefault();
+
+  
+    //     console.log(userInfo);
+    //     deleteProfile(userInfo?.user.issuer).then((res) => {
+    //             console.log("here is res from the server :", res)
+    //             if (res.responseCode === 200) {
+    //                 console.log("Here was the result ", res.result)
+    //                 localStorage.setItem("userMetaData", JSON.stringify(res.result))
+    //                 console.log("I WAS HERE")
+    //                 // setUserInfo(res.result.user)
+    //                 // router.push("/Profile")
+    //                 setSuccess(true)
+    //             }else {
+    //                 setError(true)
+    //             }
+    //         }
+    //     )
+
+
+    // };
+    
     return (
         <div className={'bg-[#fafafa] rounded-md'}>
 
@@ -134,7 +158,7 @@ const App = ({handleCancel}) => {
                         <div className={'flex flex-row items-center justify-start gap-5'}>
                             <div>
                                 <Avatar
-                                    src={formData.image ? URL.createObjectURL(formData.image) : userInfo ? userInfo.picture.data : "/Images/avatar.svg"}
+                                    src={formData.image ? URL.createObjectURL(formData.image) : userInfo?.picture ? userInfo.picture.data : "/Images/avatar.svg"}
                                     size={100} className={'shadow-xl bordered rounded-full'}/>
                             </div>
                             <div className={"border border-textOrange rounded-full py-3 px-2"}>
@@ -212,6 +236,12 @@ const App = ({handleCancel}) => {
                         className={'w-full flex flex-col gap-4 text-center'} {...tailFormItemLayout}>
                         <Button onClick={handleCancel}
                                 className={"w-fit h-full px-10 py-2 text-textOrange border-none  rounded-full hover:border-textOrange"}>Cancel</Button>
+
+                    </Form.Item>
+                    <Form.Item
+                        className={'w-full flex flex-col gap-4 text-center'} {...tailFormItemLayout}>
+                        <Button onClick={handleDelete}
+                                className={"w-fit h-full px-10 py-2 text-textOrange border-none  rounded-full hover:border-textOrange"}>Delete</Button>
 
                     </Form.Item>
                     </div>
