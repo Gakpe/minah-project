@@ -47,17 +47,15 @@ const ProjectSection = ({ project }) => {
               }
             >
               {/*<Image src={project.imageUrl} alt={""} width={100} height={100} className={" rounded-md"}/>*/}
-              <div
-                className={
-                  "flex w-full flex-col text-black items-start gap-2 justify-center"
-                }
-              >
+              <div className={"flex w-full flex-col text-black items-start gap-2 justify-center"}>
+                
                 <div className={"font-bold text-black text-lg"}>
                   Project title 1
                 </div>
-                <p className={"font-medium text-sm"}>
-                  Amount invested: $ {project?.totalAmountInvested}{" "}
-                </p>
+                  <p className={"font-medium text-sm"}>
+                    Amount invested: $ {project?.totalAmountInvested}{" "}
+                  </p>
+               
                 <div className="flex w-full flex-row gap-2">
                   {/* Replace these with actual icons and their labels */}
                   <Image
@@ -119,7 +117,7 @@ const ProjectSection = ({ project }) => {
                         <p key={index} className={"text-xs font-bold"}>
                           Amount Invested ${investment.amount}{" "}
                           <span className={"font-normal italic"}>
-                            on {moment(investment.timestamp).format("DD/MM/YY")}
+                             {moment(investment.timestamp).format("DD/MM/YY")}
                           </span>
                         </p>
                       </div>

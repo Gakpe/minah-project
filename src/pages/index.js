@@ -14,8 +14,7 @@ const Home = () => {
     const [activeSlide, setActiveSlide] = useState(0);
     const [user, setUser] = useState(false)
     useEffect(() => {
-        if (typeof window !== undefined) {
-
+        if (typeof window !== 'undefined') {
             const user = localStorage.getItem("user")
             console.log("USER", user)
             if (user !== null && user !== "") {
@@ -107,7 +106,7 @@ const Home = () => {
     ];
 
     return (
-<MainLayout>
+    <MainLayout>
         <div className={"flex flex-col items-center justify-center gap-6 backgroundColored"}>
             <title>Minah | Home</title>
             <link rel="icon" href="/Images/favicon.png"/>
