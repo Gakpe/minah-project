@@ -13,8 +13,13 @@ const Home = () => {
     const [clicked, SetClicked] = useState(false)
     const [activeSlide, setActiveSlide] = useState(0);
     const [user, setUser] = useState(false)
+    const [loader, setLoader] = useState(false)
     useEffect(() => {
-        if (typeof window !== undefined) {
+        setLoader(true);
+       
+    
+    }, [])
+    useEffect(() => {
 
             const user = localStorage.getItem("user")
             console.log("USER", user)
@@ -22,7 +27,7 @@ const Home = () => {
                 console.log("I WAS HERE")
                 setUser(true)
             }
-        }
+        
     }, [])
     const settings = {
         dots: true, autoplay: false, infinite: false,
@@ -107,6 +112,9 @@ const Home = () => {
     ];
 
     return (
+        <> 
+       { loader && 
+             
 <MainLayout>
         <div className={"flex flex-col items-center justify-center gap-6 backgroundColored"}>
             <title>Minah | Home</title>
@@ -295,7 +303,13 @@ const Home = () => {
                 </div>
             </div>
         </div>
-    </MainLayout>);
+    </MainLayout>
+     }
+      </>
+    );
+    
+                       
+                       
 };
 
 Home.getLayout = getLayout;
