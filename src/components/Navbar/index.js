@@ -145,7 +145,11 @@ const Navbar = () => {
                   }
                   size={40}
                 />
-                <div className={"text-sm gradientText"}>
+                <div className={"text-sm gradientText"}
+                     onClick={() => {
+                      router.push("/Profile");
+                     }}
+                >
                   {localStorage.getItem("user")?.substring(0, 10)
                     ? localStorage.getItem("user")?.substring(0, 10)
                     : "0xx9xxxx"}
