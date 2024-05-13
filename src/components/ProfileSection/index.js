@@ -36,7 +36,6 @@ const ProfileSection = ({ verified, userInfo }) => {
 				setUser(localStorage.getItem("user"));
 				const userMetaData = JSON.parse(localStorage.getItem("userMetaData")); 
 				setDate(userMetaData.userData.createdAt);
-				console.log("date = ", date);
 			}
 		}
 	}, [date]);

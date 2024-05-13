@@ -74,7 +74,6 @@ export async function getProjects() {
 
 export async function getUser(didToken) {
 	try {
-    console.log("didToken = ", didToken);
 		axios({
 			method: "get", // Assuming it's a POST request; adjust as needed
 			url: `${herokuUrl}user/get`,

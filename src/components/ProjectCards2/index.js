@@ -33,7 +33,6 @@ const ProjectCard = ({
 			<div
 				className="title-section testClass py-5"
 				onClick={() => {
-					console.log("will set projectDetails", projectDetails);
 					localStorage.setItem(
 						"projectDetails",
 						JSON.stringify(projectDetails)
