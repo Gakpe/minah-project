@@ -2,67 +2,85 @@ import ProfileSection from "@/components/ProfileSection";
 import ProjectSection from "@/components/ProjectSection";
 import BalanceSection from "@/components/BalanceSection";
 import ContactUs from "@/components/ContactUs";
-import MainLayout, {getLayout} from "@/layouts/MainLayout";
-import {useEffect, useState} from "react";
+import MainLayout, { getLayout } from "@/layouts/MainLayout";
+import { useEffect, useState } from "react";
+import { updateProfile } from "../../../util";
 
 const Home = () => {
-    const [userInfo, setUserInfo] = useState(null);
-    useEffect(
-        () => {
-            if (localStorage.getItem("userMetaData")) {
-                        const data = JSON.parse(localStorage.getItem("userMetaData"))
-                        setUserInfo(data.user)
-            }
-           
-        }, []
-    )
-    const projectData = [{
-        id: 1,
-        imageUrl: "/Images/facebook.png",
-        title: "Project title 1",
-        amountInvested: "$1,000.00",
-        investments: ["$500.00 on xx/xx/xxxx", "$500.00 on xx/xx/xxxx"],
-        viewDetailsText: "View project details",
-    }, {
-        id: 2,
-        imageUrl: "/Images/apple.png",
-        title: "Project title 2",
-        amountInvested: "$2,000.00",
-        investments: ["$1,000.00 on xx/xx/xxxx", "$1,000.00 on xx/xx/xxxx"],
-        viewDetailsText: "View project details",
-    }, // Add more project data as needed
-    ];
+	const [userInfo, setUserInfo] = useState(null);
+	
+	useEffect(() => {
+		if (localStorage.getItem("userMetaData")) {
+			const userInfos = JSON.parse(localStorage.getItem("userInfo"));
+			setUserInfo(userInfos);
+		}
+		const userMetaInfo = localStorage.getItem('userInfo');
+		console.log("userMetaInfo", userMetaInfo)
+		
+		// updateProfile({}, userMetaInfo?.user.issuer).then(res => {
+		// 	console.log("resSSSSSSSSSS = ", res);
+		// })
+	}, []);
+	const projectData = [
+		{
+			id: 1,
+			imageUrl: "/Images/facebook.png",
+			title: "Project title 1",
+			amountInvested: "$1,000.00",
+			investments: ["$500.00 on xx/xx/xxxx", "$500.00 on xx/xx/xxxx"],
+			viewDetailsText: "View project details",
+		},
+		{
+			id: 2,
+			imageUrl: "/Images/apple.png",
+			title: "Project title 2",
+			amountInvested: "$2,000.00",
+			investments: ["$1,000.00 on xx/xx/xxxx", "$1,000.00 on xx/xx/xxxx"],
+			viewDetailsText: "View project details",
+		},
+	];
 
-    return (<MainLayout>
-        <title>Minah | Profile</title>
-        <link rel="icon" href="/Images/favicon.png"/>
+	return (
+		<MainLayout>
+			<title>Minah | Profile</title>
+			<link rel="icon" href="/Images/favicon.png" />
 
-        <div className={"flex flex-col items-center backgroundColored justify-center py-20 gap-8 w-full h-full "}>
-            <div className={"flex flex-row w-full px-20 items-center justify-center gap-10 h-full"}>
-                <div className={"w-1/6 sm:w-full h-full"}>
-                    <ProfileSection userInfo={userInfo ? userInfo : null} verified={true}/>
-                </div>
-                <div className={"w-1/2 sm:w-full h-full"}>
-                    <ProjectSection project={projectData}/>
-
-                </div>
-                <div className={"w-1/6 sm:w-full h-full"}>
-                    <BalanceSection/>
-                </div>
-
-            </div>
-            <div className={"flex flex-row mobileContact gap-3"}>
-                <ContactUs
-                    button={"Contact Us"}
-                    title={"You have a project?"}
-                />
-                <ContactUs
-                    button={"Join the community"}
-                    title={"You want to invest?"}
-                />
-            </div>
-        </div>
-    </MainLayout>);
+			<div
+				className={
+					"flex flex-col items-center backgroundColored justify-center py-20 gap-8 w-full h-full "
+				}
+			>
+				<div
+					className={
+						"flex flex-row w-full px-20 items-center justify-center gap-10 h-full"
+					}
+				>
+					<div className={"w-1/6 sm:w-full h-full"}>
+						<ProfileSection
+							userInfo={userInfo ? userInfo : null}
+							verified={true}
+						/>
+					</div>
+					<div className={"w-1/2 sm:w-full h-full"}>
+						<ProjectSection project={projectData} />
+					</div>
+					<div className={"w-1/6 sm:w-full h-full"}>
+						<BalanceSection />
+					</div>
+				</div>
+				<div className={"flex flex-row mobileContact gap-3"}>
+					<ContactUs
+						button={"Contact Us"}
+						title={"You have a project?"}
+					/>
+					<ContactUs
+						button={"Join the community"}
+						title={"You want to invest?"}
+					/>
+				</div>
+			</div>
+		</MainLayout>
+	);
 };
 
 Home.getLayout = getLayout;
