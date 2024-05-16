@@ -4,6 +4,7 @@ import { postToken } from "../../../util";
 
 // Create an instance of magic admin using our secret key (not our publishable key)
 let mAdmin = new Magic(process.env.MAGIC_SECRET_KEY);
+console.log("mAdmin", mAdmin);
 
 export default async function login(req, res) {
 	try {
