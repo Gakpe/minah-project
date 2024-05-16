@@ -32,7 +32,7 @@ const Login = () => {
             console.log("ok");
             const did = await magic.auth.loginWithEmailOTP({ email: email});
             console.log(`DID Token: ${did}`);  
-            const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URI+'/user/login', {
+            const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URI + '/user/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
