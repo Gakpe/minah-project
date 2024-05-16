@@ -4,9 +4,12 @@ import InvestmentJourney from "@/components/InvestmentJourney";
 import Image from "next/image";
 import Link from "next/link";
 import Login from "@/pages/Login";
+import { useRouter } from "next/router";
 
 const HeroSection = () => {
     const [user, setUser] = useState(false);
+    const router = useRouter();
+
     useEffect(() => {
         if (localStorage.getItem('user') !== null) {
             setUser(true)
