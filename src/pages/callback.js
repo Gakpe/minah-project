@@ -53,7 +53,7 @@ const Callback = () => {
 	const authenticateWithServer = async (didToken) => {
 		try {
 			let res = await fetch(
-				process.env.NEXT_PUBLIC_BACKEND_URI + "/user/login",
+				process.env.BACKEND_URL + "/user/login",
 				{
 					method: "POST",
 					headers: {
