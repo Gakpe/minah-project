@@ -52,8 +52,9 @@ const Callback = () => {
 
 	const authenticateWithServer = async (didToken) => {
 		try {
+			console.log("process.env = ", process.env);
 			let res = await fetch(
-				process.env.BACKEND_URL + "/user/login",
+				process.env.NEXT_PUBLIC_BACKEND_URL + "/user/login",
 				{
 					method: "POST",
 					headers: {

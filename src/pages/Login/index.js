@@ -17,7 +17,7 @@ const Login = () => {
             
             let didToken = await magic.wallet.connectWithUI()
             console.log(didToken)
-            const res = await fetch(process.env.BACKEND_URL + '/api/login', {
+            const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + '/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

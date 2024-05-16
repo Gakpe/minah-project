@@ -1,6 +1,6 @@
 import axios from "axios";
-const url = process.env.BACKEND_URL;
-const herokuUrl = process.env.BACKEND_URL;
+const url = process.env.NEXT_PUBLIC_BACKEND_URL;
+const herokuUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 // const herokuUrl = "https://test-minah-6b1a807102f0.herokuapp.com/";
 
 export async function postToken(didToken) {
