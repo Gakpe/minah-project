@@ -18,7 +18,7 @@ const ProjectDetails = () => {
 	const [maxInvest, setMaxInvest] = useState(false);
 
 	const { data } = router.query;
-	const project = data ? JSON.parse(decodeURIComponent(data)) : null;
+	const project = data ? JSON.parse(decodeURIComponent(data)) : {name: 'Project Name'};
 
 	const handleLogout = async () => {
 		setClicked(true);

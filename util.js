@@ -1,10 +1,10 @@
 import axios from "axios";
-const url = "http://localhost:8087";
-const herokuUrl = "http://localhost:8087/";
+const url = process.env.BACKEND_URL;
+const herokuUrl = process.env.BACKEND_URL;
 // const herokuUrl = "https://test-minah-6b1a807102f0.herokuapp.com/";
 
 export async function postToken(didToken) {
-	console.log("Post the data");
+	console.log("Post the data", herokuUrl);
 	axios({
 		method: "get", // Assuming it's a POST request; adjust as needed
 		url: `${herokuUrl}user/passportAuth`,
