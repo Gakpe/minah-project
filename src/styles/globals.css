@@ -355,9 +355,6 @@
       }
 
 }
-.ProjectSection{
-    max-height: 52vh !important;
-}
 .mainSetting::-webkit-scrollbar {
     display: none;
 }

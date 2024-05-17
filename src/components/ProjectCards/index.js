@@ -31,10 +31,8 @@ const ProjectCard = ({ title, description, projectDetails, image, bg }) => {
 			<div
 				className="title-section testClass py-5"
 				onClick={() => {
-					router.push({
-						pathname: "/ProjectDetails",
-						query: { data: JSON.stringify(projectDetails) },
-					});
+					const projectId = '659d4b1d048729c5df507d6c';
+					router.push(`/ProjectDetails/${projectId}`);
 				}}
 			>
 				<h1 className="text-black text-5xl font-extrabold">
@@ -87,14 +85,8 @@ const ProjectCard = ({ title, description, projectDetails, image, bg }) => {
 						className="text-white hover:border-textOrange rounded-full gradiented"
 						size="large"
 						onClick={() => {
-							localStorage.setItem(
-								"projectDetails",
-								JSON.stringify(projectDetails)
-							);
-							router.push({
-								pathname: "/ProjectDetails",
-								query: { data: JSON.stringify(projectDetails) },
-							});
+							const projectId = '659d4b1d048729c5df507d6c';
+							router.push(`/ProjectDetails/${projectId}`);
 						}}
 					>
 						Discover the project

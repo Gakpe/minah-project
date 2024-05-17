@@ -33,11 +33,8 @@ const ProjectCard = ({
 			<div
 				className="title-section testClass py-5"
 				onClick={() => {
-					localStorage.setItem(
-						"projectDetails",
-						JSON.stringify(projectDetails)
-					);
-					router.push("/ProjectDetails");
+					const projectId = '659d4b1d048729c5df507d6c';
+					router.push(`/ProjectDetails/${projectId}`);
 				}}
 			>
 				<h1 className="text-black text-5xl font-extrabold">
@@ -83,9 +80,6 @@ const ProjectCard = ({
 					width={60}
 					height={60}
 				/>
-				{/*<div className="icon">5</div>*/}
-				{/*<div className="icon">10</div>*/}
-				{/*<div className="icon">15</div>*/}
 			</div>
 			<div className="button-section">
 				<Button

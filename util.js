@@ -4,10 +4,9 @@ const herokuUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 // const herokuUrl = "https://test-minah-6b1a807102f0.herokuapp.com/";
 
 export async function postToken(didToken) {
-	console.log("Post the data", herokuUrl);
 	axios({
 		method: "get", // Assuming it's a POST request; adjust as needed
-		url: `${herokuUrl}user/passportAuth`,
+		url: `${herokuUrl}/user/passportAuth`,
 		headers: {
 			Authorization: `Bearer ${didToken}`,
 		},
@@ -32,7 +31,7 @@ export async function updateProfile(formData, issuer) {
 	};
 	try {
 		const response = await fetch(
-			herokuUrl + `user/${issuer}`,
+			herokuUrl + `/user/${issuer}`,
 			requestOptions
 		);
 		const result = await response.json();
@@ -56,7 +55,7 @@ export async function getProjects() {
 		redirect: "follow",
 	};
 	try {
-		const response = await fetch(herokuUrl + "project", requestOptions);
+		const response = await fetch(herokuUrl + "/project", requestOptions);
 		const result = await response.json();
 		console.log(result);
 		return {
@@ -76,7 +75,7 @@ export async function getUser(didToken) {
 	try {
 		axios({
 			method: "get", // Assuming it's a POST request; adjust as needed
-			url: `${herokuUrl}user/get`,
+			url: `${herokuUrl}/user/get`,
 			headers: {
 				Authorization: `Bearer ${didToken}`,
 			},
@@ -99,7 +98,7 @@ export async function deleteProfile(issuer) {
 	};
 	try {
 		const response = await fetch(
-			herokuUrl + `user/delete/${issuer}`,
+			herokuUrl + `/user/delete/${issuer}`,
 			requestOptions
 		);
 		const result = await response.text();
@@ -132,7 +131,7 @@ export async function postInvestment(investedAmount, userId) {
 	};
 	try {
 		const response = await fetch(
-			herokuUrl + `project/investAmount/${userId}`,
+			herokuUrl + `/project/investAmount/${userId}`,
 			requestOptions
 		);
 		const result = await response.json();

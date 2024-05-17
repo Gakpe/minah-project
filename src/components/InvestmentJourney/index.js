@@ -7,11 +7,11 @@ const InvestmentJourney = () => {
     const [user, setUser] = useState();
     useEffect(() => {
         if (typeof window !== "undefined") {
-            if (localStorage.getItem('user') !== null) {
-                setUser(localStorage.getItem('user'))
+            if (localStorage.getItem('userMetaData') !== null) {
+                setUser(JSON.parse(localStorage.getItem('userMetaData')));
             }
         }
-    }, [],)
+    }, []);
     const [clicked, setClicked] = useState(false);
     return (
         <div className={"flex flex-col items-center  justify-center w-full h-full"}>
@@ -21,7 +21,7 @@ const InvestmentJourney = () => {
                 <Image className={"w-20 h-20"} src={"/Images/Logo.svg"} alt={""} width={50} height={50}/>
                 <div className={"text-3xl font-bold"}>
                     Hello <span
-                    className={"text-textOrange"}>{user ? user.toString().substring(0, 10) : "Investor"}</span>,
+                    className={"text-textOrange"}>{user ? user.userData.first_name.toString().substring(0, 10) : "Investor"}</span>,
                 </div>
                 <div className={"font-bold text-3xl"}>
                     Welcome to the Investment
