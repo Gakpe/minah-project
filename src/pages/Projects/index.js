@@ -54,10 +54,6 @@ const Projects = ({ projects }) => {
 							Projects
 						</Link>
 					</Breadcrumb.Item>
-					{/*<Breadcrumb.Item className={"text-textOrange"}>*/}
-					{/*    <Link className={"text-textOrange font-extrabold"} href={"/Projects/ProjectDetails"}>Project*/}
-					{/*        Title 01</Link>*/}
-					{/*</Breadcrumb.Item>*/}
 				</Breadcrumb>
 				{projects &&
 					projects.map((project) => {

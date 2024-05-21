@@ -7,43 +7,72 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { RightOutlined } from "@ant-design/icons";
 import InvestmentJourney from "@/components/InvestmentJourney";
+import { getProjects } from "../../../../util";
 
 const ProjectDetails = () => {
 	const router = useRouter();
 	const [clicked, setClicked] = React.useState(false);
 	const [isLogin, setIsLogin] = React.useState(false);
 	const [userInfo, setUserInfo] = useState(null);
+	const [userInfos, setUserInfos] = useState(null);
+	const [project, setProject] = useState(null);
 
 	const [percentage, setPercentage] = useState(0);
 	const [maxInvest, setMaxInvest] = useState(false);
+	const [amountInvested, setAmountInvested] = useState(0);
 
-	const { data } = router.query;
-	const project = data ? JSON.parse(decodeURIComponent(data)) : {name: 'Project Name'};
+	const { id } = router.query;
 
 	const handleLogout = async () => {
 		setClicked(true);
 	};
 
 	useEffect(() => {
-		setUserInfo(JSON.parse(localStorage.getItem("projectDetails")));
+		setUserInfo(JSON.parse(localStorage.getItem("userMetaData")));
+		setUserInfos(JSON.parse(localStorage.getItem("userInfo")));
+
+		const userMetaData = JSON.parse(localStorage.getItem("userMetaData"));
+		if (userMetaData.userData.amountInvested.length > 0) {
+			let array = [
+				...Object.values(userMetaData.userData.amountInvested[0]),
+			];
+			array = array.slice(0, array.length - 1).join("");
+			setAmountInvested(array);
+		}
+
+		getProjects()
+			.then((res) => {
+				setProjects(res.result.projects);
+				setProject(
+					res.result.projects.find((project) => project._id === id)
+				);
+			})
+			.catch((err) => {
+				console.log("here is err :", err);
+			});
 	}, []);
 
 	useEffect(() => {
-		if (userInfo) {
-			const maxInvested =
-				userInfo?.totalAmountInvested === 40000 ||
-				userInfo?.totalAmountInvested > 40000;
-
-			const percent =
-				userInfo?.totalAmountInvested >= 40000
-					? 100
-					: ((userInfo?.totalAmountInvested / 40000) * 100).toFixed(
-							2
-					  );
-			setMaxInvest(maxInvested);
+		if (amountInvested) {
+			let percent = (amountInvested / 40000) * 100;
+			percent = percent >= 100 ? 100 : percent;
 			setPercentage(percent);
 		}
-	}, [userInfo]);
+	}, [amountInvested]);
+
+	const formatNumber = (num) => {
+		const numStr = num.toString();
+		const formattedParts = [];
+
+		for (let i = numStr.length - 1; i >= 0; i -= 3) {
+			const start = Math.max(0, i - 2);
+			const part = numStr.substring(start, i + 1);
+			formattedParts.unshift(part);
+		}
+
+		return formattedParts.join("'");
+	};
+
 	return (
 		<MainLayout>
 			<Modal
@@ -174,8 +203,21 @@ const ProjectDetails = () => {
 										"text-textOrange text-xl font-extrabold flex flex-col"
 									}
 								>
+									<div className="flex items-center mb-2">
+										<Avatar
+											className={"bordered flex-shrink-0"}
+											src={userInfos?.picture}
+											size={40}
+										/>
+
+										<span className="ml-2 text-black text-xs font-bold">
+											You already invested{" "}
+											{formatNumber(amountInvested)}$ in
+											this project
+										</span>
+									</div>
 									<span>
-										<span className={"text-black"}>
+										<span className={"text-black mr-1"}>
 											Target:
 										</span>
 										100’000 MNH

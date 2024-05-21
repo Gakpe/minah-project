@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Avatar, Modal } from "antd";
 import { useRouter } from "next/router";
-import { CheckCircleOutlined, CheckOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined } from "@ant-design/icons";
 import FormSection from "@/components/FormSection";
 import moment from "moment";
+
 const ProfileSection = ({ verified, userInfo }) => {
 	const router = useRouter();
 	const [editClicked, setEditClicked] = React.useState(false);
@@ -34,7 +35,8 @@ const ProfileSection = ({ verified, userInfo }) => {
 		if (typeof window !== "undefined") {
 			if (localStorage.getItem("user")) {
 				setUser(localStorage.getItem("user"));
-				const userMetaData = JSON.parse(localStorage.getItem("userMetaData")); 
+				const userMetaData = JSON.parse(localStorage.getItem("userMetaData"));
+				console.log("userMetaData= ", userMetaData);
 				setDate(userMetaData.userData.createdAt);
 			}
 		}

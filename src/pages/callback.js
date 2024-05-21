@@ -66,8 +66,10 @@ const Callback = () => {
 
 			if (res.status === 200) {
 				const data = await res.json();
+				console.log("USER METADATA BEFORE STRINFIY ", data);
 				localStorage.setItem("userMetaData", JSON.stringify(data));
 				let userMetadata = await magic.user.getMetadata();
+				console.log("USER METADATA AFTER STRINFIY ", JSON.stringify(data));
 
 				localStorage.setItem("user", userMetadata.publicAddress);
 				await setUser(userMetadata);

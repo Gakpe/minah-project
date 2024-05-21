@@ -21,24 +21,24 @@ const Home = () => {
 		// 	console.log("resSSSSSSSSSS = ", res);
 		// })
 	}, []);
-	const projectData = [
-		{
-			id: 1,
-			imageUrl: "/Images/facebook.png",
-			title: "Project title 1",
-			amountInvested: "$1,000.00",
-			investments: ["$500.00 on xx/xx/xxxx", "$500.00 on xx/xx/xxxx"],
-			viewDetailsText: "View project details",
-		},
-		{
-			id: 2,
-			imageUrl: "/Images/apple.png",
-			title: "Project title 2",
-			amountInvested: "$2,000.00",
-			investments: ["$1,000.00 on xx/xx/xxxx", "$1,000.00 on xx/xx/xxxx"],
-			viewDetailsText: "View project details",
-		},
-	];
+	// const projectData = [
+	// 	{
+	// 		id: 1,
+	// 		imageUrl: "/Images/facebook.png",
+	// 		title: "Project title 1",
+	// 		amountInvested: "$1,000.00",
+	// 		investments: ["$500.00 on xx/xx/xxxx", "$500.00 on xx/xx/xxxx"],
+	// 		viewDetailsText: "View project details",
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		imageUrl: "/Images/apple.png",
+	// 		title: "Project title 2",
+	// 		amountInvested: "$2,000.00",
+	// 		investments: ["$1,000.00 on xx/xx/xxxx", "$1,000.00 on xx/xx/xxxx"],
+	// 		viewDetailsText: "View project details",
+	// 	},
+	// ];
 
 	return (
 		<MainLayout>
@@ -52,19 +52,19 @@ const Home = () => {
 			>
 				<div
 					className={
-						"flex flex-row w-full px-20 items-center justify-center gap-10 h-full"
+						"flex flex-row w-full px-20 justify-center gap-10"
 					}
 				>
-					<div className={"w-1/6 sm:w-full h-full"}>
-						<ProfileSection
-							userInfo={userInfo ? userInfo : null}
-							verified={true}
-						/>
+					<div className="w-1/6 sm:w-full flex flex-col">
+					<ProfileSection
+                            userInfo={userInfo ? userInfo : null}
+                            verified={true}
+                        />
 					</div>
-					<div className={"w-1/2 sm:w-full h-full"}>
-						<ProjectSection project={projectData} />
+					<div className="w-1/2 sm:w-fullflex flex-col">
+					<ProjectSection />
 					</div>
-					<div className={"w-1/6 sm:w-full h-full"}>
+					<div className="w-1/6 sm:w-full flex flex-col">
 						<BalanceSection />
 					</div>
 				</div>

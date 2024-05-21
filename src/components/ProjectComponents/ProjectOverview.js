@@ -7,7 +7,7 @@ const ProjectOverview = ({ projectDetails }) => {
 	const [account, setAccount] = useState(false);
 	const [userInfo, setUserInfo] = useState(null);
 	const [percentage, setPercentage] = useState(0);
-	const [maxInvest, setMaxInvest] = useState(false);
+	const [amountInvested, setAmountInvested] = useState(0);
 
 	const [isLogin, setIsLogin] = React.useState(false);
 	useEffect(() => {
@@ -18,25 +18,30 @@ const ProjectOverview = ({ projectDetails }) => {
 			if (localStorage.getItem("projectDetails")) {
 				setUserInfo(JSON.parse(localStorage.getItem("projectDetails")));
 			}
+			if (localStorage.getItem("userMetaData")) {
+				const userMetaData = JSON.parse(
+					localStorage.getItem("userMetaData")
+				);
+				if (userMetaData.userData.amountInvested.length > 0) {
+					let array = [
+						...Object.values(
+							userMetaData.userData.amountInvested[0]
+						),
+					];
+					array = array.slice(0, array.length - 1).join("");
+					setAmountInvested(array);
+				}
+			}
 		}
 	}, [account]);
 
 	useEffect(() => {
-		if (userInfo) {
-			const maxInvested =
-				userInfo?.totalAmountInvested === 40000 ||
-				userInfo?.totalAmountInvested > 40000;
-
-			const percent =
-				userInfo?.totalAmountInvested >= 40000
-					? 100
-					: ((userInfo?.totalAmountInvested / 40000) * 100).toFixed(
-							2
-					  );
-			setMaxInvest(maxInvested);
+		if (amountInvested) {
+			let percent = (amountInvested / 40000) * 100;
+			percent = percent >= 100 ? 100 : percent;
 			setPercentage(percent);
 		}
-	}, [userInfo]);
+	}, [amountInvested]);
 	return (
 		<div
 			className={
@@ -48,7 +53,7 @@ const ProjectOverview = ({ projectDetails }) => {
 					<span className={"text-textOrange font-extrabold"}>
 						Project
 					</span>{" "}
-					{projectDetails.name}
+					{projectDetails?.name || "name default"}
 				</div>
 				<p className={"text-start font-extrabold"}>
 					<span>Target:</span>
@@ -78,7 +83,9 @@ const ProjectOverview = ({ projectDetails }) => {
 						></div>
 					</div>
 				</div>
-				<p className={"text-justify"}>{projectDetails.description}</p>
+				<p className={"text-justify"}>
+					{projectDetails?.description || "description default"}
+				</p>
 				<Button
 					onClick={() => {
 						setAccount(true);
