@@ -17,11 +17,16 @@ const ProjectSection = ({ userData }) => {
 		getProjects()
 			.then((res) => {
 				setProjects(res.result.projects);
-				console.log("projects = ", projects);
+
+
 			})
 			.catch((err) => {
 				console.log("here is err :", err);
 			});
+	}, [])
+
+	useEffect(() => {
+
 		if (typeof window !== "undefined") {
 			if (localStorage.getItem("user")) {
 				const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -35,13 +40,14 @@ const ProjectSection = ({ userData }) => {
 						0
 					  );
 					  setAmountInvested(totalAmount);
+					  console.log("totalAmount = ", totalAmount);
 				}
 
 				setUser(userInfo);
 				setUserInfo(userMetaData);
 			}
 		}
-	}, []);
+	}, [userData]);
 
 	const formatNumber = (num) => {
 		const numStr = num.toString();

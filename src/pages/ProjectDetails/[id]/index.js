@@ -55,8 +55,8 @@ const ProjectDetails = () => {
 			.then((res) => {
 				setUserData(res.result.userData);
 
-				if (userData?.amountInvested?.length > 0) {
-					const totalAmount = userData.amountInvested.reduce(
+				if (res.result.userData?.amountInvested?.length > 0) {
+					const totalAmount = res.result.userData.amountInvested.reduce(
 						(total, investment) => total + +investment.amount,
 						0
 					);
