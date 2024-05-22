@@ -4,10 +4,11 @@ import BalanceSection from "@/components/BalanceSection";
 import ContactUs from "@/components/ContactUs";
 import MainLayout, { getLayout } from "@/layouts/MainLayout";
 import { useEffect, useState } from "react";
-import { updateProfile } from "../../../util";
+import { getUser } from "../../../util";
 
 const Home = () => {
 	const [userInfo, setUserInfo] = useState(null);
+	const [userData, setUserData] = useState(null);
 	
 	useEffect(() => {
 		if (localStorage.getItem("userMetaData")) {
@@ -15,7 +16,14 @@ const Home = () => {
 			setUserInfo(userInfos);
 		}
 		const userMetaInfo = localStorage.getItem('userInfo');
-		console.log("userMetaInfo", userMetaInfo)
+
+		let didToken = localStorage.getItem('didToken');
+
+		getUser(didToken).then(res => {
+			setUserData(res.result.userData);
+		}).catch(err => {
+			console.error(err);
+		})
 		
 		// updateProfile({}, userMetaInfo?.user.issuer).then(res => {
 		// 	console.log("resSSSSSSSSSS = ", res);
@@ -62,10 +70,10 @@ const Home = () => {
                         />
 					</div>
 					<div className="w-1/2 sm:w-fullflex flex-col">
-					<ProjectSection />
+					<ProjectSection userData={userData} />
 					</div>
 					<div className="w-1/6 sm:w-full flex flex-col">
-						<BalanceSection />
+						<BalanceSection userData={userData} />
 					</div>
 				</div>
 				<div className={"flex flex-row mobileContact gap-3"}>

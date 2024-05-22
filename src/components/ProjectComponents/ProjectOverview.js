@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal } from "antd";
 import Login from "@/pages/Login";
 import InvestmentJourney from "@/components/InvestmentJourney";
+import { getUser } from "../../../util";
 
 const ProjectOverview = ({ projectDetails }) => {
 	const [account, setAccount] = useState(false);
 	const [userInfo, setUserInfo] = useState(null);
+	const [userData, setUserData] = useState(null);
 	const [percentage, setPercentage] = useState(0);
-	const [amountInvested, setAmountInvested] = useState(0);
 
 	const [isLogin, setIsLogin] = React.useState(false);
 	useEffect(() => {
@@ -18,30 +19,27 @@ const ProjectOverview = ({ projectDetails }) => {
 			if (localStorage.getItem("projectDetails")) {
 				setUserInfo(JSON.parse(localStorage.getItem("projectDetails")));
 			}
-			if (localStorage.getItem("userMetaData")) {
-				const userMetaData = JSON.parse(
-					localStorage.getItem("userMetaData")
-				);
-				if (userMetaData.userData.amountInvested.length > 0) {
-					let array = [
-						...Object.values(
-							userMetaData.userData.amountInvested[0]
-						),
-					];
-					array = array.slice(0, array.length - 1).join("");
-					setAmountInvested(array);
-				}
-			}
+
+			let didToken = localStorage.getItem('didToken');
+			getUser(didToken).then(res => {
+				setUserData(res.result.userData);
+			})
+			// if (userData?.amountInvested?.length > 0) {
+			// 	const totalAmount = userData.amountInvested.reduce(
+			// 		(total, investment) => total + +investment.amount,
+			// 		0
+			// 	);
+			// }
 		}
 	}, [account]);
 
 	useEffect(() => {
-		if (amountInvested) {
-			let percent = (amountInvested / 40000) * 100;
+		if (projectDetails?.totalAmountInvested) {
+			let percent = (projectDetails?.totalAmountInvested / 40000) * 100;
 			percent = percent >= 100 ? 100 : percent;
 			setPercentage(percent);
 		}
-	}, [amountInvested]);
+	}, [projectDetails?.totalAmountInvested]);
 	return (
 		<div
 			className={

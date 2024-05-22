@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { RightOutlined } from "@ant-design/icons";
 import InvestmentJourney from "@/components/InvestmentJourney";
-import { getProjects } from "../../../../util";
+import { getProjects, getUser } from "../../../../util";
 
 const ProjectDetails = () => {
 	const router = useRouter();
@@ -16,6 +16,7 @@ const ProjectDetails = () => {
 	const [userInfo, setUserInfo] = useState(null);
 	const [userInfos, setUserInfos] = useState(null);
 	const [project, setProject] = useState(null);
+	const [userData, setUserData] = useState(null);
 
 	const [percentage, setPercentage] = useState(0);
 	const [maxInvest, setMaxInvest] = useState(false);
@@ -28,27 +29,42 @@ const ProjectDetails = () => {
 	};
 
 	useEffect(() => {
-		setUserInfo(JSON.parse(localStorage.getItem("userMetaData")));
-		setUserInfos(JSON.parse(localStorage.getItem("userInfo")));
-
-		const userMetaData = JSON.parse(localStorage.getItem("userMetaData"));
-		if (userMetaData.userData.amountInvested.length > 0) {
-			let array = [
-				...Object.values(userMetaData.userData.amountInvested[0]),
-			];
-			array = array.slice(0, array.length - 1).join("");
-			setAmountInvested(array);
-		}
-
 		getProjects()
 			.then((res) => {
-				setProjects(res.result.projects);
-				setProject(
-					res.result.projects.find((project) => project._id === id)
-				);
+				console.log("listtt projects =", res);
+				setProject(() => {
+					const project = res.result.projects.find((project) => {
+						console.log("project __________ ", project._id);
+						return project._id === id;
+					});
+					console.log("project =", project);
+					return project;
+				});
 			})
 			.catch((err) => {
 				console.log("here is err :", err);
+			});
+	}, [id]);
+
+	useEffect(() => {
+		setUserInfo(JSON.parse(localStorage.getItem("userMetaData")));
+		setUserInfos(JSON.parse(localStorage.getItem("userInfo")));
+
+		let didToken = localStorage.getItem("didToken");
+		getUser(didToken)
+			.then((res) => {
+				setUserData(res.result.userData);
+
+				if (userData?.amountInvested?.length > 0) {
+					const totalAmount = userData.amountInvested.reduce(
+						(total, investment) => total + +investment.amount,
+						0
+					);
+					setAmountInvested(totalAmount);
+				}
+			})
+			.catch((err) => {
+				console.error(err);
 			});
 	}, []);
 
@@ -122,7 +138,7 @@ const ProjectDetails = () => {
 					</Breadcrumb.Item>
 				</Breadcrumb>
 
-				<ProjectOverview projectDetails={project} />
+				{project && <ProjectOverview projectDetails={project} />}
 				<div
 					className={
 						"flex flex-row w-full sm:flex-col sm:w-fit gap-8"

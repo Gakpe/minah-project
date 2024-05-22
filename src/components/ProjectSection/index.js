@@ -5,7 +5,7 @@ import { Avatar, Button } from "antd";
 import { getProjects } from "../../../util";
 import moment from "moment";
 
-const ProjectSection = () => {
+const ProjectSection = ({ userData }) => {
 	const [projects, setProjects] = useState([]);
 	const [userInfo, setUserInfo] = useState();
 	const [user, setUser] = useState();
@@ -17,6 +17,7 @@ const ProjectSection = () => {
 		getProjects()
 			.then((res) => {
 				setProjects(res.result.projects);
+				console.log("projects = ", projects);
 			})
 			.catch((err) => {
 				console.log("here is err :", err);
@@ -28,14 +29,12 @@ const ProjectSection = () => {
 					localStorage.getItem("userMetaData")
 				);
 
-				if (userMetaData.userData.amountInvested.length > 0) {
-					let array = [
-						...Object.values(
-							userMetaData.userData.amountInvested[0]
-						),
-					];
-					array = array.slice(0, array.length - 1).join("");
-					setAmountInvested(array);
+				if (userData?.amountInvested?.length > 0) {
+					const totalAmount = userData.amountInvested.reduce(
+						(total, investment) => total + +investment.amount,
+						0
+					  );
+					  setAmountInvested(totalAmount);
 				}
 
 				setUser(userInfo);
@@ -89,7 +88,7 @@ const ProjectSection = () => {
 								</div>
 								<p className={"font-medium text-sm"}>
 									Amount invested: ${" "}
-									{formatNumber(project?.totalAmountInvested)}{" "}
+									{formatNumber(amountInvested)}{" "}
 								</p>
 
 								<div className="flex w-full flex-row gap-2">
