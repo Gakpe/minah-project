@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Button, Modal } from "antd";
 import Login from "@/pages/Login";
 import InvestmentJourney from "@/components/InvestmentJourney";
@@ -11,6 +11,16 @@ const ProjectOverview = ({ projectDetails }) => {
 	const [percentage, setPercentage] = useState(0);
 
 	const [isLogin, setIsLogin] = React.useState(false);
+
+
+	const handleRefetch = useCallback(() => {
+		let didToken = localStorage.getItem("didToken");
+		console.log("HANDLE REFETCHHHH");
+		getUser(didToken).then(res => {
+			setUserData(res.result.userData);
+		})
+	}, []);
+
 	useEffect(() => {
 		if (typeof window !== "undefined") {
 			if (localStorage.getItem("didToken")) {
@@ -21,9 +31,7 @@ const ProjectOverview = ({ projectDetails }) => {
 			}
 
 			let didToken = localStorage.getItem('didToken');
-			getUser(didToken).then(res => {
-				setUserData(res.result.userData);
-			})
+			handleRefetch(didToken);
 			// if (userData?.amountInvested?.length > 0) {
 			// 	const totalAmount = userData.amountInvested.reduce(
 			// 		(total, investment) => total + +investment.amount,
@@ -31,7 +39,7 @@ const ProjectOverview = ({ projectDetails }) => {
 			// 	);
 			// }
 		}
-	}, [account]);
+	}, [account, handleRefetch]);
 
 	useEffect(() => {
 		if (projectDetails?.totalAmountInvested) {
@@ -106,7 +114,7 @@ const ProjectOverview = ({ projectDetails }) => {
 					setAccount(false);
 				}}
 			>
-				<InvestmentJourney />
+				<InvestmentJourney refetch={handleRefetch} />
 			</Modal>
 		</div>
 	);

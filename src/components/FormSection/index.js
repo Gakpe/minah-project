@@ -103,7 +103,6 @@ const App = ({handleCancel}) => {
                 if (res.responseCode === 200) {
                     console.log("Here was the result ", res.result)
                     localStorage.setItem("userMetaData", JSON.stringify(res.result))
-                    console.log("I WAS HERE")
                     // setUserInfo(res.result.user)
                     // router.push("/Profile")
                     setSuccess(true)

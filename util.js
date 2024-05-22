@@ -57,7 +57,6 @@ export async function getProjects() {
 	try {
 		const response = await fetch(herokuUrl + "/project", requestOptions);
 		const result = await response.json();
-		console.log("yy", result);
 		return {
 			responseCode: response.status,
 			result: result,
@@ -83,7 +82,6 @@ export async function getUser(didToken) {
 	try {
 		const response = await fetch(herokuUrl + "/user/get", requestOptions);
 		const result = await response.json();
-		console.log("zzzz", result);
 		return {
 			responseCode: response.status,
 			result: result,
@@ -123,7 +121,6 @@ export async function deleteProfile(issuer) {
 }
 
 export async function postInvestment(investedAmount, userId, didToken) {
-	console.log("lets post invesment");
 	const JSONBody = JSON.stringify({
 		investAmount: investedAmount,
 	});

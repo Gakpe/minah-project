@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Success from "@/components/Popups/Success";
 import Error from "@/components/Popups/Error";
 
-const Disclaimer = () => {
+const Disclaimer = ({ refetchRef }) => {
 	const [clicked, setClicked] = useState(false);
 	const [success, setSuccess] = useState(false);
 	const [error, setError] = useState(false);
@@ -57,6 +57,7 @@ const Disclaimer = () => {
 						).then((res) => {
 							console.log(res);
 							if (res.responseCode === 200) {
+								refetchRef();
 								setSuccess(true);
 							} else {
 								setError(true);

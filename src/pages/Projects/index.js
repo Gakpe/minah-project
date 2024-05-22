@@ -8,8 +8,15 @@ import { getProjects } from "../../../util";
 import { RightOutlined } from "@ant-design/icons";
 import Link from "next/link";
 
-const Projects = ({ projects }) => {
+const Projects = () => {
+	const [projects, setProjects] = useState();
 	const router = useRouter();
+
+	useEffect(() => {
+		getProjects().then(res => {
+			setProjects(res.result.projects);
+		})
+	}, [])
 
 	console.log("here is projects :", projects);
 	return (
