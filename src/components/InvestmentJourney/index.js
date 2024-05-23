@@ -1,11 +1,10 @@
 import { Button, Modal } from "antd";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import ProjectSelection from "@/components/InvestmentJourney/ProjectSelection";
 
 const InvestmentJourney = ({ refetch }) => {
 	const [user, setUser] = useState();
-	const refetchRef = useRef(null);
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {

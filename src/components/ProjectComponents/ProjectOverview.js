@@ -4,22 +4,25 @@ import Login from "@/pages/Login";
 import InvestmentJourney from "@/components/InvestmentJourney";
 import { getUser } from "../../../util";
 
-const ProjectOverview = ({ projectDetails }) => {
+const ProjectOverview = ({ projectDetails, refetch }) => {
 	const [account, setAccount] = useState(false);
 	const [userInfo, setUserInfo] = useState(null);
-	const [userData, setUserData] = useState(null);
 	const [percentage, setPercentage] = useState(0);
 
 	const [isLogin, setIsLogin] = React.useState(false);
 
+	const formatNumber = (num) => {
+		const numStr = num.toString();
+		const formattedParts = [];
 
-	const handleRefetch = useCallback(() => {
-		let didToken = localStorage.getItem("didToken");
-		console.log("HANDLE REFETCHHHH");
-		getUser(didToken).then(res => {
-			setUserData(res.result.userData);
-		})
-	}, []);
+		for (let i = numStr.length - 1; i >= 0; i -= 3) {
+			const start = Math.max(0, i - 2);
+			const part = numStr.substring(start, i + 1);
+			formattedParts.unshift(part);
+		}
+
+		return formattedParts.join("'");
+	};
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
@@ -29,17 +32,8 @@ const ProjectOverview = ({ projectDetails }) => {
 			if (localStorage.getItem("projectDetails")) {
 				setUserInfo(JSON.parse(localStorage.getItem("projectDetails")));
 			}
-
-			let didToken = localStorage.getItem('didToken');
-			handleRefetch(didToken);
-			// if (userData?.amountInvested?.length > 0) {
-			// 	const totalAmount = userData.amountInvested.reduce(
-			// 		(total, investment) => total + +investment.amount,
-			// 		0
-			// 	);
-			// }
 		}
-	}, [account, handleRefetch]);
+	}, [account]);
 
 	useEffect(() => {
 		if (projectDetails?.totalAmountInvested) {
@@ -66,7 +60,7 @@ const ProjectOverview = ({ projectDetails }) => {
 					<span className="text-textOrange ml-2">100’000 MNH</span>
 				</p>
 				<div className={"flex flex-col"} style={{ width: "40%" }}>
-					<span className="mb-1 text-left">Min/max amount</span>
+					<span className="mb-1 text-left">{formatNumber(projectDetails?.totalAmountInvested) || 0}/ 40’000€</span>
 					<div
 						className="p-1"
 						style={{
@@ -114,7 +108,7 @@ const ProjectOverview = ({ projectDetails }) => {
 					setAccount(false);
 				}}
 			>
-				<InvestmentJourney refetch={handleRefetch} />
+				<InvestmentJourney refetch={refetch} />
 			</Modal>
 		</div>
 	);
