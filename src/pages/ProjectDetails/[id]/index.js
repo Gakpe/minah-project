@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import MainLayout from "@/layouts/MainLayout";
 import ProjectOverview from "@/components/ProjectComponents/ProjectOverview";
 import ProjectTabsSection from "@/components/ProjectComponents/ProjectTabsSection";
@@ -7,15 +7,15 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { RightOutlined } from "@ant-design/icons";
 import InvestmentJourney from "@/components/InvestmentJourney";
-import { getProjects } from "../../../../util";
+import { getProjects, getUser } from "../../../../util";
 
 const ProjectDetails = () => {
 	const router = useRouter();
 	const [clicked, setClicked] = React.useState(false);
-	const [isLogin, setIsLogin] = React.useState(false);
 	const [userInfo, setUserInfo] = useState(null);
 	const [userInfos, setUserInfos] = useState(null);
 	const [project, setProject] = useState(null);
+	const [userData, setUserData] = useState(null);
 
 	const [percentage, setPercentage] = useState(0);
 	const [maxInvest, setMaxInvest] = useState(false);
@@ -27,30 +27,41 @@ const ProjectDetails = () => {
 		setClicked(true);
 	};
 
+	const handleRefetch = useCallback(() => {
+		let didToken = localStorage.getItem("didToken");
+		getUser(didToken).then((res) => {
+			setUserData(res.result.userData);
+			if (res?.result?.userData?.amountInvested?.length > 0) {
+				const totalAmount = res?.result?.userData?.amountInvested.reduce(
+					(total, investment) => total + +investment.amount,
+					0
+				  );
+				  setAmountInvested(totalAmount);
+			}
+		});
+	}, []);
+
 	useEffect(() => {
-		setUserInfo(JSON.parse(localStorage.getItem("userMetaData")));
-		setUserInfos(JSON.parse(localStorage.getItem("userInfo")));
-
-		const userMetaData = JSON.parse(localStorage.getItem("userMetaData"));
-		if (userMetaData.userData.amountInvested.length > 0) {
-			let array = [
-				...Object.values(userMetaData.userData.amountInvested[0]),
-			];
-			array = array.slice(0, array.length - 1).join("");
-			setAmountInvested(array);
-		}
-
 		getProjects()
 			.then((res) => {
-				setProjects(res.result.projects);
-				setProject(
-					res.result.projects.find((project) => project._id === id)
-				);
+				setProject(() => {
+					const project = res.result.projects.find((project) => {
+						return project._id === id;
+					});
+					return project;
+				});
 			})
 			.catch((err) => {
 				console.log("here is err :", err);
 			});
-	}, []);
+	}, [id]);
+
+	useEffect(() => {
+		setUserInfo(JSON.parse(localStorage.getItem("userMetaData")));
+		setUserInfos(JSON.parse(localStorage.getItem("userInfo")));
+
+		handleRefetch();
+	}, [handleRefetch]);
 
 	useEffect(() => {
 		if (amountInvested) {
@@ -84,7 +95,7 @@ const ProjectDetails = () => {
 					setClicked(false);
 				}}
 			>
-				<InvestmentJourney />
+				<InvestmentJourney refetch={handleRefetch} />
 			</Modal>
 			<title>Minah | Project Details</title>
 			<link rel="icon" href="/Images/favicon.png" />
@@ -122,7 +133,12 @@ const ProjectDetails = () => {
 					</Breadcrumb.Item>
 				</Breadcrumb>
 
-				<ProjectOverview projectDetails={project} />
+				{project && (
+					<ProjectOverview
+						projectDetails={project}
+						refetch={handleRefetch}
+					/>
+				)}
 				<div
 					className={
 						"flex flex-row w-full sm:flex-col sm:w-fit gap-8"
@@ -134,7 +150,7 @@ const ProjectDetails = () => {
 							"flex gap-8 flex-col items-center justify-center w-1/4 sm:w-full h-full"
 						}
 					>
-						{isLogin ? (
+						{userData?._id ? (
 							<div
 								className={
 									"flex w-full  flex-col p-5 gap-4 bg-[#FAFAFA] drop-shadow-lg rounded-md "
@@ -142,55 +158,66 @@ const ProjectDetails = () => {
 							>
 								<div
 									className={
-										"flex w-full flex-row gap-4 items-center"
+										"text-textOrange text-xl font-extrabold flex flex-col"
 									}
 								>
-									<Avatar
-										className={"bordered"}
-										onClick={() => {
-											router.push("/Profile");
-										}}
-										src={
-											userInfo?.picture?.data
-												? `data:image/svg+xml;base64,${userInfo.picture.data}`
-												: userInfo?.picture
-										}
-										size={40}
-									/>
-									<p className={"w-3/5"}>
-										You already invested{" "}
-										{userInfo?.totalAmountInvested}$ in this
-										project
-									</p>
-								</div>
-								<div
-									className={
-										"text-textOrange text-xl font-extrabold"
-									}
-								>
-									<span className={"text-black"}>
-										Target:
-									</span>{" "}
-									100’000 MNH ($ 40’000.00)
-								</div>
-								<p
-									className={
-										"text-sm text-gray-600 tracking-widest"
-									}
-								>
-									Min/Max amount
-								</p>
-								<Progress percent={percentage} />
+									<div className="flex items-center mb-2">
+										<Avatar
+											className={"bordered flex-shrink-0"}
+											src={userInfos?.picture}
+											size={40}
+										/>
 
-								<Button
-									disabled={maxInvest}
-									onClick={handleLogout}
-									className={
-										" h-11 w-4/5 sm:w-full text-white backgroundGradient rounded-full"
-									}
-								>
-									Invest in this Project
-								</Button>
+										<span className="ml-2 text-black text-xs font-bold">
+											You already invested{" "}
+											{formatNumber(amountInvested) || 0}$ in
+											this project
+										</span>
+									</div>
+									<span>
+										<span className={"text-black mr-1"}>
+											Target:
+										</span>
+										100’000 MNH
+									</span>
+									<span>($ 40’000.00)</span>
+								</div>
+								<div className={"flex flex-col"}>
+									<span className="mb-1">{formatNumber(project?.totalAmountInvested) || 0}/ 40’000€</span>
+									<div
+										className="p-1"
+										style={{
+											height: "18px",
+											borderRadius: "10px",
+											WebkitBoxShadow:
+												"0px 1px 19px -2px rgba(0,0,0,0.47)",
+											boxShadow:
+												"0px 1px 19px -2px rgba(0,0,0,0.47)",
+											position: "relative",
+										}}
+									>
+										<div
+											style={{
+												height: "100%",
+												width: `${percentage}%`,
+												borderRadius: "10px",
+												background:
+													"linear-gradient(to right, #B6473B 0%, #C3685E 36%, #E27B30 62%, #DFC74C 100%)",
+											}}
+										></div>
+									</div>
+								</div>
+
+								<div className={" items-center text-center"}>
+									<Button
+										onClick={handleLogout}
+										className={
+											"bg-button_border backgroundGradient w-4/5 h-11 text-md text-white rounded-full"
+										}
+									>
+										Invest
+									</Button>
+								</div>
 							</div>
 						) : (
 							<div

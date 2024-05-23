@@ -3,7 +3,7 @@ import { Button, Modal } from "antd";
 import { useState } from "react";
 import Disclaimer from "@/components/InvestmentJourney/Disclaimer";
 
-const ProjectSelection = () => {
+const ProjectSelection = ({ refetch }) => {
 	const [selectedProject, setSelectedProject] = useState(null);
 
 	const handleRadioChange = (e) => {
@@ -87,7 +87,7 @@ const ProjectSelection = () => {
 						setClicked(false);
 					}}
 				>
-					<Disclaimer />
+					<Disclaimer refetchRef={refetch} />
 				</Modal>
 			</div>
 		</div>

@@ -1,15 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Button, Modal } from "antd";
 import Login from "@/pages/Login";
 import InvestmentJourney from "@/components/InvestmentJourney";
+import { getUser } from "../../../util";
 
-const ProjectOverview = ({ projectDetails }) => {
+const ProjectOverview = ({ projectDetails, refetch }) => {
 	const [account, setAccount] = useState(false);
 	const [userInfo, setUserInfo] = useState(null);
 	const [percentage, setPercentage] = useState(0);
-	const [amountInvested, setAmountInvested] = useState(0);
 
 	const [isLogin, setIsLogin] = React.useState(false);
+
+	const formatNumber = (num) => {
+		const numStr = num.toString();
+		const formattedParts = [];
+
+		for (let i = numStr.length - 1; i >= 0; i -= 3) {
+			const start = Math.max(0, i - 2);
+			const part = numStr.substring(start, i + 1);
+			formattedParts.unshift(part);
+		}
+
+		return formattedParts.join("'");
+	};
+
 	useEffect(() => {
 		if (typeof window !== "undefined") {
 			if (localStorage.getItem("didToken")) {
@@ -18,30 +32,16 @@ const ProjectOverview = ({ projectDetails }) => {
 			if (localStorage.getItem("projectDetails")) {
 				setUserInfo(JSON.parse(localStorage.getItem("projectDetails")));
 			}
-			if (localStorage.getItem("userMetaData")) {
-				const userMetaData = JSON.parse(
-					localStorage.getItem("userMetaData")
-				);
-				if (userMetaData.userData.amountInvested.length > 0) {
-					let array = [
-						...Object.values(
-							userMetaData.userData.amountInvested[0]
-						),
-					];
-					array = array.slice(0, array.length - 1).join("");
-					setAmountInvested(array);
-				}
-			}
 		}
 	}, [account]);
 
 	useEffect(() => {
-		if (amountInvested) {
-			let percent = (amountInvested / 40000) * 100;
+		if (projectDetails?.totalAmountInvested) {
+			let percent = (projectDetails?.totalAmountInvested / 40000) * 100;
 			percent = percent >= 100 ? 100 : percent;
 			setPercentage(percent);
 		}
-	}, [amountInvested]);
+	}, [projectDetails?.totalAmountInvested]);
 	return (
 		<div
 			className={
@@ -60,7 +60,7 @@ const ProjectOverview = ({ projectDetails }) => {
 					<span className="text-textOrange ml-2">100’000 MNH</span>
 				</p>
 				<div className={"flex flex-col"} style={{ width: "40%" }}>
-					<span className="mb-1 text-left">Min/max amount</span>
+					<span className="mb-1 text-left">{formatNumber(projectDetails?.totalAmountInvested) || 0}/ 40’000€</span>
 					<div
 						className="p-1"
 						style={{
@@ -108,7 +108,7 @@ const ProjectOverview = ({ projectDetails }) => {
 					setAccount(false);
 				}}
 			>
-				<InvestmentJourney />
+				<InvestmentJourney refetch={refetch} />
 			</Modal>
 		</div>
 	);

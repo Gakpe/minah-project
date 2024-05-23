@@ -8,22 +8,15 @@ import { getProjects } from "../../../util";
 import { RightOutlined } from "@ant-design/icons";
 import Link from "next/link";
 
-export async function getServerSideProps() {
-	// Fetch data from an external API
-	const res = await getProjects();
-	console.log(res.result);
-	const projects = await res.result.projects;
-
-	// The returned object will be passed as props to the page component
-	return {
-		props: {
-			projects,
-		},
-	};
-}
-
-const Projects = ({ projects }) => {
+const Projects = () => {
+	const [projects, setProjects] = useState();
 	const router = useRouter();
+
+	useEffect(() => {
+		getProjects().then(res => {
+			setProjects(res.result.projects);
+		})
+	}, [])
 
 	console.log("here is projects :", projects);
 	return (

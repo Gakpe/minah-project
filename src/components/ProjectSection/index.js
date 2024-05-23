@@ -5,7 +5,7 @@ import { Avatar, Button } from "antd";
 import { getProjects } from "../../../util";
 import moment from "moment";
 
-const ProjectSection = () => {
+const ProjectSection = ({ userData }) => {
 	const [projects, setProjects] = useState([]);
 	const [userInfo, setUserInfo] = useState();
 	const [user, setUser] = useState();
@@ -17,10 +17,16 @@ const ProjectSection = () => {
 		getProjects()
 			.then((res) => {
 				setProjects(res.result.projects);
+
+
 			})
 			.catch((err) => {
 				console.log("here is err :", err);
 			});
+	}, [])
+
+	useEffect(() => {
+
 		if (typeof window !== "undefined") {
 			if (localStorage.getItem("user")) {
 				const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -28,21 +34,19 @@ const ProjectSection = () => {
 					localStorage.getItem("userMetaData")
 				);
 
-				if (userMetaData.userData.amountInvested.length > 0) {
-					let array = [
-						...Object.values(
-							userMetaData.userData.amountInvested[0]
-						),
-					];
-					array = array.slice(0, array.length - 1).join("");
-					setAmountInvested(array);
+				if (userData?.amountInvested?.length > 0) {
+					const totalAmount = userData.amountInvested.reduce(
+						(total, investment) => total + +investment.amount,
+						0
+					  );
+					  setAmountInvested(totalAmount);
 				}
 
 				setUser(userInfo);
 				setUserInfo(userMetaData);
 			}
 		}
-	}, []);
+	}, [userData]);
 
 	const formatNumber = (num) => {
 		const numStr = num.toString();
@@ -89,7 +93,7 @@ const ProjectSection = () => {
 								</div>
 								<p className={"font-medium text-sm"}>
 									Amount invested: ${" "}
-									{formatNumber(project?.totalAmountInvested)}{" "}
+									{formatNumber(amountInvested)}{" "}
 								</p>
 
 								<div className="flex w-full flex-row gap-2">

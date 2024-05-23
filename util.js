@@ -57,7 +57,6 @@ export async function getProjects() {
 	try {
 		const response = await fetch(herokuUrl + "/project", requestOptions);
 		const result = await response.json();
-		console.log(result);
 		return {
 			responseCode: response.status,
 			result: result,
@@ -72,16 +71,21 @@ export async function getProjects() {
 }
 
 export async function getUser(didToken) {
+
+	var requestOptions = {
+		method: "GET", // headers: {
+		redirect: "follow",
+		headers: {
+			Authorization: `Bearer ${didToken}`,
+		},
+	};
 	try {
-		axios({
-			method: "get", // Assuming it's a POST request; adjust as needed
-			url: `${herokuUrl}/user/get`,
-			headers: {
-				Authorization: `Bearer ${didToken}`,
-			},
-		}).then((res) => {
-			console.log("res = ", res);
-		});
+		const response = await fetch(herokuUrl + "/user/get", requestOptions);
+		const result = await response.json();
+		return {
+			responseCode: response.status,
+			result: result,
+		};
 	} catch (error) {
 		return {
 			responseCode: null,
@@ -116,7 +120,7 @@ export async function deleteProfile(issuer) {
 	}
 }
 
-export async function postInvestment(investedAmount, userId) {
+export async function postInvestment(investedAmount, userId, didToken) {
 	const JSONBody = JSON.stringify({
 		investAmount: investedAmount,
 	});
@@ -124,6 +128,7 @@ export async function postInvestment(investedAmount, userId) {
 		method: "POST", // headers: {
 		body: JSONBody,
 		headers: {
+			Authorization: `Bearer ${didToken}`,
 			"Content-Type": "application/json",
 		},
 

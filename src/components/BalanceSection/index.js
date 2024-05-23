@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "antd";
 
-const BalanceSection = () => {
+const BalanceSection = ({ userData }) => {
 	const [userInfo, setUserInfo] = useState();
 	const [user, setUser] = useState();
 	const [amountInvested, setAmountInvested] = useState(0);
@@ -15,18 +15,16 @@ const BalanceSection = () => {
 				);
 				setUser(userInfo);
 				setUserInfo(userMetaData);
-				if (userMetaData.userData.amountInvested.length > 0) {
-					let array = [
-						...Object.values(
-							userMetaData.userData.amountInvested[0]
-						),
-					];
-					array = array.slice(0, array.length - 1).join("");
-					setAmountInvested(array);
+				if (userData?.amountInvested?.length > 0) {
+					const totalAmount = userData.amountInvested.reduce(
+						(total, investment) => total + +investment.amount,
+						0
+					  );
+					  setAmountInvested(totalAmount);
 				}
 			}
 		}
-	}, []);
+	}, [userData?.amountInvested?.length]);
 
 	const formatNumber = (num) => {
 		const numStr = num.toString();
