@@ -6,8 +6,6 @@ const BalanceSection = ({ userData }) => {
 	const [user, setUser] = useState();
 	const [amountInvested, setAmountInvested] = useState(0);
 
-	console.log("userDataxxx", userData);
-
 	useEffect(() => {
 		if (typeof window !== "undefined") {
 			if (localStorage.getItem("user")) {

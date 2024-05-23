@@ -55,7 +55,6 @@ const Disclaimer = ({ refetchRef }) => {
 							"659d4b1d048729c5df507d6c",
 							didToken
 						).then((res) => {
-							console.log(res);
 							if (res.responseCode === 200) {
 								refetchRef();
 								setSuccess(true);
@@ -105,7 +104,6 @@ const Disclaimer = ({ refetchRef }) => {
 							"659d4b1d048729c5df507d6c",
 							didToken
 						).then((res) => {
-							console.log(res);
 							if (res.responseCode === 200) {
 								setSuccess(true);
 							} else {

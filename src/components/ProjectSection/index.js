@@ -40,7 +40,6 @@ const ProjectSection = ({ userData }) => {
 						0
 					  );
 					  setAmountInvested(totalAmount);
-					  console.log("totalAmount = ", totalAmount);
 				}
 
 				setUser(userInfo);

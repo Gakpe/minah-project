@@ -29,7 +29,6 @@ const ProjectDetails = () => {
 
 	const handleRefetch = useCallback(() => {
 		let didToken = localStorage.getItem("didToken");
-		console.log("HANDLE REFETCHHHH");
 		getUser(didToken).then((res) => {
 			setUserData(res.result.userData);
 			if (res?.result?.userData?.amountInvested?.length > 0) {
@@ -38,7 +37,6 @@ const ProjectDetails = () => {
 					0
 				  );
 				  setAmountInvested(totalAmount);
-				  console.log("totalAmount = ", totalAmount);
 			}
 		});
 	}, []);
@@ -46,13 +44,10 @@ const ProjectDetails = () => {
 	useEffect(() => {
 		getProjects()
 			.then((res) => {
-				console.log("listtt projects =", res);
 				setProject(() => {
 					const project = res.result.projects.find((project) => {
-						console.log("project __________ ", project._id);
 						return project._id === id;
 					});
-					console.log("project =", project);
 					return project;
 				});
 			})
