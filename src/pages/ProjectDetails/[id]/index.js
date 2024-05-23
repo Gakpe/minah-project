@@ -21,10 +21,14 @@ const ProjectDetails = () => {
 	const [maxInvest, setMaxInvest] = useState(false);
 	const [amountInvested, setAmountInvested] = useState(0);
 
+	const isDemoMode = process.env.NEXT_PUBLIC_DEMO_MODE === "true" ? true : false;
+
 	const { id } = router.query;
 
 	const handleLogout = async () => {
-		setClicked(true);
+		if (!isDemoMode) {
+			setClicked(true);
+		}
 	};
 
 	const handleRefetch = useCallback(() => {
@@ -168,11 +172,11 @@ const ProjectDetails = () => {
 											size={40}
 										/>
 
-										<span className="ml-2 text-black text-xs font-bold">
+										{amountInvested && <span className="ml-2 text-black text-xs font-bold">
 											You already invested{" "}
 											{formatNumber(amountInvested) || 0}$ in
 											this project
-										</span>
+										</span>}
 									</div>
 									<span>
 										<span className={"text-black mr-1"}>
@@ -183,7 +187,7 @@ const ProjectDetails = () => {
 									<span>($ 40’000.00)</span>
 								</div>
 								<div className={"flex flex-col"}>
-									<span className="mb-1">{formatNumber(project?.totalAmountInvested) || 0}/ 40’000€</span>
+									{project?.totalAmountInvested && <span className="mb-1">{formatNumber(project?.totalAmountInvested) || 0}/ 40’000€</span>}
 									<div
 										className="p-1"
 										style={{
@@ -208,14 +212,15 @@ const ProjectDetails = () => {
 									</div>
 								</div>
 
-								<div className={" items-center text-center"}>
+								<div className={"flex justify-center items-center text-center"}>
 									<Button
+										href={isDemoMode ? "https://www.example.com" : null} //Modifie le lien ici Julien
 										onClick={handleLogout}
 										className={
-											"bg-button_border backgroundGradient w-4/5 h-11 text-md text-white rounded-full"
+											"bg-button_border flex justify-center items-center text-center backgroundGradient w-4/5 h-11 text-md text-white rounded-full"
 										}
 									>
-										Invest
+										{isDemoMode ? "Join the waitlist" : "Invest"}
 									</Button>
 								</div>
 							</div>
