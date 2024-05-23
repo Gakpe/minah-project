@@ -214,7 +214,7 @@ const ProjectDetails = () => {
 
 								<div className={"flex justify-center items-center text-center"}>
 									<Button
-										href={isDemoMode ? "https://www.example.com" : null} //Modifie le lien ici Julien
+										href={isDemoMode ? "https://tally.so/r/w8x8BO" : null}
 										onClick={handleLogout}
 										className={
 											"bg-button_border flex justify-center items-center text-center backgroundGradient w-4/5 h-11 text-md text-white rounded-full"

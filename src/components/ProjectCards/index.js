@@ -2,7 +2,7 @@ import { Button, Modal } from "antd";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Login from "@/pages/Login";
+import Login from "@/components/Login";
 
 const ProjectCard = ({ title, description, projectDetails, image, bg }) => {
 	const router = useRouter();

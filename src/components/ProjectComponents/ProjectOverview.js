@@ -89,7 +89,7 @@ const ProjectOverview = ({ projectDetails, refetch }) => {
 					{projectDetails?.description || "description default"}
 				</p>
 				<Button
-					href={isDemoMode ? "https://www.exemple.com" : null} //Modifie le lien ici Julien
+					href={isDemoMode ? "https://tally.so/r/w8x8BO" : null}
 					onClick={() => {
 						if (!isDemoMode) {
 							setAccount(true);
