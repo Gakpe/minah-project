@@ -11,6 +11,8 @@ const ProjectOverview = ({ projectDetails, refetch }) => {
 
 	const [isLogin, setIsLogin] = React.useState(false);
 
+	const isDemoMode = process.env.NEXT_PUBLIC_DEMO_MODE === "true" ? true : false;
+
 	const formatNumber = (num) => {
 		const numStr = num.toString();
 		const formattedParts = [];
@@ -60,7 +62,7 @@ const ProjectOverview = ({ projectDetails, refetch }) => {
 					<span className="text-textOrange ml-2">100’000 MNH</span>
 				</p>
 				<div className={"flex flex-col"} style={{ width: "40%" }}>
-					<span className="mb-1 text-left">{formatNumber(projectDetails?.totalAmountInvested) || 0}/ 40’000€</span>
+					{projectDetails?.totalAmountInvested && <span className="mb-1 text-left">{formatNumber(projectDetails?.totalAmountInvested)}/ 40’000€</span>}
 					<div
 						className="p-1"
 						style={{
@@ -87,15 +89,18 @@ const ProjectOverview = ({ projectDetails, refetch }) => {
 					{projectDetails?.description || "description default"}
 				</p>
 				<Button
+					href={isDemoMode ? "https://www.exemple.com" : null} //Modifie le lien ici Julien
 					onClick={() => {
-						setAccount(true);
+						if (!isDemoMode) {
+							setAccount(true);
+						}
 					}}
 					className={
-						"bg-button_border text-sm hover:border-textOrange w-fit gradiented rounded-full text-white"
+						"bg-button_border flex justify-center items-center text-center text-sm hover:border-textOrange w-fit gradiented rounded-full text-white"
 					}
 					size={"large"}
 				>
-					{isLogin ? "Invest in this Project" : "Connect To Invest"}
+					{isDemoMode ? "Join the waitlist" : (isLogin ? "Invest in this Project" : "Connect To Invest")}
 				</Button>
 			</div>
 
