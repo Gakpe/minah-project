@@ -75,7 +75,7 @@ const Projects = () => {
 									description={
 										project.description
 											? project.description
-											: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+											: "Project Alpha - Lomé/Kovie represents a multifaceted approach to real estate and agricultural development in Togo. This project features three main components, each  selected to optimize both investor ROI and socio-economic growth in the region."
 									}
 									imageUrl={project.image}
 									id={project.id}

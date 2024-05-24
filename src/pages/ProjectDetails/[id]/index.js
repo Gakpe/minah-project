@@ -312,9 +312,9 @@ const ProjectDetails = () => {
 									"flex flex-col gap-3 text-black font-bold"
 								}
 							>
-								<li>Objective 1</li>
-								<li>Objective 2</li>
-								<li>Objective 2</li>
+								<li>SDG 1 - No Poverty</li>
+								<li>SDG 5 - Gender Equality</li>
+								<li>SDG 15 - Life on Land</li>
 							</ol>
 						</div>
 					</div>

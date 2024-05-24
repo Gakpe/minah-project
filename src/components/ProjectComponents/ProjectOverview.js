@@ -55,14 +55,14 @@ const ProjectOverview = ({ projectDetails, refetch }) => {
 					<span className={"text-textOrange font-extrabold"}>
 						Project
 					</span>{" "}
-					{projectDetails?.name || "name default"}
+					{projectDetails?.name || "Lome Kovie"}
 				</div>
 				<p className={"text-start font-extrabold"}>
 					<span>Target:</span>
 					<span className="text-textOrange ml-2">100’000 MNH</span>
 				</p>
 				<div className={"flex flex-col"} style={{ width: "40%" }}>
-					{projectDetails?.totalAmountInvested && <span className="mb-1 text-left">{formatNumber(projectDetails?.totalAmountInvested)}/ 40’000€</span>}
+					{projectDetails?.totalAmountInvested && <span className="mb-1 text-left">{formatNumber(projectDetails?.totalAmountInvested)}€/ 40’000€</span>}
 					<div
 						className="p-1"
 						style={{
@@ -86,7 +86,7 @@ const ProjectOverview = ({ projectDetails, refetch }) => {
 					</div>
 				</div>
 				<p className={"text-justify"}>
-					{projectDetails?.description || "description default"}
+					{projectDetails?.description || "Project Alpha - Lomé/Kovie represents a multifaceted approach to real estate and agricultural development in Togo. This project features three main components, each  selected to optimize both investor ROI and socio-economic growth in the region."}
 				</p>
 				<Button
 					href={isDemoMode ? "https://www.exemple.com" : null} //Modifie le lien ici Julien
