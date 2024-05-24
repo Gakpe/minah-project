@@ -243,7 +243,7 @@ const ProjectDetails = () => {
 										/>
 
 										<span className="ml-2 text-black text-xs font-bold">
-											You already invested{" "}
+											You invested{" "}
 											{formatNumber(amountInvested)}$ in
 											this project
 										</span>
