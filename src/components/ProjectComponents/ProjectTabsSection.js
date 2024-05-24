@@ -28,7 +28,7 @@ const items = [
                 <div className={"text-xl font-semibold"}>3. Agricultural Land in Kovie: </div>
                 <p className={"w-fit text-justify"}> 
                 In the outskirts of Lomé, our agricultural land in Kovie is dedicated to sustainable farming practices. This investment will not 
-                only support Togo's agricultural sector but also aligns with global trends towards sustainable food production and eco-friendly 
+                only support Togo&rsquo;s agricultural sector but also aligns with global trends towards sustainable food production and eco-friendly 
                 farming techniques.</p>
             </div>
         </div>,
@@ -45,7 +45,7 @@ const items = [
         label: 'Development thesis',
         children:  <div className={"flex flex-col items-center justify-start gap-7 w-full h-full"}>
         <div className={"flex flex-col gap-2 items-start justify-start w-full h-full"}>
-            <p className={"w-fit text-justify"}> At the heart of Minah's investment philosophy relies values of sustainability and positive impact for future generations. 
+            <p className={"w-fit text-justify"}> At the heart of Minah&rsquo;s investment philosophy relies values of sustainability and positive impact for future generations. 
             The Lomé-Kovié project embodies this dedication through its innovative approach to real estate and agricultural development, designed to foster environmental management, social equality, and economic growth.
             By integrating sustainability into every facet of this project, we aim not only to drive financial returns but also to create lasting positive impacts on local communities in Lomé area. 
             With this project, we are adhering to the UN SDGs ( Sustainable Development Goals) as we ensure that our investments contribute meaningfully to the global goals of reducing inequality and protecting the environment. </p>
@@ -58,8 +58,8 @@ const items = [
             <div className={"text-xl font-semibold"}>SDG 5 - Gender Equality </div>
 
             <p className={"w-fit text-justify"}> In the commercial Space of the building located in Adidogome, we are dedicated to advancing gender equality through concrete measures. 
-            We are currently working to allocate premises to organizations focused on the professional training of women, ensuring their active and successful integration into the job market. This initiative not only supports women's economic empowerment but also promotes their broader societal inclusion, 
-            contributing to the breaking down of systemic barriers that have historically hindered women's participation in the workforce. </p>
+            We are currently working to allocate premises to organizations focused on the professional training of women, ensuring their active and successful integration into the job market. This initiative not only supports women&rsquo;s economic empowerment but also promotes their broader societal inclusion, 
+            contributing to the breaking down of systemic barriers that have historically hindered women&rsquo;s participation in the workforce. </p>
 
             <div className={"text-xl font-semibold"}>SDG 15 - Life on Land </div>
 
