@@ -36,7 +36,7 @@ const items = [
         key: '2',
         label: 'Location',
         children: <div className={"flex flex-col gap-2 items-start justify-start w-full h-full"}> 
-                         Adidogome neighborhood : 46GG+74H, Lomé, Togo Land in Kovie :**   73Q9+8H7 Kovie, Togo" 
+                         Adidogome neighborhood : 46GG+74H, Lomé, Togo Land in Kovie :**   73Q9+8H7 Kovie, Togo
                   </div>
 
      
