@@ -11,7 +11,7 @@ const items = [
         children: <div className={"flex flex-col items-center justify-start gap-7 w-full h-full"}>
             <div className={"flex flex-col gap-2 items-start justify-start w-full h-full"}>
                 <div className={"text-xl font-semibold"}>1. Residential Building in Adidogome:</div>
-                <p className={"w-fit text-justify"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla
+                <p className={"w-fit text-justify"}>
                 Our residential building is located in the neighborhood of Adidogome, close to Lomé in Togo. It offers residents accommodation with robust 
                 rental returns for investors. The property benefits from its proximity to local amenities and transport links, making it a desirable location
                 for tenants. </p>
@@ -35,11 +35,19 @@ const items = [
     }, {
         key: '2',
         label: 'Location',
-        children: 'Content of Tab Pane 1',
+        children: <div className={"flex flex-col gap-2 items-start justify-start w-full h-full"}> 
+                         Adidogome neighborhood : 46GG+74H, Lomé, Togo Land in Kovie :**   73Q9+8H7 Kovie, Togo" 
+                  </div>
+
+     
     }, {
         key: '3',
         label: 'Investment strategy',
-        children: 'Content of Tab Pane 1',
+        children: 
+            <div className={"flex flex-col gap-2 items-start justify-start w-full h-full"}> 
+            Stay tuned, we will detail the investment strategy soon !
+            </div>
+ ,
     }, {
         key: '4',
         label: 'Development thesis',
@@ -47,8 +55,9 @@ const items = [
         <div className={"flex flex-col gap-2 items-start justify-start w-full h-full"}>
             <p className={"w-fit text-justify"}> At the heart of Minah&rsquo;s investment philosophy relies values of sustainability and positive impact for future generations. 
             The Lomé-Kovié project embodies this dedication through its innovative approach to real estate and agricultural development, designed to foster environmental management, social equality, and economic growth.
+            <br/>
             By integrating sustainability into every facet of this project, we aim not only to drive financial returns but also to create lasting positive impacts on local communities in Lomé area. 
-            With this project, we are adhering to the UN SDGs ( Sustainable Development Goals) as we ensure that our investments contribute meaningfully to the global goals of reducing inequality and protecting the environment. </p>
+            With this project, we are adhering to the UN SDGs ( Sustainable Development Goals) as we ensure that our investments contribute meaningfully to the global goals of reducing inequality and protecting the environment. </p> <br/><br/>
             
             <div className={"text-xl font-semibold"}>SDG 1 - No Poverty</div>
             
@@ -74,9 +83,10 @@ const items = [
         label: 'Team',
         children: <div className={"flex flex-col items-center justify-start gap-7 w-full h-full"}>
                     <div className={"flex flex-col gap-2 items-start justify-start w-full h-full"}>
-                         <p className={"w-fit text-justify"}> Hervé and Julien Gakpé, the co-founders of Minah.io, will directly manage the Lomé-Kovié project.
+                         <p className={"w-fit text-justify"}> Hervé and Julien Gakpé, the co-founders of Minah.io, will directly manage the Lomé-Kovié project. <br/>
                             This will non only establish the foundation of operational project management and reporting standards but will also set a precedent for all future projects. 
                             As the project evolves, we intend to engage third-party managers to oversee the new investment pools, ensuring scalability and diversity in project management. 
+                            <br/>
                             As a resultat, the main goal for the first management team is to identify and drastically mitigate operational risks, in order to ensure cash flow stability for investors, and all in one processes for future project leaders. </p>,
                     </div>        
                 </div>        
